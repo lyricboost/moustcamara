@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moust Camara - Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Moust Camara Editor</h1>
+    </header>
+
+    <main class="main-content">
+        <!-- Current problematic toolbar taking vertical space -->
+        <div class="toolbar-problematic">
+            <button class="toolbar-btn" id="undo-btn" title="Undo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/>
+                </svg>
+                Undo
+            </button>
+            <button class="toolbar-btn" id="redo-btn" title="Redo">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/>
+                </svg>
+                Redo
+            </button>
+            <button class="toolbar-btn" id="paste-btn" title="Paste">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z"/>
+                </svg>
+                Paste
+            </button>
+        </div>
+
+        <div class="editor-container">
+            <textarea 
+                id="editor" 
+                class="editor-textarea" 
+                placeholder="Start typing your content here..."
+                spellcheck="false"
+            ></textarea>
+        </div>
+    </main>
+
+    <!-- Fixed footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Moust Camara. All rights reserved.</p>
+    </footer>
+
+    <!-- New floating toolbar (initially hidden, will be shown after refactor) -->
+    <div class="floating-toolbar" id="floating-toolbar" style="display: none;">
+        <button class="floating-btn" id="floating-undo" title="Undo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12.5 8c-2.65 0-5.05.99-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88 3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8z"/>
+            </svg>
+        </button>
+        <button class="floating-btn" id="floating-redo" title="Redo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.4 10.6C16.55 8.99 14.15 8 11.5 8c-4.65 0-8.58 3.03-9.96 7.22L3.9 16c1.05-3.19 4.05-5.5 7.6-5.5 1.95 0 3.73.72 5.12 1.88L13 16h9V7l-3.6 3.6z"/>
+            </svg>
+        </button>
+        <button class="floating-btn" id="floating-paste" title="Paste">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 2h-4.18C14.4.84 13.3 0 12 0c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm7 18H5V4h2v3h10V4h2v16z"/>
+            </svg>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
