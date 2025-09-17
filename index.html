@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moust Camara - Music Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Moust Camara</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">Dashboard</a>
+            <a href="songs.html" class="nav-link">Songs</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>Dashboard</h1>
+            <button class="btn btn-primary" id="createSongBtn">Create Song</button>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Songs</h3>
+                <p class="stat-number">24</p>
+            </div>
+            <div class="stat-card">
+                <h3>Albums</h3>
+                <p class="stat-number">3</p>
+            </div>
+            <div class="stat-card">
+                <h3>Collaborations</h3>
+                <p class="stat-number">8</p>
+            </div>
+        </div>
+
+        <div class="recent-activity">
+            <h2>Recent Activity</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <span class="activity-text">New song "Sunset Dreams" added</span>
+                    <span class="activity-time">2 hours ago</span>
+                </div>
+                <div class="activity-item">
+                    <span class="activity-text">Album "Journey" updated</span>
+                    <span class="activity-time">1 day ago</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Song Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay">
+        <div class="drawer" id="songDrawer">
+            <div class="drawer-header">
+                <h2>Create New Song</h2>
+                <button class="close-btn" id="closeDrawerBtn">&times;</button>
+            </div>
+            <div class="drawer-content">
+                <form class="song-form">
+                    <div class="form-group">
+                        <label for="songTitle">Song Title</label>
+                        <input type="text" id="songTitle" name="songTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artist">Artist</label>
+                        <input type="text" id="artist" name="artist" value="Moust Camara" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="album">Album</label>
+                        <input type="text" id="album" name="album">
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <select id="genre" name="genre">
+                            <option value="">Select Genre</option>
+                            <option value="hip-hop">Hip Hop</option>
+                            <option value="r&b">R&B</option>
+                            <option value="pop">Pop</option>
+                            <option value="reggae">Reggae</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Create Song</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
