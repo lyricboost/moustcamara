@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moust Camara - Songs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">Moust Camara</div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Dashboard</a>
+            <a href="songs.html" class="nav-link active">Songs</a>
+        </div>
+    </nav>
+
+    <main class="main-content songs-page">
+        <div class="page-header">
+            <h1>Songs</h1>
+            <button class="btn btn-primary" id="createSongBtn">Create Song</button>
+        </div>
+
+        <div class="songs-filters">
+            <div class="filter-group">
+                <input type="text" placeholder="Search songs..." class="search-input">
+                <select class="filter-select">
+                    <option value="">All Genres</option>
+                    <option value="hip-hop">Hip Hop</option>
+                    <option value="r&b">R&B</option>
+                    <option value="pop">Pop</option>
+                    <option value="reggae">Reggae</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="songs-grid">
+            <div class="song-card" data-song-id="sunset-dreams">
+                <div class="song-content">
+                    <div class="song-artwork"></div>
+                    <div class="song-info">
+                        <h3 class="song-title">Sunset Dreams</h3>
+                        <p class="song-artist">Moust Camara</p>
+                        <p class="song-album">Journey</p>
+                        <span class="song-genre">Hip Hop</span>
+                    </div>
+                    <div class="song-actions">
+                        <button class="btn-icon play-btn">▶</button>
+                    </div>
+                </div>
+                <div class="song-swipe-actions">
+                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                    <button class="action-btn share-btn" title="Share">📤</button>
+                </div>
+            </div>
+
+            <div class="song-card" data-song-id="midnight-vibes">
+                <div class="song-content">
+                    <div class="song-artwork"></div>
+                    <div class="song-info">
+                        <h3 class="song-title">Midnight Vibes</h3>
+                        <p class="song-artist">Moust Camara ft. Artist X</p>
+                        <p class="song-album">Midnight Sessions</p>
+                        <span class="song-genre">R&B</span>
+                    </div>
+                    <div class="song-actions">
+                        <button class="btn-icon play-btn">▶</button>
+                    </div>
+                </div>
+                <div class="song-swipe-actions">
+                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                    <button class="action-btn share-btn" title="Share">📤</button>
+                </div>
+            </div>
+
+            <div class="song-card" data-song-id="rising-star">
+                <div class="song-content">
+                    <div class="song-artwork"></div>
+                    <div class="song-info">
+                        <h3 class="song-title">Rising Star</h3>
+                        <p class="song-artist">Moust Camara</p>
+                        <p class="song-album">Breakthrough</p>
+                        <span class="song-genre">Pop</span>
+                    </div>
+                    <div class="song-actions">
+                        <button class="btn-icon play-btn">▶</button>
+                    </div>
+                </div>
+                <div class="song-swipe-actions">
+                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                    <button class="action-btn share-btn" title="Share">📤</button>
+                </div>
+            </div>
+
+            <div class="song-card" data-song-id="ocean-waves">
+                <div class="song-content">
+                    <div class="song-artwork"></div>
+                    <div class="song-info">
+                        <h3 class="song-title">Ocean Waves</h3>
+                        <p class="song-artist">Moust Camara</p>
+                        <p class="song-album">Natural Elements</p>
+                        <span class="song-genre">Reggae</span>
+                    </div>
+                    <div class="song-actions">
+                        <button class="btn-icon play-btn">▶</button>
+                    </div>
+                </div>
+                <div class="song-swipe-actions">
+                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                    <button class="action-btn share-btn" title="Share">📤</button>
+                </div>
+            </div>
+
+            <div class="song-card" data-song-id="city-lights">
+                <div class="song-content">
+                    <div class="song-artwork"></div>
+                    <div class="song-info">
+                        <h3 class="song-title">City Lights</h3>
+                        <p class="song-artist">Moust Camara ft. Urban Collective</p>
+                        <p class="song-album">Urban Tales</p>
+                        <span class="song-genre">Hip Hop</span>
+                    </div>
+                    <div class="song-actions">
+                        <button class="btn-icon play-btn">▶</button>
+                    </div>
+                </div>
+                <div class="song-swipe-actions">
+                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                    <button class="action-btn share-btn" title="Share">📤</button>
+                </div>
+            </div>
+
+            <div class="song-card" data-song-id="harmony">
+                <div class="song-content">
+                    <div class="song-artwork"></div>
+                    <div class="song-info">
+                        <h3 class="song-title">Harmony</h3>
+                        <p class="song-artist">Moust Camara</p>
+                        <p class="song-album">Soul Connection</p>
+                        <span class="song-genre">R&B</span>
+                    </div>
+                    <div class="song-actions">
+                        <button class="btn-icon play-btn">▶</button>
+                    </div>
+                </div>
+                <div class="song-swipe-actions">
+                    <button class="action-btn delete-btn" title="Delete">🗑️</button>
+                    <button class="action-btn edit-btn" title="Edit">✏️</button>
+                    <button class="action-btn share-btn" title="Share">📤</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Intentionally add some problematic elements that might interfere with drawer on this page -->
+        <div class="songs-overlay-content">
+            <div class="floating-player">
+                <div class="player-controls">
+                    <button class="control-btn">⏮</button>
+                    <button class="control-btn">⏸</button>
+                    <button class="control-btn">⏭</button>
+                </div>
+                <div class="now-playing">
+                    <span>Now Playing: Sunset Dreams</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Song Drawer -->
+    <div class="drawer-overlay" id="drawerOverlay">
+        <div class="drawer" id="songDrawer">
+            <div class="drawer-header">
+                <h2>Create New Song</h2>
+                <button class="close-btn" id="closeDrawerBtn">&times;</button>
+            </div>
+            <div class="drawer-content">
+                <form class="song-form">
+                    <div class="form-group">
+                        <label for="songTitle">Song Title</label>
+                        <input type="text" id="songTitle" name="songTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artist">Artist</label>
+                        <input type="text" id="artist" name="artist" value="Moust Camara" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="album">Album</label>
+                        <input type="text" id="album" name="album">
+                    </div>
+                    <div class="form-group">
+                        <label for="genre">Genre</label>
+                        <select id="genre" name="genre">
+                            <option value="">Select Genre</option>
+                            <option value="hip-hop">Hip Hop</option>
+                            <option value="r&b">R&B</option>
+                            <option value="pop">Pop</option>
+                            <option value="reggae">Reggae</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <textarea id="description" name="description" rows="4"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Create Song</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
