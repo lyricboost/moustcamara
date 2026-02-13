@@ -1,0 +1,17 @@
+{
+  "name": "acf/split",
+  "title": "Split Layout",
+  "description": "Two column layout with image and text",
+  "category": "moustcamara",
+  "icon": "columns",
+  "keywords": ["split", "two-column", "image", "text"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

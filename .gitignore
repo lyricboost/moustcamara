@@ -1,0 +1,49 @@
+# WordPress Theme
+*.log
+.DS_Store
+Thumbs.db
+
+# Node modules (if you add build tools)
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Build files
+dist/
+build/
+*.min.js
+*.min.css
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# Environment
+.env
+.env.local
+
+# WordPress specific
+wp-cli.local.yml
+.wp-cli/
+
+# macOS
+.AppleDouble
+.LSOverride
+
+# Compiled source
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so

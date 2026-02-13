@@ -1,0 +1,17 @@
+{
+  "name": "acf/final-cta",
+  "title": "Final CTA",
+  "description": "Final call-to-action section for newsletter signup",
+  "category": "moustcamara",
+  "icon": "megaphone",
+  "keywords": ["cta", "call-to-action", "newsletter", "signup"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

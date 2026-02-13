@@ -1,0 +1,17 @@
+{
+  "name": "acf/lead-in",
+  "title": "Lead-in Text",
+  "description": "Large formatted text for taglines and statements",
+  "category": "moustcamara",
+  "icon": "editor-textcolor",
+  "keywords": ["text", "tagline", "lead"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

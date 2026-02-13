@@ -1,0 +1,17 @@
+{
+  "name": "acf/hero",
+  "title": "Hero",
+  "description": "Hero section with image and content",
+  "category": "moustcamara",
+  "icon": "admin-home",
+  "keywords": ["hero", "banner", "header"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

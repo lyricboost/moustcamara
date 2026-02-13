@@ -1,0 +1,230 @@
+[
+  {
+    "key": "group_moust_hero_block",
+    "title": "Moust - Hero Block Fields",
+    "fields": [
+      {
+        "key": "field_moust_hero_name",
+        "label": "Name",
+        "name": "hero_name",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Moust Camara",
+        "maxlength": "",
+        "placeholder": "Your Name",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_moust_hero_description",
+        "label": "Description",
+        "name": "hero_description",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "I engineer creative processes where small changes compound into outsized results.",
+        "maxlength": "",
+        "rows": 3,
+        "placeholder": "",
+        "new_lines": ""
+      },
+      {
+        "key": "field_moust_hero_company",
+        "label": "Company",
+        "name": "hero_company",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Lyric Boost",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_moust_hero_company_link",
+        "label": "Company Link",
+        "name": "hero_company_link",
+        "aria-label": "",
+        "type": "url",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "https://lyricboost.com",
+        "placeholder": ""
+      },
+      {
+        "key": "field_moust_hero_role",
+        "label": "Role",
+        "name": "hero_role",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Systems Builder",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_moust_hero_location",
+        "label": "Location",
+        "name": "hero_location",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Plano, TX",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_moust_hero_email_link",
+        "label": "Email Link",
+        "name": "hero_email_link",
+        "aria-label": "",
+        "type": "url",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "mailto:contact@moustcamara.com",
+        "placeholder": ""
+      },
+      {
+        "key": "field_moust_hero_linkedin_link",
+        "label": "LinkedIn Link",
+        "name": "hero_linkedin_link",
+        "aria-label": "",
+        "type": "url",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "https://linkedin.com",
+        "placeholder": ""
+      },
+      {
+        "key": "field_moust_hero_image",
+        "label": "Hero Image",
+        "name": "hero_image",
+        "aria-label": "",
+        "type": "image",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "return_format": "array",
+        "library": "all",
+        "min_width": "",
+        "min_height": "",
+        "min_size": "",
+        "max_width": "",
+        "max_height": "",
+        "max_size": "",
+        "mime_types": "",
+        "preview_size": "medium"
+      },
+      {
+        "key": "field_moust_hero_bg_color",
+        "label": "Background Color",
+        "name": "background_color",
+        "aria-label": "",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "none": "None (White)",
+          "light-gray": "Light Gray",
+          "medium-gray": "Medium Gray",
+          "dark-gray": "Dark Gray",
+          "black": "Black"
+        },
+        "default_value": "none",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 1,
+        "ajax": 0,
+        "placeholder": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/hero"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+  }
+]

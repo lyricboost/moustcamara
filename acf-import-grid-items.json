@@ -1,0 +1,179 @@
+[
+  {
+    "key": "group_moust_grid_items_block",
+    "title": "Moust - Grid Items Block Fields",
+    "fields": [
+      {
+        "key": "field_moust_grid_heading",
+        "label": "Heading",
+        "name": "grid_heading",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Here's How We Can Work Together",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_moust_grid_items",
+        "label": "Grid Items",
+        "name": "grid_items",
+        "aria-label": "",
+        "type": "repeater",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "layout": "block",
+        "pagination": 0,
+        "min": 1,
+        "max": 6,
+        "collapsed": "",
+        "button_label": "Add Item",
+        "rows_per_page": 20,
+        "sub_fields": [
+          {
+            "key": "field_moust_grid_item_title",
+            "label": "Title",
+            "name": "item_title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_moust_grid_items"
+          },
+          {
+            "key": "field_moust_grid_item_description",
+            "label": "Description",
+            "name": "item_description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "rows": 4,
+            "placeholder": "",
+            "new_lines": "",
+            "parent_repeater": "field_moust_grid_items"
+          },
+          {
+            "key": "field_moust_grid_item_button_text",
+            "label": "Button Text",
+            "name": "item_button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "Learn More",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "parent_repeater": "field_moust_grid_items"
+          },
+          {
+            "key": "field_moust_grid_item_link",
+            "label": "Button Link",
+            "name": "item_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+              "width": "",
+              "class": "",
+              "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "parent_repeater": "field_moust_grid_items"
+          }
+        ]
+      },
+      {
+        "key": "field_moust_grid_bg_color",
+        "label": "Background Color",
+        "name": "background_color",
+        "aria-label": "",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "none": "None (White)",
+          "light-gray": "Light Gray",
+          "medium-gray": "Medium Gray",
+          "dark-gray": "Dark Gray",
+          "black": "Black"
+        },
+        "default_value": "dark-gray",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 1,
+        "ajax": 0,
+        "placeholder": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/grid-items"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+  }
+]

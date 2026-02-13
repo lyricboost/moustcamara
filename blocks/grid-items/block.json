@@ -1,0 +1,17 @@
+{
+  "name": "acf/grid-items",
+  "title": "Grid Items",
+  "description": "Three column grid of services/offerings",
+  "category": "moustcamara",
+  "icon": "grid-view",
+  "keywords": ["grid", "services", "offerings", "three-column"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

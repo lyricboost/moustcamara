@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "moustcamara/hero",
+  "title": "Hero Section",
+  "category": "design",
+  "icon": "admin-users",
+  "description": "Hero section with name, titles, and photo",
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "heroName": {
+      "type": "string",
+      "default": "Moust Camara"
+    },
+    "aboutText": {
+      "type": "string",
+      "default": "I engineer creative processes so small changes can unlock disproportionately better results over time."
+    },
+    "emailLink": {
+      "type": "string",
+      "default": "mailto:moust@moustcamara.com"
+    },
+    "linkedInLink": {
+      "type": "string",
+      "default": "https://www.linkedin.com/in/moustcamara/"
+    },
+    "imageUrl": {
+      "type": "string",
+      "default": ""
+    },
+    "imageId": {
+      "type": "number"
+    }
+  },
+  "textdomain": "moustcamara"
+}

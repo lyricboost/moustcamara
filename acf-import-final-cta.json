@@ -1,0 +1,131 @@
+[
+  {
+    "key": "group_moust_final_cta_block",
+    "title": "Moust - Final CTA Block Fields",
+    "fields": [
+      {
+        "key": "field_moust_cta_heading",
+        "label": "Heading",
+        "name": "cta_heading",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "More information coming soon...",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_moust_cta_text",
+        "label": "Text",
+        "name": "cta_text",
+        "aria-label": "",
+        "type": "textarea",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Sign up to the newsletter to stay up to date.",
+        "maxlength": "",
+        "rows": 2,
+        "placeholder": "",
+        "new_lines": ""
+      },
+      {
+        "key": "field_moust_cta_button_text",
+        "label": "Button Text",
+        "name": "cta_button_text",
+        "aria-label": "",
+        "type": "text",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Sign Up Page",
+        "maxlength": "",
+        "placeholder": "",
+        "prepend": "",
+        "append": ""
+      },
+      {
+        "key": "field_moust_cta_button_link",
+        "label": "Button Link",
+        "name": "cta_button_link",
+        "aria-label": "",
+        "type": "url",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "#",
+        "placeholder": ""
+      },
+      {
+        "key": "field_moust_cta_bg_color",
+        "label": "Background Color",
+        "name": "background_color",
+        "aria-label": "",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "none": "None (White)",
+          "light-gray": "Light Gray",
+          "medium-gray": "Medium Gray",
+          "dark-gray": "Dark Gray",
+          "black": "Black"
+        },
+        "default_value": "dark-gray",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 1,
+        "ajax": 0,
+        "placeholder": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/final-cta"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+  }
+]

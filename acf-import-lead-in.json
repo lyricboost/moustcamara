@@ -1,0 +1,74 @@
+[
+  {
+    "key": "group_moust_lead_in_block",
+    "title": "Moust - Lead-in Text Block Fields",
+    "fields": [
+      {
+        "key": "field_moust_lead_in_text",
+        "label": "Lead-in Text",
+        "name": "lead_in_text",
+        "aria-label": "",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 1,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "default_value": "Your <em>multiple passions</em> and <em>skills</em> are the key to elevating your <em>life</em>, your <em>career</em> and <em>impacting</em> the world.",
+        "tabs": "visual",
+        "toolbar": "basic",
+        "media_upload": 0,
+        "delay": 0
+      },
+      {
+        "key": "field_moust_lead_in_bg_color",
+        "label": "Background Color",
+        "name": "background_color",
+        "aria-label": "",
+        "type": "select",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": ""
+        },
+        "choices": {
+          "none": "None (White)",
+          "light-gray": "Light Gray",
+          "medium-gray": "Medium Gray",
+          "dark-gray": "Dark Gray",
+          "black": "Black"
+        },
+        "default_value": "light-gray",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 1,
+        "ajax": 0,
+        "placeholder": ""
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/lead-in"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+  }
+]
