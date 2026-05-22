@@ -38,37 +38,53 @@ if ($text_class) {
 ?>
 
 <section class="<?php echo esc_attr($block_classes); ?>">
-    <div class="split-inner">
-        <?php if ($image_position === 'left') : ?>
-            <div class="split-image">
-                <div class="split-image-wrapper">
-                    <?php if ($image) : ?>
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $heading); ?>" />
-                    <?php else : ?>
-                        <img src="https://via.placeholder.com/600x600" alt="<?php echo esc_attr($heading); ?>" />
-                    <?php endif; ?>
-                </div>
+    <div class="container-fluid px-4">
+        <div class="split-inner">
+            <div class="row align-items-center g-5">
+                <?php if ($image_position === 'left') : ?>
+                    <div class="col-lg-6 order-2 order-lg-1">
+                        <div class="split-image d-flex justify-content-center justify-content-lg-start">
+                            <div class="split-image-wrapper">
+                                <?php if ($image) : ?>
+                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $heading); ?>" />
+                                <?php else : ?>
+                                    <img src="https://via.placeholder.com/600x600" alt="<?php echo esc_attr($heading); ?>" />
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-1 order-lg-2">
+                        <div class="split-content">
+                            <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
+                            <p class="split-text"><?php echo wp_kses_post($text); ?></p>
+                            <?php if ($secondary_text) : ?>
+                                <p class="split-text-secondary"><?php echo wp_kses_post($secondary_text); ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                <?php else : ?>
+                    <div class="col-lg-6 order-1">
+                        <div class="split-content">
+                            <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
+                            <p class="split-text"><?php echo wp_kses_post($text); ?></p>
+                            <?php if ($secondary_text) : ?>
+                                <p class="split-text-secondary"><?php echo wp_kses_post($secondary_text); ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-2">
+                        <div class="split-image d-flex justify-content-center justify-content-lg-end">
+                            <div class="split-image-wrapper">
+                                <?php if ($image) : ?>
+                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $heading); ?>" />
+                                <?php else : ?>
+                                    <img src="https://via.placeholder.com/600x600" alt="<?php echo esc_attr($heading); ?>" />
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    </div>
+                <?php endif; ?>
             </div>
-        <?php endif; ?>
-        
-        <div class="split-content">
-            <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
-            <p class="split-text"><?php echo wp_kses_post($text); ?></p>
-            <?php if ($secondary_text) : ?>
-                <p class="split-text-secondary"><?php echo wp_kses_post($secondary_text); ?></p>
-            <?php endif; ?>
         </div>
-        
-        <?php if ($image_position === 'right') : ?>
-            <div class="split-image">
-                <div class="split-image-wrapper">
-                    <?php if ($image) : ?>
-                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $heading); ?>" />
-                    <?php else : ?>
-                        <img src="https://via.placeholder.com/600x600" alt="<?php echo esc_attr($heading); ?>" />
-                    <?php endif; ?>
-                </div>
-            </div>
-        <?php endif; ?>
     </div>
 </section>

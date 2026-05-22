@@ -1,0 +1,250 @@
+{
+    "key": "group_hero_alt_block",
+    "title": "Hero Alt Block Fields",
+    "fields": [
+        {
+            "key": "field_hero_alt_image",
+            "label": "Hero Image (Desktop)",
+            "name": "hero_alt_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Image with transparent background recommended. Used on desktop and up.",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_hero_alt_mobile_image",
+            "label": "Hero Image (Mobile)",
+            "name": "hero_alt_mobile_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Optimized image for mobile viewports. If not provided, desktop image will be used.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_hero_alt_heading",
+            "label": "Heading",
+            "name": "hero_alt_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Build with clarity",
+            "placeholder": "Enter main heading",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_hero_alt_subheading",
+            "label": "Subheading",
+            "name": "hero_alt_subheading",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Helping ambitious people turn potential into execution.",
+            "rows": 3,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": "Enter subheading"
+        },
+        {
+            "key": "field_hero_alt_cta_text",
+            "label": "CTA Button Text",
+            "name": "hero_alt_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Find out how",
+            "placeholder": "",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_hero_alt_cta_link",
+            "label": "CTA Button Link",
+            "name": "hero_alt_cta_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "#",
+            "placeholder": "https://example.com"
+        },
+        {
+            "key": "field_hero_alt_credibility_items",
+            "label": "Credibility Strip Items",
+            "name": "hero_alt_credibility_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add logos/images for credibility. Upload company logos or images.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 10,
+            "layout": "block",
+            "button_label": "Add Credibility Item",
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_hero_alt_cred_image",
+                    "label": "Logo/Image",
+                    "name": "cred_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": "",
+                    "parent_repeater": "field_hero_alt_credibility_items"
+                },
+                {
+                    "key": "field_hero_alt_cred_name",
+                    "label": "Name/Label",
+                    "name": "cred_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "e.g., JPMorgan Chase, NSBE, UT Arlington, etc.",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Company or organization name",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_hero_alt_credibility_items"
+                }
+            ]
+        },
+        {
+            "key": "field_hero_alt_bg_color",
+            "label": "Background Color",
+            "name": "hero_alt_background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (White)",
+                "cream": "Cream",
+                "light-gray": "Light Gray",
+                "dark-gray": "Dark Gray",
+                "black": "Black"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": false,
+            "allow_null": false,
+            "ui": false,
+            "ajax": false,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf/hero-alt"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": false
+}

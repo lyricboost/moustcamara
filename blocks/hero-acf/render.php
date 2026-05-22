@@ -43,42 +43,50 @@ if ($text_class) {
 ?>
 
 <section class="<?php echo esc_attr($block_classes); ?>">
-    <div class="hero-section-inner">
-        <div class="hero-content">
-            <h1 class="hero-name"><?php echo esc_html($name); ?></h1>
-            
-            <p class="hero-about">
-                <?php echo esc_html($description); ?>
-            </p>
-            
-            <div class="hero-founder">
-                Founder, <a href="<?php echo esc_url($company_link); ?>" target="_blank" rel="noopener"><?php echo esc_html($company); ?></a> · <?php echo esc_html($role); ?>
-            </div>
-            
-            <div class="hero-location">
-                <i data-lucide="map-pin" class="hero-icon"></i>
-                <span><?php echo esc_html($location); ?></span>
-            </div>
-            
-            <div class="hero-links">
-                <a href="<?php echo esc_url($email_link); ?>" class="hero-link">
-                    <i data-lucide="mail" class="hero-icon"></i>
-                    <span>Email</span>
-                </a>
-                <a href="<?php echo esc_url($linkedin_link); ?>" target="_blank" rel="noopener" class="hero-link">
-                    <i data-lucide="linkedin" class="hero-icon"></i>
-                    <span>LinkedIn</span>
-                </a>
-            </div>
-        </div>
-        
-        <div class="hero-image">
-            <div class="hero-image-circle">
-                <?php if ($image) : ?>
-                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $name); ?>" />
-                <?php else : ?>
-                    <img src="https://via.placeholder.com/550x550" alt="<?php echo esc_attr($name); ?>" />
-                <?php endif; ?>
+    <div class="container-fluid px-4">
+        <div class="hero-section-inner">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <div class="hero-location">
+                            <i data-lucide="map-pin" class="hero-icon"></i>
+                            <span><?php echo esc_html($location); ?></span>
+                        </div>
+                        
+                        <h1 class="hero-name"><?php echo esc_html($name); ?></h1>
+                        
+                        <p class="hero-about">
+                            <?php echo esc_html($description); ?>
+                        </p>
+                        
+                        <div class="hero-founder">
+                            Founder, <a href="<?php echo esc_url($company_link); ?>" target="_blank" rel="noopener"><?php echo esc_html($company); ?></a> · <?php echo esc_html($role); ?>
+                        </div>
+                        
+                        <div class="hero-links">
+                            <a href="<?php echo esc_url($email_link); ?>" class="hero-link">
+                                <i data-lucide="mail" class="hero-icon"></i>
+                                <span>Email</span>
+                            </a>
+                            <a href="<?php echo esc_url($linkedin_link); ?>" target="_blank" rel="noopener" class="hero-link">
+                                <i data-lucide="linkedin" class="hero-icon"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="hero-image d-flex justify-content-center justify-content-lg-end">
+                        <div class="hero-image-circle">
+                            <?php if ($image) : ?>
+                                <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $name); ?>" />
+                            <?php else : ?>
+                                <img src="https://via.placeholder.com/550x550" alt="<?php echo esc_attr($name); ?>" />
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -6,8 +6,8 @@
 (function() {
     'use strict';
     
-    // Only run on home page
-    if (!document.body.classList.contains('home')) {
+    // Only run on pages using Home Page (Full Width) template
+    if (!document.body.classList.contains('page-template-page-home')) {
         return;
     }
     

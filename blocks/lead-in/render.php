@@ -34,7 +34,9 @@ if ($text_class) {
 ?>
 
 <section class="<?php echo esc_attr($block_classes); ?>">
-    <div class="lead-in-inner">
-        <h2 class="lead-in-text"><?php echo wp_kses_post($text); ?></h2>
+    <div class="container-fluid px-4">
+        <div class="lead-in-inner text-center">
+            <h2 class="lead-in-text"><?php echo wp_kses_post($text); ?></h2>
+        </div>
     </div>
 </section>

@@ -37,11 +37,13 @@ if ($text_class) {
 ?>
 
 <section class="<?php echo esc_attr($block_classes); ?>">
-    <div class="final-cta-inner">
-        <h2 class="final-cta-heading"><?php echo esc_html($heading); ?></h2>
-        <p class="final-cta-text"><?php echo esc_html($text); ?></p>
-        <a href="<?php echo esc_url($button_link); ?>" class="final-cta-button">
-            <?php echo esc_html($button_text); ?>
-        </a>
+    <div class="container-fluid px-4">
+        <div class="final-cta-inner text-center">
+            <h2 class="final-cta-heading"><?php echo esc_html($heading); ?></h2>
+            <p class="final-cta-text"><?php echo esc_html($text); ?></p>
+            <a href="<?php echo esc_url($button_link); ?>" class="final-cta-button">
+                <?php echo esc_html($button_text); ?>
+            </a>
+        </div>
     </div>
 </section>

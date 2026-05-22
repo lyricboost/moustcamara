@@ -31,15 +31,50 @@ add_action('after_setup_theme', 'moustcamara_register_menus');
 
 // Enqueue Styles and Scripts
 function moustcamara_enqueue_styles() {
-    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array(), '0.2');
+    // Bootstrap CSS from CDN
+    wp_enqueue_style(
+        'bootstrap',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css',
+        array(),
+        '5.3.0'
+    );
+    
+    // Google Fonts
+    wp_enqueue_style(
+        'google-fonts-poppins',
+        'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
+        array(),
+        null
+    );
+    
+    // Theme stylesheet (will override Bootstrap) - MUST load AFTER Bootstrap
+    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.4.6');
+    
+    // Bootstrap JS Bundle (includes Popper)
+    wp_enqueue_script(
+        'bootstrap-bundle',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js',
+        array(),
+        '5.3.0',
+        true
+    );
+    
+    // Lucide Icons
+    wp_enqueue_script(
+        'lucide-icons',
+        'https://unpkg.com/lucide@latest',
+        array(),
+        null,
+        false
+    );
     
     // Enqueue header scroll script
     wp_enqueue_script(
         'moustcamara-header-scroll',
         get_template_directory_uri() . '/js/header-scroll.js',
-        array(),
-        '0.2',
-        true // Load in footer
+        array('bootstrap-bundle'),
+        '0.4.3',
+        true
     );
 }
 add_action('wp_enqueue_scripts', 'moustcamara_enqueue_styles');
@@ -99,6 +134,23 @@ function moustcamara_register_acf_blocks() {
             'category'          => 'moustcamara',
             'icon'              => 'admin-home',
             'keywords'          => array('hero', 'banner', 'header', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
+        // Hero Alt Block
+        acf_register_block_type(array(
+            'name'              => 'hero-alt',
+            'title'             => __('Moust Hero (Alt)'),
+            'description'       => __('Alternative hero section with image, heading, subheading, CTA and credibility strip'),
+            'render_template'   => 'blocks/hero-alt/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'admin-home',
+            'keywords'          => array('hero', 'banner', 'header', 'alternative', 'moust'),
             'mode'              => 'preview',
             'supports'          => array(
                 'align' => array('wide', 'full'),
@@ -200,3 +252,51 @@ function moustcamara_block_categories($categories) {
     );
 }
 add_filter('block_categories_all', 'moustcamara_block_categories', 10, 1);
+
+// Bootstrap 5 Nav Walker
+class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
+    function start_lvl(&$output, $depth = 0, $args = null) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
+    }
+
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $indent = ($depth) ? str_repeat("\t", $depth) : '';
+        
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $classes[] = 'nav-item';
+        
+        if ($args->walker->has_children) {
+            $classes[] = 'dropdown';
+        }
+        
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+        $class_names = ' class="' . esc_attr($class_names) . '"';
+        
+        $output .= $indent . '<li' . $class_names . '>';
+        
+        $attributes = !empty($item->attr_title) ? ' title="' . esc_attr($item->attr_title) . '"' : '';
+        $attributes .= !empty($item->target) ? ' target="' . esc_attr($item->target) . '"' : '';
+        $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
+        $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
+        
+        $link_class = 'nav-link';
+        if ($args->walker->has_children) {
+            $link_class .= ' dropdown-toggle';
+            $attributes .= ' data-bs-toggle="dropdown" aria-expanded="false"';
+        }
+        if (in_array('current-menu-item', $classes) || in_array('current_page_item', $classes)) {
+            $link_class .= ' active';
+        }
+        
+        $attributes .= ' class="' . $link_class . '"';
+        
+        $item_output = $args->before;
+        $item_output .= '<a' . $attributes . '>';
+        $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+        
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+    }
+}

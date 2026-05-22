@@ -1,0 +1,17 @@
+{
+  "name": "acf/hero-alt",
+  "title": "Hero (Alt)",
+  "description": "Alternative hero section with image, heading, subheading, CTA and credibility strip",
+  "category": "moustcamara",
+  "icon": "admin-home",
+  "keywords": ["hero", "banner", "header", "alternative"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}
