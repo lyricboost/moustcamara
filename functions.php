@@ -48,7 +48,7 @@ function moustcamara_enqueue_styles() {
     );
     
     // Theme stylesheet (will override Bootstrap) - MUST load AFTER Bootstrap
-    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.4.6');
+    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.4.4');
     
     // Bootstrap JS Bundle (includes Popper)
     wp_enqueue_script(

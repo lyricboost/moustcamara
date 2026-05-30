@@ -2,7 +2,7 @@
 Theme Name: Moust Camara - Plain
 Author: Moust Camara
 Description: Interim one-page theme for moustcamara.com built on Bootstrap 5
-Version: 0.4.3
+Version: 0.4.4
 */
 
 /* ============================================
@@ -114,10 +114,21 @@ body:not(.page-template-page-home) .site-main {
   display: none;
 }
 
-/* Mobile nav link styling */
+/* Mobile nav link styling in offcanvas drawer */
 .offcanvas .navbar-nav-custom .nav-link {
   display: block;
   font-size: 1rem;
+  padding: 0.75rem 0 !important;
+  margin: 0 !important;
+}
+
+.offcanvas .navbar-nav-custom .nav-link:hover {
+  color: #313d59;
+}
+
+.offcanvas .navbar-nav-custom .nav-link.active {
+  color: #313d59;
+  font-weight: 600;
 }
 
 /* ============================================
