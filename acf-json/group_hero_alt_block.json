@@ -3,6 +3,26 @@
     "title": "Hero Alt Block Fields",
     "fields": [
         {
+            "key": "field_hero_alt_custom_id",
+            "label": "Custom ID",
+            "name": "hero_alt_custom_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Unique identifier for this block (e.g., 'hero', 'about'). Used for anchor links.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., hero",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_hero_alt_image",
             "label": "Hero Image (Desktop)",
             "name": "hero_alt_image",
@@ -183,7 +203,7 @@
                     "aria-label": "",
                     "type": "text",
                     "instructions": "e.g., JPMorgan Chase, NSBE, UT Arlington, etc.",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": false,
                     "wrapper": {
                         "width": "",

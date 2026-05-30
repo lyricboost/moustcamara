@@ -3,24 +3,121 @@
     "title": "Grid Items Block Fields",
     "fields": [
         {
-            "key": "field_grid_heading",
-            "label": "Heading",
-            "name": "grid_heading",
+            "key": "field_grid_custom_id",
+            "label": "Custom ID",
+            "name": "grid_custom_id",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
-            "required": 1,
+            "instructions": "Unique identifier for this block (e.g., 'how-i-help', 'services'). Used for anchor links.",
+            "required": 0,
             "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "Here's How We Can Work Together",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., how-i-help",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_grid_heading_line_1",
+            "label": "Heading Line 1",
+            "name": "grid_heading_line_1",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "First line of the heading",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Technology constantly changes.",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_grid_heading_line_2",
+            "label": "Heading Line 2",
+            "name": "grid_heading_line_2",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Second line of the heading",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Fundamentals are forever.",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_grid_heading_line_1_muted",
+            "label": "Lower Opacity for Line 1",
+            "name": "grid_heading_line_1_muted",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Apply 0.75 opacity to the first heading line",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_grid_eyebrow",
+            "label": "Eyebrow",
+            "name": "grid_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label above the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., THE FLOW",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_grid_subheading",
+            "label": "Subheading",
+            "name": "grid_subheading",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Text below heading, before grid items",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "rows": 2,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
         },
         {
             "key": "field_grid_items",
@@ -92,7 +189,7 @@
                     "aria-label": "",
                     "type": "text",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": false,
                     "wrapper": {
                         "width": "",
@@ -113,7 +210,7 @@
                     "aria-label": "",
                     "type": "url",
                     "instructions": "",
-                    "required": 1,
+                    "required": 0,
                     "conditional_logic": false,
                     "wrapper": {
                         "width": "",
@@ -124,6 +221,51 @@
                     "placeholder": "",
                     "parent_repeater": "field_grid_items"
                 }
+            ]
+        },
+        {
+            "key": "field_grid_cta_text",
+            "label": "Section CTA Button Text",
+            "name": "grid_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text for the overarching CTA button below the grid items",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., Get Started",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_grid_cta_link",
+            "label": "Section CTA Button Link",
+            "name": "grid_cta_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "URL for the overarching CTA button",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_grid_cta_text",
+                        "operator": "!=empty"
+                    }
+                ]
             ]
         },
         {

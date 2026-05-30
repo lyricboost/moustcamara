@@ -9,6 +9,7 @@
  */
 
 // Get ACF fields
+$custom_id = get_field('hero_alt_custom_id');
 $image = get_field('hero_alt_image');
 $mobile_image = get_field('hero_alt_mobile_image');
 $heading = get_field('hero_alt_heading') ?: 'Build with clarity';
@@ -59,11 +60,11 @@ if ($mobile_image) {
 }
 ?>
 
-<section class="<?php echo esc_attr($block_classes); ?>"<?php echo $mobile_image_attr; ?> style="<?php echo esc_attr($hero_style); ?>">
+<section class="<?php echo esc_attr($block_classes); ?>"<?php echo $mobile_image_attr; ?><?php echo $custom_id ? ' id="' . esc_attr($custom_id) . '"' : ''; ?> style="<?php echo esc_attr($hero_style); ?>">
     <!-- Background fade overlay -->
     <div class="hero-alt-fade-overlay"></div>
     
-    <div class="container-fluid px-4">
+    <div class="container-fluid px-0">
         <div class="hero-alt-inner">
             <div class="hero-alt-content-wrapper">
                 <div class="hero-alt-content">

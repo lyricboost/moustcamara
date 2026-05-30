@@ -9,49 +9,74 @@
 <?php wp_body_open(); ?>
 
 <header class="site-header fixed-top shadow-sm">
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid px-3 px-md-5 py-2">
-            <a class="navbar-brand fw-bold fs-4 text-dark" href="<?php echo esc_url(home_url('/')); ?>">
-                <span class="d-inline-block" style="letter-spacing: -0.5px;">Moust Camara</span>
+            <a class="navbar-brand fs-4" href="<?php echo esc_url(home_url('/')); ?>">
+                <span class="d-inline-block">Moust Camara</span>
             </a>
 
+            <?php if (has_nav_menu('primary')) : ?>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <?php endif; ?>
 
             <!-- Desktop Navigation -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'primary',
-                    'menu_class' => 'navbar-nav ms-auto gap-2',
-                    'container' => false,
-                    'fallback_cb' => false,
-                    'walker' => new Bootstrap_Walker_Nav_Menu(),
-                ));
-                ?>
+                <div class="navbar-nav ms-auto gap-5 align-items-center">
+                    <?php
+                    wp_nav_menu(array(
+                        'theme_location' => 'primary',
+                        'menu_class' => 'navbar-nav-custom d-flex gap-5',
+                        'container' => false,
+                        'fallback_cb' => false,
+                        'walker' => new Bootstrap_Walker_Nav_Menu(),
+                        'depth' => 1,
+                    ));
+                    ?>
+                    <a href="https://calendly.com/moustcamara/30min" target="new" class="cta-btn cta-btn--small">
+                        Book a Strategy Call
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
     <!-- Mobile Navigation Offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
-        <div class="offcanvas-header border-bottom py-4">
-            <h5 class="offcanvas-title fw-bold fs-5" id="mobileMenuLabel">Menu</h5>
+        <div class="offcanvas-header py-4">
+            <h5 class="offcanvas-title fw-bold fs-5" id="mobileMenuLabel"></h5>
             <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body py-4">
             <?php
             wp_nav_menu(array(
                 'theme_location' => 'primary',
-                'menu_class' => 'navbar-nav gap-2',
+                'menu_class' => 'navbar-nav-custom d-flex flex-column gap-3',
                 'container' => false,
                 'fallback_cb' => false,
                 'walker' => new Bootstrap_Walker_Nav_Menu(),
             ));
             ?>
+            <a href="https://calendly.com/moustcamara/30min" target="new" class="cta-btn cta-btn--medium mt-3">
+                Book a Strategy Call
+            </a>
         </div>
     </div>
 </header>
+
+<script>
+  // Header scroll effect - add white background when scrolling down
+  const siteHeader = document.querySelector('.site-header');
+  const scrollThreshold = 80; // pixels to scroll before applying background
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > scrollThreshold) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+  });
+</script>
 
 <main id="main-content" class="site-main">

@@ -9,8 +9,15 @@
  */
 
 // Get ACF fields
-$heading = get_field('grid_heading') ?: 'Here\'s How We Can Work Together';
+$custom_id = get_field('grid_custom_id');
+$eyebrow = get_field('grid_eyebrow');
+$heading_line_1 = get_field('grid_heading_line_1') ?: 'Technology constantly changes.';
+$heading_line_2 = get_field('grid_heading_line_2') ?: 'Fundamentals are forever.';
+$heading_line_1_muted = get_field('grid_heading_line_1_muted');
+$subheading = get_field('grid_subheading');
 $items = get_field('grid_items');
+$cta_text = get_field('grid_cta_text');
+$cta_link = get_field('grid_cta_link');
 $bg_color = get_field('background_color') ?: 'none';
 
 // Set text color based on background
@@ -34,10 +41,21 @@ if ($text_class) {
 }
 ?>
 
-<section class="<?php echo esc_attr($block_classes); ?>">
+<section class="<?php echo esc_attr($block_classes); ?>"<?php echo $custom_id ? ' id="' . esc_attr($custom_id) . '"' : ''; ?>>
     <div class="container-fluid px-4">
         <div class="grid-items-inner">
-            <h2 class="grid-items-heading text-center"><?php echo esc_html($heading); ?></h2>
+            <div class="grid-items-header">
+                <?php if ($eyebrow) : ?>
+                    <p class="grid-items-eyebrow text-center"><?php echo esc_html($eyebrow); ?></p>
+                <?php endif; ?>
+                <h2 class="grid-items-heading text-center">
+                    <span class="grid-items-heading-line-1<?php echo $heading_line_1_muted ? ' grid-items-heading-muted' : ''; ?>"><?php echo esc_html($heading_line_1); ?></span>
+                    <span class="grid-items-heading-line-2"><?php echo esc_html($heading_line_2); ?></span>
+                </h2>
+                <?php if ($subheading) : ?>
+                    <p class="grid-items-subheading text-center"><?php echo wp_kses_post($subheading); ?></p>
+                <?php endif; ?>
+            </div>
             
             <?php if ($items) : ?>
                 <div class="row g-4">
@@ -46,9 +64,11 @@ if ($text_class) {
                             <div class="grid-item h-100 d-flex flex-column">
                                 <h3 class="grid-item-title"><?php echo esc_html($item['item_title']); ?></h3>
                                 <p class="grid-item-description flex-grow-1"><?php echo esc_html($item['item_description']); ?></p>
-                                <a href="<?php echo esc_url($item['item_link']); ?>" class="grid-item-button">
-                                    <?php echo esc_html($item['item_button_text'] ?: 'Learn More'); ?>
-                                </a>
+                                <?php if (!empty($item['item_link'])) : ?>
+                                    <a href="<?php echo esc_url($item['item_link']); ?>" class="grid-item-button">
+                                        <?php echo esc_html($item['item_button_text'] ?: 'Learn More'); ?>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -78,6 +98,18 @@ if ($text_class) {
                         </div>
                     </div>
                 </div>
+            <?php endif; ?>
+
+            <?php if (!empty($cta_text) && !empty($cta_link)) : ?>
+            <div class="grid-items-cta text-center mt-3">
+                <a href="<?php echo esc_url($cta_link); ?>" class="hero-alt-cta-btn">
+                    <?php echo esc_html($cta_text); ?>
+                    <svg class="hero-alt-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
             <?php endif; ?>
         </div>
     </div>
