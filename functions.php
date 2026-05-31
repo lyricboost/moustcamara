@@ -11,12 +11,12 @@ function moustcamara_theme_support() {
     add_theme_support('responsive-embeds');
     add_theme_support('editor-styles');
     
-    // Add custom logo support
+    // Add custom logo support - constrained size
     add_theme_support('custom-logo', array(
-        'height'      => 60,
-        'width'       => 250,
-        'flex-height' => true,
-        'flex-width'  => true,
+        'height'      => 40,
+        'width'       => 200,
+        'flex-height' => false,
+        'flex-width'  => false,
     ));
     
     // Add editor stylesheet
@@ -25,6 +25,7 @@ function moustcamara_theme_support() {
     // Add custom image sizes
     add_image_size('hero-image', 800, 800, true);
     add_image_size('split-image', 600, 600, true);
+    add_image_size('site-logo', 200, 40, false);
 }
 add_action('after_setup_theme', 'moustcamara_theme_support');
 
@@ -56,7 +57,7 @@ function moustcamara_enqueue_styles() {
     );
     
     // Theme stylesheet (will override Bootstrap) - MUST load AFTER Bootstrap
-    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.4.6');
+    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.4.7');
     
     // Bootstrap JS Bundle (includes Popper)
     wp_enqueue_script(
