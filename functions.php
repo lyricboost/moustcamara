@@ -11,6 +11,14 @@ function moustcamara_theme_support() {
     add_theme_support('responsive-embeds');
     add_theme_support('editor-styles');
     
+    // Add custom logo support
+    add_theme_support('custom-logo', array(
+        'height'      => 60,
+        'width'       => 250,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ));
+    
     // Add editor stylesheet
     add_editor_style('style.css');
     

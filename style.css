@@ -78,6 +78,28 @@ body:not(.page-template-page-home) .site-main {
     font-weight: 500;
 }
 
+/* Logo wrapper constraints */
+.logo-wrapper {
+    height: 40px;
+    max-width: 300px;
+    display: flex;
+    align-items: center;
+}
+
+/* Logo link respects parent constraints */
+.logo-wrapper a {
+    display: block;
+    height: 100%;
+    max-width: 100%;
+}
+
+/* Logo image respects parent constraints */
+.logo-wrapper img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
 /* Nav links styling */
 .navbar-nav-custom {
   list-style: none;

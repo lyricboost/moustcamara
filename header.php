@@ -12,7 +12,15 @@
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid px-3 px-md-5 py-2">
             <a class="navbar-brand fs-4" href="<?php echo esc_url(home_url('/')); ?>">
-                <span class="d-inline-block">Moust Camara</span>
+                <div class="logo-wrapper">
+                    <?php
+                    if (has_custom_logo()) {
+                        the_custom_logo();
+                    } else {
+                        echo '<span class="d-inline-block">Moust Camara</span>';
+                    }
+                    ?>
+                </div>
             </a>
 
             <?php if (has_nav_menu('primary')) : ?>
