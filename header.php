@@ -11,17 +11,15 @@
 <header class="site-header fixed-top shadow-sm">
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid px-3 px-md-5 py-2">
-            <a class="navbar-brand fs-4" href="<?php echo esc_url(home_url('/')); ?>">
-                <div class="logo-wrapper">
+            <div class="logo-wrapper">
                     <?php
                     if (has_custom_logo()) {
                         the_custom_logo();
                     } else {
-                        echo '<span class="d-inline-block">Moust Camara</span>';
+                        echo '<a class="navbar-brand fs-4" href="' . esc_url(home_url('/')) . '"><span class="d-inline-block">Moust Camara</span></a>';
                     }
                     ?>
-                </div>
-            </a>
+            </div>
 
             <?php if (has_nav_menu('primary')) : ?>
             <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-label="Toggle navigation">
