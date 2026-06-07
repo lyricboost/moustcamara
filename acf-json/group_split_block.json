@@ -28,6 +28,26 @@
             "mime_types": ""
         },
         {
+            "key": "field_split_eyebrow",
+            "label": "Eyebrow",
+            "name": "split_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label above the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., SPEAKING",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_split_heading",
             "label": "Heading",
             "name": "split_heading",
@@ -48,11 +68,11 @@
             "append": ""
         },
         {
-            "key": "field_split_text",
-            "label": "Main Text",
-            "name": "split_text",
+            "key": "field_split_subheading",
+            "label": "Sub heading",
+            "name": "split_subheading",
             "aria-label": "",
-            "type": "textarea",
+            "type": "text",
             "instructions": "",
             "required": 1,
             "conditional_logic": false,
@@ -62,17 +82,17 @@
                 "id": ""
             },
             "default_value": "From engineering high-scale systems as a Senior Site Reliability Engineer to building a YouTube channel with over 180,000 subscribers, my journey has been anything but conventional.",
-            "rows": 4,
-            "new_lines": "",
             "maxlength": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
-            "key": "field_split_secondary_text",
-            "label": "Secondary Text",
-            "name": "split_secondary_text",
+            "key": "field_split_body_text",
+            "label": "Body text",
+            "name": "split_body_text",
             "aria-label": "",
-            "type": "textarea",
+            "type": "wysiwyg",
             "instructions": "",
             "required": 0,
             "conditional_logic": false,
@@ -82,10 +102,83 @@
                 "id": ""
             },
             "default_value": "While the world tells us to 'pick a lane,' I've always found success in doing the opposite- leveraging multiple skills to create opportunities, build a brand, and shape a life that works for me.",
-            "rows": 4,
-            "new_lines": "",
-            "maxlength": "",
-            "placeholder": ""
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_split_topics",
+            "label": "Topics",
+            "name": "split_topics",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add topics with checkmark icons",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "button_label": "Add Topic",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_split_topic_text",
+                    "label": "Topic Text",
+                    "name": "topic_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., AI adoption and practical implementation",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_split_topics"
+                }
+            ]
+        },
+        {
+            "key": "field_split_image_style",
+            "label": "Image Style",
+            "name": "split_image_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "square": "Square (No Border Radius)",
+                "circle": "Circle"
+            },
+            "default_value": "square",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_split_image_position",
@@ -116,6 +209,50 @@
             "save_options": 0
         },
         {
+            "key": "field_split_cta_text",
+            "label": "CTA Button Text",
+            "name": "split_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text for the call-to-action button",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., Learn More",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_split_cta_link",
+            "label": "CTA Button Link",
+            "name": "split_cta_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "URL for the call-to-action button",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_split_cta_text",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
             "key": "field_split_bg_color",
             "label": "Background Color",
             "name": "background_color",
@@ -131,12 +268,13 @@
             },
             "choices": {
                 "none": "None (White)",
-                "cream": "Cream",
-                "terracotta": "Terracotta",
-                "terracotta-dark": "Terracotta Dark",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
                 "black": "Black"
             },
-            "default_value": "terracotta",
+            "default_value": "none",
             "allow_null": 0,
             "multiple": 0,
             "ui": 1,
@@ -166,5 +304,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770875513
+    "modified": 1780770000
 }

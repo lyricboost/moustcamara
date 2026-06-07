@@ -49,11 +49,11 @@
         "append": ""
       },
       {
-        "key": "field_moust_split_text",
-        "label": "Main Text",
-        "name": "split_text",
+        "key": "field_moust_split_subheading",
+        "label": "Sub heading",
+        "name": "split_subheading",
         "aria-label": "",
-        "type": "textarea",
+        "type": "text",
         "instructions": "",
         "required": 1,
         "conditional_logic": 0,
@@ -64,16 +64,34 @@
         },
         "default_value": "From engineering high-scale systems as a Senior Site Reliability Engineer to building a YouTube channel with over 180,000 subscribers, my journey has been anything but conventional.",
         "maxlength": "",
-        "rows": 4,
-        "placeholder": "",
-        "new_lines": ""
+        "placeholder": ""
       },
       {
-        "key": "field_moust_split_secondary_text",
-        "label": "Secondary Text",
-        "name": "split_secondary_text",
+        "key": "field_moust_split_body_text",
+        "label": "Body text",
+        "name": "split_body_text",
         "aria-label": "",
-        "type": "textarea",
+        "type": "wysiwyg",
+        "instructions": "",
+        "required": 0,
+        "conditional_logic": 0,
+        "wrapper": {
+          "width": "",
+          "class": "",
+          "id": "
+        },
+        "default_value": "While the world tells us to 'pick a lane,' I've always found success in doing the opposite- leveraging multiple skills to create opportunities, build a brand, and shape a life that works for me.",
+        "tabs": "all",
+        "toolbar": "basic",
+        "media_upload": 0,
+        "delay": 0
+      },
+      {
+        "key": "field_moust_split_image_style",
+        "label": "Image Style",
+        "name": "split_image_style",
+        "aria-label": "",
+        "type": "select",
         "instructions": "",
         "required": 0,
         "conditional_logic": 0,
@@ -82,11 +100,17 @@
           "class": "",
           "id": ""
         },
-        "default_value": "While the world tells us to 'pick a lane,' I've always found success in doing the opposite- leveraging multiple skills to create opportunities, build a brand, and shape a life that works for me.",
-        "maxlength": "",
-        "rows": 4,
-        "placeholder": "",
-        "new_lines": ""
+        "choices": {
+          "square": "Square (No Border Radius)",
+          "circle": "Circle"
+        },
+        "default_value": "square",
+        "return_format": "value",
+        "multiple": 0,
+        "allow_null": 0,
+        "ui": 1,
+        "ajax": 0,
+        "placeholder": ""
       },
       {
         "key": "field_moust_split_image_position",
@@ -132,10 +156,11 @@
           "none": "None (White)",
           "light-gray": "Light Gray",
           "medium-gray": "Medium Gray",
+          "navy": "Navy",
           "dark-gray": "Dark Gray",
           "black": "Black"
         },
-        "default_value": "medium-gray",
+        "default_value": "none",
         "return_format": "value",
         "multiple": 0,
         "allow_null": 0,

@@ -141,6 +141,68 @@
             "collapsed": "",
             "sub_fields": [
                 {
+                    "key": "field_grid_item_image",
+                    "label": "Image",
+                    "name": "item_image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "Optional image for this grid item",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_grid_items"
+                },
+                {
+                    "key": "field_grid_item_image_style",
+                    "label": "Image Style",
+                    "name": "item_image_style",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Display style for the image",
+                    "required": false,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_grid_item_image",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "photo": "Photo (16:9 with rounded corners)",
+                        "icon": "Icon/Line Art (No styling, transparent friendly)"
+                    },
+                    "default_value": "photo",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_grid_items"
+                },
+                {
                     "key": "field_grid_item_title",
                     "label": "Title",
                     "name": "item_title",
@@ -319,5 +381,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770875522
+    "modified": 1780770700
 }

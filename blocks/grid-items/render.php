@@ -62,6 +62,14 @@ if ($text_class) {
                     <?php foreach ($items as $item) : ?>
                         <div class="col-lg-4">
                             <div class="grid-item h-100 d-flex flex-column">
+                                <?php if (!empty($item['item_image'])) : 
+                                    $image_style = !empty($item['item_image_style']) ? $item['item_image_style'] : 'photo';
+                                    $image_class = 'grid-item-image-wrapper grid-item-image-wrapper--' . $image_style;
+                                ?>
+                                    <div class="<?php echo esc_attr($image_class); ?>">
+                                        <img src="<?php echo esc_url($item['item_image']['url']); ?>" alt="<?php echo esc_attr($item['item_image']['alt'] ?: $item['item_title']); ?>" class="grid-item-image" />
+                                    </div>
+                                <?php endif; ?>
                                 <h3 class="grid-item-title"><?php echo esc_html($item['item_title']); ?></h3>
                                 <p class="grid-item-description flex-grow-1"><?php echo esc_html($item['item_description']); ?></p>
                                 <?php if (!empty($item['item_link'])) : ?>

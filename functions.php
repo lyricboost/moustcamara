@@ -3,6 +3,14 @@
  * Moust Camara Theme Functions
  */
 
+/* ============================================
+   FONT CONFIGURATION
+   Easy font switching - just update these values
+   ============================================ */
+define('THEME_FONT_FAMILY', 'Poppins');
+define('THEME_FONT_WEIGHTS', '400;500;600;700');
+define('THEME_FONT_URL', 'https://fonts.googleapis.com/css2?family=' . THEME_FONT_FAMILY . ':wght@' . THEME_FONT_WEIGHTS . '&display=swap');
+
 // Theme Support
 function moustcamara_theme_support() {
     add_theme_support('title-tag');
@@ -50,14 +58,18 @@ function moustcamara_enqueue_styles() {
     
     // Google Fonts
     wp_enqueue_style(
-        'google-fonts-poppins',
-        'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap',
+        'google-fonts-' . strtolower(THEME_FONT_FAMILY),
+        THEME_FONT_URL,
         array(),
         null
     );
     
     // Theme stylesheet (will override Bootstrap) - MUST load AFTER Bootstrap
-    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.4.7');
+    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.5.7');
+    
+    // Inject font family CSS variable dynamically
+    $custom_css = ":root { --font-family-base: '" . THEME_FONT_FAMILY . "', system-ui, -apple-system, sans-serif; }";
+    wp_add_inline_style('moustcamara-style', $custom_css);
     
     // Bootstrap JS Bundle (includes Popper)
     wp_enqueue_script(
@@ -77,6 +89,15 @@ function moustcamara_enqueue_styles() {
         false
     );
     
+    // Initialize Lucide Icons
+    wp_enqueue_script(
+        'moustcamara-lucide-init',
+        get_template_directory_uri() . '/js/lucide-init.js',
+        array('lucide-icons'),
+        '0.5.3',
+        true
+    );
+    
     // Enqueue header scroll script
     wp_enqueue_script(
         'moustcamara-header-scroll',
@@ -93,7 +114,7 @@ function moustcamara_enqueue_editor_styles() {
     wp_enqueue_style('moustcamara-editor-style', get_stylesheet_uri(), array(), '0.2');
     
     // Add Google Fonts for editor
-    wp_enqueue_style('moustcamara-google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap', array(), null);
+    wp_enqueue_style('moustcamara-google-fonts', THEME_FONT_URL, array(), null);
     
     // Add custom editor styles for full-width
     $custom_css = '

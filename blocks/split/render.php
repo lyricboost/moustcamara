@@ -10,15 +10,20 @@
 
 // Get ACF fields
 $image = get_field('split_image');
+$eyebrow = get_field('split_eyebrow');
 $heading = get_field('split_heading') ?: 'I\'ve never believed in choosing just one path.';
-$text = get_field('split_text') ?: 'From engineering high-scale systems to building a YouTube channel with over 180,000 subscribers, my journey has been anything but conventional.';
-$secondary_text = get_field('split_secondary_text') ?: '';
+$subheading = get_field('split_subheading') ?: 'From engineering high-scale systems to building a YouTube channel with over 180,000 subscribers, my journey has been anything but conventional.';
+$body_text = get_field('split_body_text') ?: '';
+$topics = get_field('split_topics') ?: array();
 $image_position = get_field('split_image_position') ?: 'left';
+$image_style = get_field('split_image_style') ?: 'square';
+$cta_text = get_field('split_cta_text');
+$cta_link = get_field('split_cta_link');
 $bg_color = get_field('background_color') ?: 'none';
 
 // Set text color based on background
 $text_class = '';
-if (in_array($bg_color, ['dark-gray', 'black'])) {
+if (in_array($bg_color, ['navy', 'dark-gray', 'black'])) {
     $text_class = 'text-light';
 }
 
@@ -35,6 +40,11 @@ if ($bg_color !== 'none') {
 if ($text_class) {
     $block_classes .= ' ' . $text_class;
 }
+
+$image_wrapper_class = 'split-image-wrapper';
+if ($image_style === 'square') {
+    $image_wrapper_class .= ' split-image-wrapper--square';
+}
 ?>
 
 <section class="<?php echo esc_attr($block_classes); ?>">
@@ -44,7 +54,7 @@ if ($text_class) {
                 <?php if ($image_position === 'left') : ?>
                     <div class="col-lg-6 order-2 order-lg-1">
                         <div class="split-image d-flex justify-content-center justify-content-lg-start">
-                            <div class="split-image-wrapper">
+                            <div class="<?php echo esc_attr($image_wrapper_class); ?>">
                                 <?php if ($image) : ?>
                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $heading); ?>" />
                                 <?php else : ?>
@@ -55,26 +65,70 @@ if ($text_class) {
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2">
                         <div class="split-content">
+                            <?php if ($eyebrow) : ?>
+                                <p class="split-eyebrow"><?php echo esc_html($eyebrow); ?></p>
+                            <?php endif; ?>
                             <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
-                            <p class="split-text"><?php echo wp_kses_post($text); ?></p>
-                            <?php if ($secondary_text) : ?>
-                                <p class="split-text-secondary"><?php echo wp_kses_post($secondary_text); ?></p>
+                            <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
+                            <?php if ($topics) : ?>
+                                <ul class="split-topics-list">
+                                    <?php foreach ($topics as $topic) : ?>
+                                        <li class="split-topic-item">
+                                            <i data-lucide="check" class="split-topic-icon"></i>
+                                            <span><?php echo esc_html($topic['topic_text']); ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                            <?php if ($body_text) : ?>
+                                <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>
+                            <?php endif; ?>
+                            <?php if ($cta_text && $cta_link) : ?>
+                                <a href="<?php echo esc_url($cta_link); ?>" class="hero-alt-cta-btn">
+                                    <?php echo esc_html($cta_text); ?>
+                                    <svg class="hero-alt-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
                             <?php endif; ?>
                         </div>
                     </div>
                 <?php else : ?>
                     <div class="col-lg-6 order-1">
                         <div class="split-content">
+                            <?php if ($eyebrow) : ?>
+                                <p class="split-eyebrow"><?php echo esc_html($eyebrow); ?></p>
+                            <?php endif; ?>
                             <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
-                            <p class="split-text"><?php echo wp_kses_post($text); ?></p>
-                            <?php if ($secondary_text) : ?>
-                                <p class="split-text-secondary"><?php echo wp_kses_post($secondary_text); ?></p>
+                            <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
+                            <?php if ($topics) : ?>
+                                <ul class="split-topics-list">
+                                    <?php foreach ($topics as $topic) : ?>
+                                        <li class="split-topic-item">
+                                            <i data-lucide="check" class="split-topic-icon"></i>
+                                            <span><?php echo esc_html($topic['topic_text']); ?></span>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                            <?php if ($body_text) : ?>
+                                <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>
+                            <?php endif; ?>
+                            <?php if ($cta_text && $cta_link) : ?>
+                                <a href="<?php echo esc_url($cta_link); ?>" class="hero-alt-cta-btn">
+                                    <?php echo esc_html($cta_text); ?>
+                                    <svg class="hero-alt-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </a>
                             <?php endif; ?>
                         </div>
                     </div>
                     <div class="col-lg-6 order-2">
                         <div class="split-image d-flex justify-content-center justify-content-lg-end">
-                            <div class="split-image-wrapper">
+                            <div class="<?php echo esc_attr($image_wrapper_class); ?>">
                                 <?php if ($image) : ?>
                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $heading); ?>" />
                                 <?php else : ?>
