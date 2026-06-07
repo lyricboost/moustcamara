@@ -2,7 +2,7 @@
 Theme Name: Moust Camara - Plain
 Author: Moust Camara
 Description: Interim one-page theme for moustcamara.com built on Bootstrap 5
-Version: 0.6.3
+Version: 0.6.4
 */
 
 /* ============================================
@@ -690,6 +690,23 @@ body:not(.page-template-page-home) .site-main {
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* Image focal point options */
+.split-section--focal-top .split-image-wrapper img {
+  object-position: top;
+}
+
+.split-section--focal-top .split-image {
+  background-position: center top;
+}
+
+.split-section--focal-bottom .split-image-wrapper img {
+  object-position: bottom;
+}
+
+.split-section--focal-bottom .split-image {
+  background-position: center bottom;
 }
 
 .split-eyebrow {

@@ -65,7 +65,7 @@ function moustcamara_enqueue_styles() {
     );
     
     // Theme stylesheet (will override Bootstrap) - MUST load AFTER Bootstrap
-    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.6.3');
+    wp_enqueue_style('moustcamara-style', get_stylesheet_uri(), array('bootstrap'), '0.6.4');
     
     // Inject font family CSS variable dynamically
     $custom_css = ":root { --font-family-base: '" . THEME_FONT_FAMILY . "', system-ui, -apple-system, sans-serif; }";

@@ -18,6 +18,7 @@ $body_text = get_field('split_body_text') ?: '';
 $topics = get_field('split_topics') ?: array();
 $image_position = get_field('split_image_position') ?: 'left';
 $image_style = get_field('split_image_style') ?: 'square';
+$image_focal_point = get_field('split_image_focal_point') ?: 'center';
 $image_breakout = get_field('split_image_breakout');
 $cta_text = get_field('split_cta_text');
 $cta_link = get_field('split_cta_link');
@@ -44,6 +45,9 @@ if ($text_class) {
 }
 if ($image_breakout) {
     $block_classes .= ' split-section--breakout';
+}
+if ($image_focal_point !== 'center') {
+    $block_classes .= ' split-section--focal-' . $image_focal_point;
 }
 
 $image_wrapper_class = 'split-image-wrapper';
@@ -75,6 +79,9 @@ if ($image_style === 'square') {
                             <?php endif; ?>
                             <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
                             <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
+                            <?php if ($body_text) : ?>
+                                <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>
+                            <?php endif; ?>
                             <?php if ($topics) : ?>
                                 <ul class="split-topics-list">
                                     <?php foreach ($topics as $topic) : ?>
@@ -84,9 +91,6 @@ if ($image_style === 'square') {
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
-                            <?php endif; ?>
-                            <?php if ($body_text) : ?>
-                                <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>
                             <?php endif; ?>
                             <?php if ($cta_text && $cta_link) : ?>
                                 <a href="<?php echo esc_url($cta_link); ?>" class="hero-alt-cta-btn">
@@ -107,6 +111,9 @@ if ($image_style === 'square') {
                             <?php endif; ?>
                             <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
                             <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
+                            <?php if ($body_text) : ?>
+                                <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>
+                            <?php endif; ?>
                             <?php if ($topics) : ?>
                                 <ul class="split-topics-list">
                                     <?php foreach ($topics as $topic) : ?>
@@ -116,9 +123,6 @@ if ($image_style === 'square') {
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
-                            <?php endif; ?>
-                            <?php if ($body_text) : ?>
-                                <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>
                             <?php endif; ?>
                             <?php if ($cta_text && $cta_link) : ?>
                                 <a href="<?php echo esc_url($cta_link); ?>" class="hero-alt-cta-btn">
