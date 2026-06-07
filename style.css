@@ -2,7 +2,7 @@
 Theme Name: Moust Camara - Plain
 Author: Moust Camara
 Description: Interim one-page theme for moustcamara.com built on Bootstrap 5
-Version: 0.5.7
+Version: 0.6.3
 */
 
 /* ============================================
@@ -676,13 +676,13 @@ body:not(.page-template-page-home) .site-main {
   border-radius: 50%;
   overflow: hidden;
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   aspect-ratio: 1;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
 .split-image-wrapper--square {
-  border-radius: 0;
+  border-radius: 8px;
 }
 
 .split-image-wrapper img {
@@ -706,7 +706,7 @@ body:not(.page-template-page-home) .site-main {
   font-size: clamp(28px, 3.5vw, 42px);
   font-weight: 600;
   line-height: 1.3;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .split-subheading {
@@ -782,28 +782,72 @@ body:not(.page-template-page-home) .site-main {
   opacity: 0.85;
 }
 
+/* Image Breakout Effect (Desktop Only) */
+@media (min-width: 969px) {
+  .split-section--breakout {
+    padding-top: 0;
+  }
+
+  .split-section--breakout .split-image {
+    margin-top: -60px;
+  }
+
+  .split-section--breakout + .split-section {
+    padding-bottom: 12rem;
+  }
+}
+
 @media (max-width: 968px) {
-  .split-image-wrapper {
-    max-width: 400px;
-    margin: 0 0 2rem;
+  .split-section {
+    padding: 2rem 0 0;
+  }
+
+  .split-inner {
+    padding: 0;
+  }
+
+  .split-inner .row {
+    margin: 0;
+    --bs-gutter-y: 0;
+    --bs-gutter-x: 0;
+  }
+
+  .split-inner .col-lg-6 {
+    padding: 0;
+  }
+
+  .split-content {
+    padding: 1rem 1rem 4rem;
   }
 
   .split-image {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     justify-content: flex-start !important;
+  }
+
+  .split-image-wrapper {
+    display: none;
   }
 }
 
-@media (max-width: 640px) {
-  .split-image-wrapper {
-    max-width: 300px;
+@media (min-width: 969px) {
+  .split-image {
+    background-image: none !important;
   }
 }
+
 
 /* ============================================
    GRID ITEMS BLOCK
    ============================================ */
 .grid-items-section {
-  padding: 5rem 0;
+  padding: 5rem 0 10rem;
 }
 
 .grid-items-inner {
@@ -861,7 +905,7 @@ body:not(.page-template-page-home) .site-main {
   }
 
   .grid-items-section {
-    padding: 2.5rem 0 3.5rem;
+    padding: 2.5rem 0 7rem;
   }
 
   .grid-items-header {
@@ -964,6 +1008,52 @@ body:not(.page-template-page-home) .site-main {
 
 .text-light .grid-item-button:hover {
   background: var(--color-light-gray);
+}
+
+/* Mobile Layout - Horizontal */
+@media (max-width: 968px) {
+  .grid-item {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 1rem;
+  }
+
+  .grid-item-image-wrapper,
+  .grid-item-image-wrapper--icon {
+    margin: 0;
+    flex-shrink: 0;
+    max-width: 25%;
+  }
+
+  .grid-item-image-wrapper {
+    aspect-ratio: 1;
+  }
+
+  .grid-item-image-wrapper--icon {
+    max-width: 60px;
+  }
+
+  .grid-item-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .grid-item-title {
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  .grid-item-description {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+
+  .grid-item-button {
+    align-self: flex-start;
+  }
 }
 
 /* ============================================
@@ -1365,12 +1455,12 @@ body:not(.page-template-page-home) .site-main {
   
   .hero-alt-heading {
     font-size: clamp(32px, 10vw, 48px);
-    margin-bottom: 0px;
+    margin-bottom: 12px;
   }
   
   .hero-alt-subheading {
     font-size: clamp(20px, 2vw, 18px);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     line-height: 1.2;
   }
   

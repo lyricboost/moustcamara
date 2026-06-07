@@ -9,6 +9,7 @@
  */
 
 // Get ACF fields
+$custom_id = get_field('split_custom_id');
 $image = get_field('split_image');
 $eyebrow = get_field('split_eyebrow');
 $heading = get_field('split_heading') ?: 'I\'ve never believed in choosing just one path.';
@@ -17,6 +18,7 @@ $body_text = get_field('split_body_text') ?: '';
 $topics = get_field('split_topics') ?: array();
 $image_position = get_field('split_image_position') ?: 'left';
 $image_style = get_field('split_image_style') ?: 'square';
+$image_breakout = get_field('split_image_breakout');
 $cta_text = get_field('split_cta_text');
 $cta_link = get_field('split_cta_link');
 $bg_color = get_field('background_color') ?: 'none';
@@ -40,6 +42,9 @@ if ($bg_color !== 'none') {
 if ($text_class) {
     $block_classes .= ' ' . $text_class;
 }
+if ($image_breakout) {
+    $block_classes .= ' split-section--breakout';
+}
 
 $image_wrapper_class = 'split-image-wrapper';
 if ($image_style === 'square') {
@@ -47,13 +52,13 @@ if ($image_style === 'square') {
 }
 ?>
 
-<section class="<?php echo esc_attr($block_classes); ?>">
+<section class="<?php echo esc_attr($block_classes); ?>"<?php echo $custom_id ? ' id="' . esc_attr($custom_id) . '"' : ''; ?>>
     <div class="container-fluid px-4">
         <div class="split-inner">
             <div class="row align-items-center g-5">
                 <?php if ($image_position === 'left') : ?>
                     <div class="col-lg-6 order-2 order-lg-1">
-                        <div class="split-image d-flex justify-content-center justify-content-lg-start">
+                        <div class="split-image d-flex justify-content-center justify-content-lg-start" <?php if ($image) : ?>style="background-image: url(<?php echo esc_url($image['url']); ?>);"<?php endif; ?>>
                             <div class="<?php echo esc_attr($image_wrapper_class); ?>">
                                 <?php if ($image) : ?>
                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $heading); ?>" />
@@ -127,7 +132,7 @@ if ($image_style === 'square') {
                         </div>
                     </div>
                     <div class="col-lg-6 order-2">
-                        <div class="split-image d-flex justify-content-center justify-content-lg-end">
+                        <div class="split-image d-flex justify-content-center justify-content-lg-end" <?php if ($image) : ?>style="background-image: url(<?php echo esc_url($image['url']); ?>);"<?php endif; ?>>
                             <div class="<?php echo esc_attr($image_wrapper_class); ?>">
                                 <?php if ($image) : ?>
                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $heading); ?>" />

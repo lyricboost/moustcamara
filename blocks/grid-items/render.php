@@ -70,13 +70,15 @@ if ($text_class) {
                                         <img src="<?php echo esc_url($item['item_image']['url']); ?>" alt="<?php echo esc_attr($item['item_image']['alt'] ?: $item['item_title']); ?>" class="grid-item-image" />
                                     </div>
                                 <?php endif; ?>
-                                <h3 class="grid-item-title"><?php echo esc_html($item['item_title']); ?></h3>
-                                <p class="grid-item-description flex-grow-1"><?php echo esc_html($item['item_description']); ?></p>
-                                <?php if (!empty($item['item_link'])) : ?>
-                                    <a href="<?php echo esc_url($item['item_link']); ?>" class="grid-item-button">
-                                        <?php echo esc_html($item['item_button_text'] ?: 'Learn More'); ?>
-                                    </a>
-                                <?php endif; ?>
+                                <div class="grid-item-content flex-grow-1">
+                                    <h3 class="grid-item-title"><?php echo esc_html($item['item_title']); ?></h3>
+                                    <p class="grid-item-description"><?php echo esc_html($item['item_description']); ?></p>
+                                    <?php if (!empty($item['item_link'])) : ?>
+                                        <a href="<?php echo esc_url($item['item_link']); ?>" class="grid-item-button">
+                                            <?php echo esc_html($item['item_button_text'] ?: 'Learn More'); ?>
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     <?php endforeach; ?>

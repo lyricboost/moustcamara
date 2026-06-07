@@ -3,6 +3,26 @@
     "title": "Split Layout Block Fields",
     "fields": [
         {
+            "key": "field_split_custom_id",
+            "label": "Custom ID",
+            "name": "split_custom_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Unique identifier for this block (e.g., 'about', 'speaking'). Used for anchor links.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., about",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_split_image",
             "label": "Image",
             "name": "split_image",
@@ -181,6 +201,25 @@
             "save_options": 0
         },
         {
+            "key": "field_split_image_breakout",
+            "label": "Image Breakout (Desktop)",
+            "name": "split_image_breakout",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Make the image break out above the section padding on desktop screens",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_split_image_position",
             "label": "Image Position",
             "name": "split_image_position",
@@ -304,5 +343,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1780770000
+    "modified": 1780856100
 }
