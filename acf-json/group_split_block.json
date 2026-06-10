@@ -74,14 +74,14 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "I've never believed in choosing just one path.",
+            "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -94,14 +94,14 @@
             "aria-label": "",
             "type": "text",
             "instructions": "",
-            "required": 1,
+            "required": 0,
             "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "From engineering high-scale systems as a Senior Site Reliability Engineer to building a YouTube channel with over 180,000 subscribers, my journey has been anything but conventional.",
+            "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -372,5 +372,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1780857000
+    "modified": 1780857300
 }

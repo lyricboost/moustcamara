@@ -872,6 +872,17 @@ body:not(.page-template-page-home) .site-main {
   margin: 0 auto;
 }
 
+/* Grid alignment options (desktop only) */
+@media (min-width: 969px) {
+  .grid-items--align-left .row {
+    justify-content: flex-start;
+  }
+  
+  .grid-items--align-right .row {
+    justify-content: flex-end;
+  }
+}
+
 .grid-items-header {
   max-width: 80%;
   margin: 0 auto 3rem;

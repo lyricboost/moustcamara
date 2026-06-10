@@ -12,9 +12,11 @@
 $custom_id = get_field('grid_custom_id');
 $eyebrow = get_field('grid_eyebrow');
 $heading_line_1 = get_field('grid_heading_line_1') ?: 'Technology constantly changes.';
-$heading_line_2 = get_field('grid_heading_line_2') ?: 'Fundamentals are forever.';
+$heading_line_2 = get_field('grid_heading_line_2');
 $heading_line_1_muted = get_field('grid_heading_line_1_muted');
 $subheading = get_field('grid_subheading');
+$grid_columns = get_field('grid_columns') ?: '3';
+$grid_align = get_field('grid_align') ?: 'center';
 $items = get_field('grid_items');
 $cta_text = get_field('grid_cta_text');
 $cta_link = get_field('grid_cta_link');
@@ -39,6 +41,9 @@ if ($bg_color !== 'none') {
 if ($text_class) {
     $block_classes .= ' ' . $text_class;
 }
+if ($grid_align !== 'center') {
+    $block_classes .= ' grid-items--align-' . $grid_align;
+}
 ?>
 
 <section class="<?php echo esc_attr($block_classes); ?>"<?php echo $custom_id ? ' id="' . esc_attr($custom_id) . '"' : ''; ?>>
@@ -50,7 +55,9 @@ if ($text_class) {
                 <?php endif; ?>
                 <h2 class="grid-items-heading text-center">
                     <span class="grid-items-heading-line-1<?php echo $heading_line_1_muted ? ' grid-items-heading-muted' : ''; ?>"><?php echo esc_html($heading_line_1); ?></span>
-                    <span class="grid-items-heading-line-2"><?php echo esc_html($heading_line_2); ?></span>
+                    <?php if ($heading_line_2) : ?>
+                        <span class="grid-items-heading-line-2"><?php echo esc_html($heading_line_2); ?></span>
+                    <?php endif; ?>
                 </h2>
                 <?php if ($subheading) : ?>
                     <p class="grid-items-subheading text-center"><?php echo wp_kses_post($subheading); ?></p>
@@ -59,8 +66,11 @@ if ($text_class) {
             
             <?php if ($items) : ?>
                 <div class="row g-4">
-                    <?php foreach ($items as $item) : ?>
-                        <div class="col-lg-4">
+                    <?php 
+                    $col_class = $grid_columns === '2' ? 'col-lg-6' : 'col-lg-4';
+                    foreach ($items as $item) : 
+                    ?>
+                        <div class="<?php echo esc_attr($col_class); ?>">
                             <div class="grid-item h-100 d-flex flex-column">
                                 <?php if (!empty($item['item_image'])) : 
                                     $image_style = !empty($item['item_image_style']) ? $item['item_image_style'] : 'photo';
@@ -74,7 +84,7 @@ if ($text_class) {
                                     <h3 class="grid-item-title"><?php echo esc_html($item['item_title']); ?></h3>
                                     <p class="grid-item-description"><?php echo esc_html($item['item_description']); ?></p>
                                     <?php if (!empty($item['item_link'])) : ?>
-                                        <a href="<?php echo esc_url($item['item_link']); ?>" class="grid-item-button">
+                                        <a href="<?php echo esc_url($item['item_link']); ?>" class="hero-alt-cta-btn">
                                             <?php echo esc_html($item['item_button_text'] ?: 'Learn More'); ?>
                                         </a>
                                     <?php endif; ?>

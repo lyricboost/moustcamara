@@ -49,14 +49,14 @@
             "aria-label": "",
             "type": "text",
             "instructions": "Second line of the heading",
-            "required": 1,
+            "required": 0,
             "conditional_logic": false,
             "wrapper": {
                 "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "Fundamentals are forever.",
+            "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
@@ -118,6 +118,63 @@
             "new_lines": "",
             "maxlength": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_grid_columns",
+            "label": "Columns (Desktop)",
+            "name": "grid_columns",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Number of columns to display on desktop screens",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "3": "3 Columns",
+                "2": "2 Columns"
+            },
+            "default_value": "3",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_grid_align",
+            "label": "Grid Alignment (Desktop)",
+            "name": "grid_align",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Horizontal alignment of grid items on desktop screens",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "Center",
+                "left": "Left",
+                "right": "Right"
+            },
+            "default_value": "center",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_grid_items",
@@ -381,5 +438,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1780770700
+    "modified": 1780857500
 }

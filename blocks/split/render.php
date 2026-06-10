@@ -12,8 +12,8 @@
 $custom_id = get_field('split_custom_id');
 $image = get_field('split_image');
 $eyebrow = get_field('split_eyebrow');
-$heading = get_field('split_heading') ?: 'I\'ve never believed in choosing just one path.';
-$subheading = get_field('split_subheading') ?: 'From engineering high-scale systems to building a YouTube channel with over 180,000 subscribers, my journey has been anything but conventional.';
+$heading = get_field('split_heading');
+$subheading = get_field('split_subheading');
 $body_text = get_field('split_body_text') ?: '';
 $topics = get_field('split_topics') ?: array();
 $image_position = get_field('split_image_position') ?: 'left';
