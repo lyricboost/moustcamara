@@ -14,6 +14,7 @@ $eyebrow = get_field('grid_eyebrow');
 $heading_line_1 = get_field('grid_heading_line_1') ?: 'Technology constantly changes.';
 $heading_line_2 = get_field('grid_heading_line_2');
 $heading_line_1_muted = get_field('grid_heading_line_1_muted');
+$heading_size = get_field('grid_heading_size') ?: 'large';
 $subheading = get_field('grid_subheading');
 $grid_columns = get_field('grid_columns') ?: '3';
 $grid_align = get_field('grid_align') ?: 'center';
@@ -53,7 +54,7 @@ if ($grid_align !== 'center') {
                 <?php if ($eyebrow) : ?>
                     <p class="grid-items-eyebrow text-center"><?php echo esc_html($eyebrow); ?></p>
                 <?php endif; ?>
-                <h2 class="grid-items-heading text-center">
+                <h2 class="grid-items-heading<?php echo $heading_size === 'medium' ? ' grid-items-heading--medium' : ''; ?> text-center">
                     <span class="grid-items-heading-line-1<?php echo $heading_line_1_muted ? ' grid-items-heading-muted' : ''; ?>"><?php echo esc_html($heading_line_1); ?></span>
                     <?php if ($heading_line_2) : ?>
                         <span class="grid-items-heading-line-2"><?php echo esc_html($heading_line_2); ?></span>

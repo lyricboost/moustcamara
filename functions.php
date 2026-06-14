@@ -330,3 +330,16 @@ class Bootstrap_Walker_Nav_Menu extends Walker_Nav_Menu {
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
     }
 }
+
+// Add Plausible Analytics
+function plausible_analytics() {
+    ?>
+    <!-- Privacy-friendly analytics by Plausible -->
+    <script async src="https://plausible.io/js/pa--lY-gX7gcsgA1Rb5xl0ER.js"></script>
+    <script>
+      window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+      plausible.init()
+    </script>
+    <?php
+}
+add_action('wp_head', 'plausible_analytics');

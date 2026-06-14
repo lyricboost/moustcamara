@@ -80,6 +80,34 @@
             "ui": 1
         },
         {
+            "key": "field_grid_heading_size",
+            "label": "Heading Size",
+            "name": "grid_heading_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Size of the heading text",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "large": "Large",
+                "medium": "Medium"
+            },
+            "default_value": "large",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_grid_eyebrow",
             "label": "Eyebrow",
             "name": "grid_eyebrow",
@@ -438,5 +466,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1780857500
+    "modified": 1780857600
 }

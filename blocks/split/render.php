@@ -13,6 +13,7 @@ $custom_id = get_field('split_custom_id');
 $image = get_field('split_image');
 $eyebrow = get_field('split_eyebrow');
 $heading = get_field('split_heading');
+$heading_size = get_field('split_heading_size') ?: 'section';
 $subheading = get_field('split_subheading');
 $body_text = get_field('split_body_text') ?: '';
 $topics = get_field('split_topics') ?: array();
@@ -109,7 +110,11 @@ if ($image_style === 'square') {
                             <?php if ($eyebrow) : ?>
                                 <p class="split-eyebrow"><?php echo esc_html($eyebrow); ?></p>
                             <?php endif; ?>
-                            <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
+                            <?php 
+                            $heading_tag = $heading_size === 'page' ? 'h1' : 'h2';
+                            $heading_class = 'split-heading' . ($heading_size === 'page' ? ' split-heading--page' : '');
+                            ?>
+                            <<?php echo $heading_tag; ?> class="<?php echo esc_attr($heading_class); ?>"><?php echo esc_html($heading); ?></<?php echo $heading_tag; ?>>
                             <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
                             <?php if ($body_text) : ?>
                                 <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>

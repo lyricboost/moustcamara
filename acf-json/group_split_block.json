@@ -88,6 +88,34 @@
             "append": ""
         },
         {
+            "key": "field_split_heading_size",
+            "label": "Heading Size",
+            "name": "split_heading_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Size of the heading text",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "section": "Section Title",
+                "page": "Page Title"
+            },
+            "default_value": "section",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_split_subheading",
             "label": "Sub heading",
             "name": "split_subheading",
@@ -372,5 +400,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1780857300
+    "modified": 1780857600
 }
