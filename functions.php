@@ -106,6 +106,15 @@ function moustcamara_enqueue_styles() {
         '0.4.3',
         true
     );
+    
+    // External links script
+    wp_enqueue_script(
+        'moustcamara-external-links',
+        get_template_directory_uri() . '/js/external-links.js',
+        array(),
+        '1.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'moustcamara_enqueue_styles');
 
