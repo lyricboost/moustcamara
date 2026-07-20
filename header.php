@@ -40,8 +40,8 @@
                         'depth' => 1,
                     ));
                     ?>
-                    <a href="https://calendly.com/moustcamara/30min" target="new" class="cta-btn cta-btn--small">
-                        Book a Strategy Call
+                    <a href="https://calendly.com/moustcamara/intro-call-with-moust-camara" target="new" class="cta-btn cta-btn--small">
+                        Book a Call
                     </a>
                 </div>
             </div>
@@ -64,8 +64,8 @@
                 'walker' => new Bootstrap_Walker_Nav_Menu(),
             ));
             ?>
-            <a href="https://calendly.com/moustcamara/30min" target="new" class="cta-btn cta-btn--medium mt-3">
-                Book a Strategy Call
+            <a href="https://calendly.com/moustcamara/intro-call-with-moust-camara" target="new" class="cta-btn cta-btn--medium mt-3">
+                Book a Call
             </a>
         </div>
     </div>
