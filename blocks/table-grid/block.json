@@ -1,0 +1,17 @@
+{
+  "name": "acf/table-grid",
+  "title": "Table Grid",
+  "description": "Comparison table with features and plans",
+  "category": "moustcamara",
+  "icon": "grid-view",
+  "keywords": ["table", "comparison", "grid", "features", "plans"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

@@ -7,7 +7,7 @@
 - ✅ **page.php** - Standard page with container
 - ✅ **page-fullwidth.php** - Full-width flexible layout
 
-### 🧱 ACF Blocks (5)
+### 🧱 ACF Blocks (7)
 
 #### 1. Hero Block
 ```
@@ -25,7 +25,12 @@
 
 ---
 
-#### 2. Lead-in Text Block
+#### 2. Hero Alt Block
+**Fields**: Image, Eyebrow, Heading, Subheading, CTA Button, Credibility Logos
+
+---
+
+#### 3. Lead-in Text Block
 ```
 ┌─────────────────────────────────────────────────────┐
 │                                                     │
@@ -38,7 +43,7 @@
 
 ---
 
-#### 3. Split Layout Block
+#### 4. Split Layout Block
 ```
 ┌─────────────────────────────────────────────────────┐
 │                                                     │
@@ -52,7 +57,7 @@
 
 ---
 
-#### 4. Grid Items Block
+#### 5. Grid Items Block
 ```
 ┌─────────────────────────────────────────────────────┐
 │               How We Can Work Together              │
@@ -69,7 +74,27 @@
 
 ---
 
-#### 5. Final CTA Block
+#### 6. Table Grid Block ✨ NEW
+```
+┌─────────────────────────────────────────────────────┐
+│              Compare Plans & Features               │
+│                                                     │
+│  Feature      │  Basic  │   Pro   │ Enterprise    │
+│  ════════════════════════════════════════════════  │
+│  Storage      │  10GB   │  100GB  │  Unlimited    │
+│  Users        │   1     │   5     │  Unlimited    │
+│  Support      │   ✓     │    ✓    │      ✓        │
+│  API Access   │   —     │    ✓    │      ✓        │
+│               │[Button] │[Button] │   [Button]    │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+```
+**Fields**: Heading, Columns (2-4), Feature Groups (with tooltips), Values (checkmark/text/none), Buttons
+**Features**: Desktop table + Mobile accordion, Tooltips, Highlighted columns
+
+---
+
+#### 7. Final CTA Block
 ```
 ┌─────────────────────────────────────────────────────┐
 │                                                     │

@@ -11,7 +11,7 @@
 // Get ACF fields
 $custom_id = get_field('grid_custom_id');
 $eyebrow = get_field('grid_eyebrow');
-$heading_line_1 = get_field('grid_heading_line_1') ?: 'Technology constantly changes.';
+$heading_line_1 = get_field('grid_heading_line_1');
 $heading_line_2 = get_field('grid_heading_line_2');
 $heading_line_1_muted = get_field('grid_heading_line_1_muted');
 $heading_size = get_field('grid_heading_size') ?: 'large';
@@ -25,7 +25,7 @@ $bg_color = get_field('background_color') ?: 'none';
 
 // Set text color based on background
 $text_class = '';
-if (in_array($bg_color, ['dark-gray', 'black'])) {
+if (in_array($bg_color, ['navy', 'dark-gray', 'black'])) {
     $text_class = 'text-light';
 }
 

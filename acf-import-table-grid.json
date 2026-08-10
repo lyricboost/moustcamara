@@ -1,0 +1,218 @@
+{
+  "key": "group_table_grid",
+  "title": "Table Grid",
+  "fields": [
+    {
+      "key": "field_table_custom_id",
+      "label": "Custom ID",
+      "name": "table_custom_id",
+      "type": "text",
+      "instructions": "Optional custom HTML ID for this section (for anchor links)",
+      "required": 0,
+      "placeholder": "services"
+    },
+    {
+      "key": "field_table_heading",
+      "label": "Heading",
+      "name": "table_heading",
+      "type": "text",
+      "required": 0,
+      "default_value": "Compare Plans"
+    },
+    {
+      "key": "field_table_subheading",
+      "label": "Subheading",
+      "name": "table_subheading",
+      "type": "textarea",
+      "required": 0,
+      "rows": 3
+    },
+    {
+      "key": "field_table_heading_size",
+      "label": "Heading Size",
+      "name": "table_heading_size",
+      "type": "select",
+      "choices": {
+        "large": "Large",
+        "medium": "Medium"
+      },
+      "default_value": "large",
+      "required": 0
+    },
+    {
+      "key": "field_table_reduced_padding",
+      "label": "Reduced Padding",
+      "name": "table_reduced_padding",
+      "type": "true_false",
+      "ui": 1,
+      "default_value": 0
+    },
+    {
+      "key": "field_table_columns",
+      "label": "Columns",
+      "name": "table_columns",
+      "type": "repeater",
+      "required": 1,
+      "min": 2,
+      "max": 4,
+      "layout": "table",
+      "button_label": "Add Column",
+      "sub_fields": [
+        {
+          "key": "field_column_name",
+          "label": "Column Name",
+          "name": "column_name",
+          "type": "text",
+          "required": 1,
+          "placeholder": "Basic"
+        },
+        {
+          "key": "field_column_highlight",
+          "label": "Highlight",
+          "name": "highlight",
+          "type": "true_false",
+          "ui": 1,
+          "default_value": 0
+        },
+        {
+          "key": "field_column_button_text",
+          "label": "Button Text",
+          "name": "button_text",
+          "type": "text",
+          "placeholder": "Get Started"
+        },
+        {
+          "key": "field_column_button_link",
+          "label": "Button Link",
+          "name": "button_link",
+          "type": "url",
+          "placeholder": "https://"
+        },
+        {
+          "key": "field_column_button_variant",
+          "label": "Button Variant",
+          "name": "button_variant",
+          "type": "select",
+          "choices": {
+            "primary": "Primary",
+            "secondary": "Secondary",
+            "disabled": "Disabled"
+          },
+          "default_value": "primary"
+        }
+      ]
+    },
+    {
+      "key": "field_table_feature_groups",
+      "label": "Feature Groups",
+      "name": "table_feature_groups",
+      "type": "repeater",
+      "required": 1,
+      "min": 1,
+      "layout": "block",
+      "button_label": "Add Feature Group",
+      "sub_fields": [
+        {
+          "key": "field_group_name",
+          "label": "Group Name",
+          "name": "group_name",
+          "type": "text",
+          "required": 1,
+          "placeholder": "Core Features"
+        },
+        {
+          "key": "field_group_features",
+          "label": "Features",
+          "name": "features",
+          "type": "repeater",
+          "required": 1,
+          "min": 1,
+          "layout": "block",
+          "button_label": "Add Feature",
+          "sub_fields": [
+            {
+              "key": "field_feature_name",
+              "label": "Feature Name",
+              "name": "feature_name",
+              "type": "text",
+              "required": 1,
+              "placeholder": "Storage Space"
+            },
+            {
+              "key": "field_feature_tooltip",
+              "label": "Tooltip",
+              "name": "tooltip",
+              "type": "text",
+              "instructions": "Optional explanation shown on hover",
+              "placeholder": "Additional information about this feature"
+            },
+            {
+              "key": "field_feature_values",
+              "label": "Values",
+              "name": "values",
+              "type": "repeater",
+              "required": 1,
+              "instructions": "One value for each column in order",
+              "layout": "table",
+              "button_label": "Add Value",
+              "sub_fields": [
+                {
+                  "key": "field_value_type",
+                  "label": "Type",
+                  "name": "type",
+                  "type": "select",
+                  "required": 1,
+                  "choices": {
+                    "checkmark": "Checkmark",
+                    "text": "Text",
+                    "none": "None (dash)"
+                  },
+                  "default_value": "checkmark"
+                },
+                {
+                  "key": "field_value_text",
+                  "label": "Text",
+                  "name": "text",
+                  "type": "text",
+                  "conditional_logic": [
+                    [
+                      {
+                        "field": "field_value_type",
+                        "operator": "==",
+                        "value": "text"
+                      }
+                    ]
+                  ],
+                  "placeholder": "10 GB"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "field_table_bg_color",
+      "label": "Background Color",
+      "name": "background_color",
+      "type": "select",
+      "choices": {
+        "none": "None (Transparent)",
+        "light-gray": "Light Gray",
+        "dark-gray": "Dark Gray",
+        "black": "Black"
+      },
+      "default_value": "none",
+      "required": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/table-grid"
+      }
+    ]
+  ]
+}

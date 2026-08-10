@@ -10,14 +10,14 @@
         "aria-label": "",
         "type": "text",
         "instructions": "",
-        "required": 1,
+        "required": 0,
         "conditional_logic": 0,
         "wrapper": {
           "width": "",
           "class": "",
           "id": ""
         },
-        "default_value": "Here's How We Can Work Together",
+        "default_value": "",
         "maxlength": "",
         "placeholder": "",
         "prepend": "",
@@ -30,7 +30,7 @@
         "aria-label": "",
         "type": "repeater",
         "instructions": "",
-        "required": 1,
+        "required": 0,
         "conditional_logic": 0,
         "wrapper": {
           "width": "",
@@ -146,6 +146,7 @@
           "none": "None (White)",
           "light-gray": "Light Gray",
           "medium-gray": "Medium Gray",
+          "navy": "Navy",
           "dark-gray": "Dark Gray",
           "black": "Black"
         },

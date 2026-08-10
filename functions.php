@@ -115,6 +115,15 @@ function moustcamara_enqueue_styles() {
         '1.0',
         true
     );
+    
+    // Table Grid script
+    wp_enqueue_script(
+        'moustcamara-table-grid',
+        get_template_directory_uri() . '/js/table-grid.js',
+        array('lucide-icons'),
+        '1.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'moustcamara_enqueue_styles');
 
@@ -241,6 +250,23 @@ function moustcamara_register_acf_blocks() {
             'category'          => 'moustcamara',
             'icon'              => 'grid-view',
             'keywords'          => array('grid', 'services', 'offerings', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
+        // Table Grid Block
+        acf_register_block_type(array(
+            'name'              => 'table-grid',
+            'title'             => __('Moust Table Grid'),
+            'description'       => __('Comparison table with features and plans'),
+            'render_template'   => 'blocks/table-grid/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'grid-view',
+            'keywords'          => array('table', 'comparison', 'grid', 'features', 'plans', 'moust'),
             'mode'              => 'preview',
             'supports'          => array(
                 'align' => array('wide', 'full'),
