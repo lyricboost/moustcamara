@@ -94,31 +94,6 @@ if ($grid_align !== 'center') {
                         </div>
                     <?php endforeach; ?>
                 </div>
-            <?php else : ?>
-                <div class="row g-4">
-                    <!-- Default placeholder items for editor preview -->
-                    <div class="col-lg-4">
-                        <div class="grid-item h-100 d-flex flex-column">
-                            <h3 class="grid-item-title">Keynotes & Workshops</h3>
-                            <p class="grid-item-description flex-grow-1">Hosting an event or conference? I speak on a number of topics from leveraging multiple passions and skills in the AI era to building a powerful brand.</p>
-                            <a href="#" class="grid-item-button">Enquire About Booking</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="grid-item h-100 d-flex flex-column">
-                            <h3 class="grid-item-title">Resources & Structure</h3>
-                            <p class="grid-item-description flex-grow-1">I help multi-passionate women create structure with their passions through a number of resources designed to create clarity and magnify opportunities.</p>
-                            <a href="#" class="grid-item-button">Explore The Resources</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="grid-item h-100 d-flex flex-column">
-                            <h3 class="grid-item-title">YouTube & Content</h3>
-                            <p class="grid-item-description flex-grow-1">My YouTube channel of over 180,000 subs helps people with multiple passions develop through structure, inspiration and frameworks.</p>
-                            <a href="#" class="grid-item-button">Watch Now On YouTube</a>
-                        </div>
-                    </div>
-                </div>
             <?php endif; ?>
 
             <?php if (!empty($cta_text) && !empty($cta_link)) : ?>
