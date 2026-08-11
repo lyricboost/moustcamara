@@ -1,0 +1,16 @@
+{
+  "name": "acf/capability-cards",
+  "title": "Capability Cards",
+  "description": "Display capabilities/solutions in card format with icons, categories, and outcome statements",
+  "category": "moust-blocks",
+  "icon": "grid-view",
+  "keywords": ["cards", "capabilities", "solutions", "grid"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "anchor": true
+  }
+}

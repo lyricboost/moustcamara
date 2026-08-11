@@ -335,6 +335,23 @@ function moustcamara_register_acf_blocks() {
             ),
         ));
         
+        // Capability Cards Block
+        acf_register_block_type(array(
+            'name'              => 'capability-cards',
+            'title'             => __('Moust Capability Cards'),
+            'description'       => __('Display capabilities/solutions in card format'),
+            'render_template'   => 'blocks/capability-cards/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'grid-view',
+            'keywords'          => array('capability', 'cards', 'solutions', 'grid', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
         // Final CTA Block
         acf_register_block_type(array(
             'name'              => 'final-cta',

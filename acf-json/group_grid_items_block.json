@@ -431,12 +431,13 @@
             },
             "choices": {
                 "none": "None (White)",
-                "cream": "Cream",
-                "terracotta": "Terracotta",
-                "terracotta-dark": "Terracotta Dark",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
                 "black": "Black"
             },
-            "default_value": "terracotta",
+            "default_value": "none",
             "allow_null": 0,
             "multiple": 0,
             "ui": 1,

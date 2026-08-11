@@ -3004,3 +3004,219 @@ body:not(.page-template-page-home) .site-main {
     margin-top: 3rem;
   }
 }
+
+/* ============================================
+   CAPABILITY CARDS BLOCK
+   Card-based capability/solution display with icons
+   ============================================ */
+
+/* Section Container */
+.capability-cards-section {
+  padding: 4rem 0;
+  position: relative;
+}
+
+.capability-cards-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.capability-cards-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.capability-cards-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-gray);
+  margin-bottom: 1rem;
+}
+
+.capability-cards-heading {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--color-text-dark);
+  margin-bottom: 1rem;
+}
+
+.capability-cards-heading--medium {
+  font-size: clamp(28px, 3.5vw, 38px);
+}
+
+.capability-cards-subheading {
+  font-size: clamp(16px, 1.8vw, 18px);
+  line-height: 1.6;
+  color: var(--color-text-gray);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Card */
+.capability-card {
+  background: #ffffff;
+  border: 1px solid var(--color-medium-gray);
+  border-radius: 8px;
+  padding: 2rem;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.capability-card:hover {
+  border-color: var(--color-text-dark);
+  box-shadow: 0 4px 12px rgba(49, 61, 89, 0.1);
+}
+
+/* Icon */
+.capability-card-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  background: var(--color-light-gray);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+
+.capability-card-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+}
+
+/* Category Label */
+.capability-card-category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-text-gray);
+  margin-bottom: 0.75rem;
+}
+
+/* Title */
+.capability-card-title {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text-dark);
+  margin-bottom: 1rem;
+}
+
+/* Description */
+.capability-card-description {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-gray);
+  margin-bottom: 1rem;
+}
+
+/* Outcome Statement */
+.capability-card-outcome {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+/* CTA */
+.capability-cards-cta {
+  margin-top: 3rem;
+}
+
+/* Light Text Variant (Dark Backgrounds) */
+.capability-cards-section.text-light .capability-cards-eyebrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.capability-cards-section.text-light .capability-cards-heading {
+  color: var(--color-text-light);
+}
+
+.capability-cards-section.text-light .capability-cards-subheading {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.capability-cards-section.text-light .capability-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.capability-cards-section.text-light .capability-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.capability-cards-section.text-light .capability-card-icon-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.capability-cards-section.text-light .capability-card-category {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.capability-cards-section.text-light .capability-card-title {
+  color: var(--color-text-light);
+}
+
+.capability-cards-section.text-light .capability-card-description {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.capability-cards-section.text-light .capability-card-outcome {
+  color: var(--color-text-light);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .capability-cards-section {
+    padding: 3rem 0;
+  }
+
+  .capability-cards-header {
+    margin-bottom: 2rem;
+  }
+
+  .capability-card {
+    padding: 1.5rem;
+  }
+
+  .capability-cards-cta {
+    margin-top: 2rem;
+  }
+}
+
+/* Fine Print */
+.capability-cards-fine-print {
+  max-width: 800px;
+  margin: 2.5rem auto 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--color-text-gray);
+}
+
+.capability-cards-fine-print p {
+  margin-bottom: 0.5rem;
+}
+
+.capability-cards-fine-print p:last-child {
+  margin-bottom: 0;
+}
+
+.capability-cards-section.text-light .capability-cards-fine-print {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 768px) {
+  .capability-cards-fine-print {
+    margin-top: 2rem;
+    font-size: 13px;
+  }
+}
