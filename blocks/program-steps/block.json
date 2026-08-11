@@ -1,0 +1,17 @@
+{
+  "name": "acf/program-steps",
+  "title": "Program Steps",
+  "description": "Vertical timeline/roadmap with nested steps and sub-items",
+  "category": "moustcamara",
+  "icon": "list-view",
+  "keywords": ["timeline", "roadmap", "program", "steps", "sprint"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

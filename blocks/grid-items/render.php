@@ -45,6 +45,9 @@ if ($text_class) {
 if ($grid_align !== 'center') {
     $block_classes .= ' grid-items--align-' . $grid_align;
 }
+if (empty($items)) {
+    $block_classes .= ' grid-items--no-items';
+}
 ?>
 
 <section class="<?php echo esc_attr($block_classes); ?>"<?php echo $custom_id ? ' id="' . esc_attr($custom_id) . '"' : ''; ?>>

@@ -124,6 +124,15 @@ function moustcamara_enqueue_styles() {
         '1.0',
         true
     );
+    
+    // Program Steps script
+    wp_enqueue_script(
+        'moustcamara-program-steps',
+        get_template_directory_uri() . '/js/program-steps.js',
+        array('lucide-icons'),
+        '1.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'moustcamara_enqueue_styles');
 
@@ -267,6 +276,23 @@ function moustcamara_register_acf_blocks() {
             'category'          => 'moustcamara',
             'icon'              => 'grid-view',
             'keywords'          => array('table', 'comparison', 'grid', 'features', 'plans', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
+        // Program Steps Block
+        acf_register_block_type(array(
+            'name'              => 'program-steps',
+            'title'             => __('Moust Program Steps'),
+            'description'       => __('Vertical timeline/roadmap for program phases with nested sub-items'),
+            'render_template'   => 'blocks/program-steps/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'list-view',
+            'keywords'          => array('program', 'steps', 'timeline', 'roadmap', 'moust'),
             'mode'              => 'preview',
             'supports'          => array(
                 'align' => array('wide', 'full'),
