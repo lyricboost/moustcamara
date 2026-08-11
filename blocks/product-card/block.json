@@ -1,0 +1,14 @@
+{
+	"name": "moust-product-card",
+	"title": "Moust Product Card",
+	"description": "Single product/pricing card with features and CTA",
+	"category": "moustcamara",
+	"icon": "tag",
+	"keywords": ["product", "pricing", "card", "moust", "price"],
+	"supports": {
+		"anchor": true,
+		"multiple": true,
+		"jsx": true,
+		"align": ["wide", "full"]
+	}
+}

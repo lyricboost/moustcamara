@@ -1,0 +1,192 @@
+{
+  "key": "group_moust_product_card",
+  "title": "Moust Product Card Block",
+  "fields": [
+    {
+      "key": "field_product_card_custom_id",
+      "label": "Custom ID",
+      "name": "custom_id",
+      "type": "text",
+      "required": 0,
+      "instructions": "Optional anchor ID for linking to this section"
+    },
+    {
+      "key": "field_product_card_layout",
+      "label": "Layout",
+      "name": "layout",
+      "type": "select",
+      "choices": {
+        "split": "Split (Image + Content)",
+        "centered": "Centered (No Image)"
+      },
+      "default_value": "split",
+      "required": 0
+    },
+    {
+      "key": "field_product_card_image",
+      "label": "Image",
+      "name": "image",
+      "type": "image",
+      "return_format": "array",
+      "preview_size": "medium",
+      "library": "all",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_product_card_layout",
+            "operator": "==",
+            "value": "split"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_product_card_image_position",
+      "label": "Image Position",
+      "name": "image_position",
+      "type": "select",
+      "choices": {
+        "left": "Left",
+        "right": "Right"
+      },
+      "default_value": "left",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_product_card_layout",
+            "operator": "==",
+            "value": "split"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_product_card_badge",
+      "label": "Badge/Label",
+      "name": "badge",
+      "type": "text",
+      "required": 0,
+      "instructions": "Optional badge text (e.g., 'Most Popular', 'Limited Time')"
+    },
+    {
+      "key": "field_product_card_product_name",
+      "label": "Product Name",
+      "name": "product_name",
+      "type": "text",
+      "required": 0
+    },
+    {
+      "key": "field_product_card_heading_size",
+      "label": "Heading Size",
+      "name": "heading_size",
+      "type": "select",
+      "choices": {
+        "medium": "Medium",
+        "large": "Large"
+      },
+      "default_value": "medium",
+      "required": 0
+    },
+    {
+      "key": "field_product_card_description",
+      "label": "Description",
+      "name": "description",
+      "type": "wysiwyg",
+      "tabs": "visual",
+      "toolbar": "basic",
+      "media_upload": 0,
+      "required": 0
+    },
+    {
+      "key": "field_product_card_price_primary",
+      "label": "Primary Price",
+      "name": "price_primary",
+      "type": "text",
+      "required": 0,
+      "instructions": "Main price display (e.g., '$6,000/month')",
+      "placeholder": "$6,000/month"
+    },
+    {
+      "key": "field_product_card_price_secondary",
+      "label": "Secondary Price/Subtitle",
+      "name": "price_secondary",
+      "type": "text",
+      "required": 0,
+      "instructions": "Additional pricing info (e.g., '$18,000 total for 3 month engagement')",
+      "placeholder": "$18,000 total for 3 month engagement"
+    },
+    {
+      "key": "field_product_card_features",
+      "label": "Features",
+      "name": "features",
+      "type": "repeater",
+      "required": 0,
+      "layout": "table",
+      "button_label": "Add Feature",
+      "sub_fields": [
+        {
+          "key": "field_product_card_feature_text",
+          "label": "Feature",
+          "name": "feature_text",
+          "type": "text",
+          "required": 0
+        }
+      ]
+    },
+    {
+      "key": "field_product_card_cta_text",
+      "label": "CTA Button Text",
+      "name": "cta_text",
+      "type": "text",
+      "required": 0,
+      "placeholder": "Get Started"
+    },
+    {
+      "key": "field_product_card_cta_link",
+      "label": "CTA Button Link",
+      "name": "cta_link",
+      "type": "text",
+      "required": 0,
+      "instructions": "URL or anchor link (e.g., '#contact' or 'https://...')",
+      "placeholder": "#contact"
+    },
+    {
+      "key": "field_product_card_fine_print",
+      "label": "Fine Print",
+      "name": "fine_print",
+      "type": "wysiwyg",
+      "tabs": "visual",
+      "toolbar": "basic",
+      "media_upload": 0,
+      "required": 0,
+      "instructions": "Small text at bottom (terms, conditions, etc.)"
+    },
+    {
+      "key": "field_product_card_background_color",
+      "label": "Background Color",
+      "name": "background_color",
+      "type": "select",
+      "choices": {
+        "none": "None (Transparent)",
+        "light-gray": "Light Gray",
+        "medium-gray": "Medium Gray",
+        "navy": "Navy",
+        "dark-gray": "Dark Gray",
+        "black": "Black"
+      },
+      "default_value": "none",
+      "required": 0
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "block",
+        "operator": "==",
+        "value": "acf/moust-product-card"
+      }
+    ]
+  ]
+}

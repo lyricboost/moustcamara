@@ -318,6 +318,23 @@ function moustcamara_register_acf_blocks() {
             ),
         ));
         
+        // Product Card Block
+        acf_register_block_type(array(
+            'name'              => 'product-card',
+            'title'             => __('Moust Product Card'),
+            'description'       => __('Single product/pricing card with features and CTA'),
+            'render_template'   => 'blocks/product-card/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'tag',
+            'keywords'          => array('product', 'pricing', 'card', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
         // Final CTA Block
         acf_register_block_type(array(
             'name'              => 'final-cta',
