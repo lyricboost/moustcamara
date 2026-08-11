@@ -301,6 +301,23 @@ function moustcamara_register_acf_blocks() {
             ),
         ));
         
+        // FAQ Block
+        acf_register_block_type(array(
+            'name'              => 'faq',
+            'title'             => __('Moust FAQ'),
+            'description'       => __('FAQ accordion with optional image'),
+            'render_template'   => 'blocks/faq/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'editor-help',
+            'keywords'          => array('faq', 'accordion', 'questions', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
         // Final CTA Block
         acf_register_block_type(array(
             'name'              => 'final-cta',

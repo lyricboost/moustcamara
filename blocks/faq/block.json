@@ -1,0 +1,14 @@
+{
+	"name": "moust-faq",
+	"title": "Moust FAQ",
+	"description": "FAQ accordion with optional image",
+	"category": "moustcamara",
+	"icon": "editor-help",
+	"keywords": ["faq", "accordion", "questions", "moust"],
+	"supports": {
+		"anchor": true,
+		"multiple": true,
+		"jsx": true,
+		"align": ["wide", "full"]
+	}
+}
