@@ -150,6 +150,24 @@
       },
       "default_value": "none",
       "required": 0
+    },
+    {
+      "key": "field_program_cta_text",
+      "label": "CTA Button Text",
+      "name": "program_cta_text",
+      "type": "text",
+      "instructions": "Optional call-to-action button text",
+      "required": 0,
+      "placeholder": "View Full Program"
+    },
+    {
+      "key": "field_program_cta_link",
+      "label": "CTA Button Link",
+      "name": "program_cta_link",
+      "type": "url",
+      "instructions": "URL for the CTA button",
+      "required": 0,
+      "placeholder": "https://"
     }
   ],
   "location": [

@@ -18,6 +18,8 @@ $cta_text = get_field('cta_text');
 $cta_link = get_field('cta_link');
 $image = get_field('image');
 $image_position = get_field('image_position') ?: 'left';
+$image_style = get_field('image_style') ?: 'square';
+$image_focal_point = get_field('image_focal_point') ?: 'center';
 $layout = get_field('layout') ?: 'split';
 $background = get_field('background_color') ?: 'none';
 
@@ -25,12 +27,12 @@ $background = get_field('background_color') ?: 'none';
 $classes = ['product-card-section'];
 
 if ($background !== 'none') {
-    $classes[] = 'product-card--bg-' . $background;
-    
-    // Add text-light class for dark backgrounds
-    if (in_array($background, ['navy', 'dark-gray', 'black'])) {
-        $classes[] = 'text-light';
-    }
+    $classes[] = 'bg-' . $background;
+}
+
+// Add text-light class for dark backgrounds
+if (in_array($background, ['navy', 'dark-gray', 'black'])) {
+    $classes[] = 'text-light';
 }
 
 if ($layout === 'centered') {
@@ -42,6 +44,15 @@ if ($layout === 'centered') {
 
 if ($heading_size === 'large') {
     $classes[] = 'product-card--heading-large';
+}
+
+if ($image_focal_point !== 'center') {
+    $classes[] = 'product-card--focal-' . $image_focal_point;
+}
+
+$image_wrapper_class = 'product-card-image-wrapper';
+if ($image_style === 'square') {
+    $image_wrapper_class .= ' product-card-image-wrapper--square';
 }
 
 $section_class = implode(' ', $classes);
@@ -113,7 +124,7 @@ $section_class = implode(' ', $classes);
                     <?php if ($image_position === 'left'): ?>
                         <!-- Image Left -->
                         <div class="col-lg-6 order-2 order-lg-1">
-                            <div class="product-card-image-wrapper">
+                            <div class="<?php echo esc_attr($image_wrapper_class); ?>">
                                 <?php if ($image): ?>
                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $product_name); ?>" class="product-card-image" />
                                 <?php else: ?>
@@ -183,7 +194,7 @@ $section_class = implode(' ', $classes);
                         
                     <?php if ($image_position === 'right'): ?>
                         <div class="col-lg-6 order-2 order-lg-2">
-                            <div class="product-card-image-wrapper">
+                            <div class="<?php echo esc_attr($image_wrapper_class); ?>">
                                 <?php if ($image): ?>
                                     <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $product_name); ?>" class="product-card-image" />
                                 <?php else: ?>

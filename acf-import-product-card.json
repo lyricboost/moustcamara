@@ -63,6 +63,50 @@
       ]
     },
     {
+      "key": "field_product_card_image_style",
+      "label": "Image Style",
+      "name": "image_style",
+      "type": "select",
+      "choices": {
+        "circle": "Circle",
+        "square": "Square"
+      },
+      "default_value": "square",
+      "required": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_product_card_layout",
+            "operator": "==",
+            "value": "split"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_product_card_image_focal_point",
+      "label": "Image Focal Point",
+      "name": "image_focal_point",
+      "type": "select",
+      "choices": {
+        "center": "Center",
+        "top": "Top",
+        "bottom": "Bottom"
+      },
+      "default_value": "center",
+      "required": 0,
+      "instructions": "Where to focus the image crop",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_product_card_layout",
+            "operator": "==",
+            "value": "split"
+          }
+        ]
+      ]
+    },
+    {
       "key": "field_product_card_badge",
       "label": "Badge/Label",
       "name": "badge",
@@ -185,7 +229,7 @@
       {
         "param": "block",
         "operator": "==",
-        "value": "acf/moust-product-card"
+        "value": "acf/product-card"
       }
     ]
   ]

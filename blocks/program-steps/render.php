@@ -15,6 +15,8 @@ $heading = get_field('program_heading');
 $subheading = get_field('program_subheading');
 $heading_size = get_field('program_heading_size') ?: 'large';
 $steps = get_field('program_steps');
+$cta_text = get_field('program_cta_text');
+$cta_link = get_field('program_cta_link');
 $bg_color = get_field('background_color') ?: 'none';
 
 // Set text color based on background
@@ -163,6 +165,18 @@ $heading_class = $heading_size === 'medium' ? ' program-steps-heading--medium' :
                         </div>
                     <?php endforeach; ?>
                 </div>
+            <?php endif; ?>
+
+            <?php if (!empty($cta_text) && !empty($cta_link)) : ?>
+            <div class="program-steps-cta text-center">
+                <a href="<?php echo esc_url($cta_link); ?>" class="hero-alt-cta-btn">
+                    <?php echo esc_html($cta_text); ?>
+                    <svg class="hero-alt-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
             <?php endif; ?>
         </div>
     </div>
