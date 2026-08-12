@@ -120,6 +120,107 @@
             "save_options": 0
         },
         {
+            "key": "field_product_card_image_style",
+            "label": "Image Style",
+            "name": "image_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_product_card_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "circle": "Circle",
+                "square": "Square"
+            },
+            "default_value": "square",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_product_card_image_focal_point",
+            "label": "Image Focal Point",
+            "name": "image_focal_point",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Where to focus the image crop",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_product_card_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "Center",
+                "top": "Top",
+                "bottom": "Bottom"
+            },
+            "default_value": "center",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_product_card_image_breakout",
+            "label": "Image Breakout (Desktop)",
+            "name": "image_breakout",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Make the image break out above the section padding on desktop screens",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_product_card_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_product_card_badge",
             "label": "Badge\/Label",
             "name": "badge",
@@ -403,5 +504,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1786473260
+    "modified": 1786494984
 }

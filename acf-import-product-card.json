@@ -107,6 +107,25 @@
       ]
     },
     {
+      "key": "field_product_card_image_breakout",
+      "label": "Image Breakout (Desktop)",
+      "name": "image_breakout",
+      "type": "true_false",
+      "instructions": "Make the image break out above the section padding on desktop screens",
+      "required": 0,
+      "default_value": 0,
+      "ui": 1,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_product_card_layout",
+            "operator": "==",
+            "value": "split"
+          }
+        ]
+      ]
+    },
+    {
       "key": "field_product_card_badge",
       "label": "Badge/Label",
       "name": "badge",

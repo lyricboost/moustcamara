@@ -20,6 +20,7 @@ $image = get_field('image');
 $image_position = get_field('image_position') ?: 'left';
 $image_style = get_field('image_style') ?: 'square';
 $image_focal_point = get_field('image_focal_point') ?: 'center';
+$image_breakout = get_field('image_breakout');
 $layout = get_field('layout') ?: 'split';
 $background = get_field('background_color') ?: 'none';
 
@@ -50,6 +51,10 @@ if ($image_focal_point !== 'center') {
     $classes[] = 'product-card--focal-' . $image_focal_point;
 }
 
+if ($image_breakout && $layout === 'split') {
+    $classes[] = 'product-card--breakout';
+}
+
 $image_wrapper_class = 'product-card-image-wrapper';
 if ($image_style === 'square') {
     $image_wrapper_class .= ' product-card-image-wrapper--square';
@@ -59,7 +64,7 @@ $section_class = implode(' ', $classes);
 ?>
 
 <section class="<?php echo esc_attr($section_class); ?>"<?php echo $custom_id ? ' id="' . esc_attr($custom_id) . '"' : ''; ?>>
-    <div class="container">
+    <div class="container-fluid px-4">
         <?php if ($layout === 'centered'): ?>
             <!-- Centered Layout (no image) -->
             <div class="product-card-wrapper product-card-wrapper--centered">
@@ -124,12 +129,14 @@ $section_class = implode(' ', $classes);
                     <?php if ($image_position === 'left'): ?>
                         <!-- Image Left -->
                         <div class="col-lg-6 order-2 order-lg-1">
-                            <div class="<?php echo esc_attr($image_wrapper_class); ?>">
-                                <?php if ($image): ?>
-                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $product_name); ?>" class="product-card-image" />
-                                <?php else: ?>
-                                    <img src="https://via.placeholder.com/600x600" alt="<?php echo esc_attr($product_name); ?>" class="product-card-image" />
-                                <?php endif; ?>
+                            <div class="product-card-image d-flex justify-content-center justify-content-lg-start" <?php if ($image) : ?>style="background-image: url(<?php echo esc_url($image['url']); ?>);"<?php endif; ?>>
+                                <div class="<?php echo esc_attr($image_wrapper_class); ?>">
+                                    <?php if ($image): ?>
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $product_name); ?>" class="product-card-image-element" />
+                                    <?php else: ?>
+                                        <img src="https://via.placeholder.com/600x600" alt="<?php echo esc_attr($product_name); ?>" class="product-card-image-element" />
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-6 order-1 order-lg-2">
@@ -194,12 +201,14 @@ $section_class = implode(' ', $classes);
                         
                     <?php if ($image_position === 'right'): ?>
                         <div class="col-lg-6 order-2 order-lg-2">
-                            <div class="<?php echo esc_attr($image_wrapper_class); ?>">
-                                <?php if ($image): ?>
-                                    <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $product_name); ?>" class="product-card-image" />
-                                <?php else: ?>
-                                    <img src="https://via.placeholder.com/600x600" alt="<?php echo esc_attr($product_name); ?>" class="product-card-image" />
-                                <?php endif; ?>
+                            <div class="product-card-image d-flex justify-content-center justify-content-lg-end" <?php if ($image) : ?>style="background-image: url(<?php echo esc_url($image['url']); ?>);"<?php endif; ?>>
+                                <div class="<?php echo esc_attr($image_wrapper_class); ?>">
+                                    <?php if ($image): ?>
+                                        <img src="<?php echo esc_url($image['url']); ?>" alt="<?php echo esc_attr($image['alt'] ?: $product_name); ?>" class="product-card-image-element" />
+                                    <?php else: ?>
+                                        <img src="https://via.placeholder.com/600x600" alt="<?php echo esc_attr($product_name); ?>" class="product-card-image-element" />
+                                    <?php endif; ?>
+                                </div>
                             </div>
                         </div>
                     <?php endif; ?>
