@@ -110,7 +110,7 @@
       {
         "param": "block",
         "operator": "==",
-        "value": "acf/moust-faq"
+        "value": "acf/faq"
       }
     ]
   ]
