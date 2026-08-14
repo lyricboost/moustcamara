@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/contact-form",
+  "title": "Moust Contact Form",
+  "description": "Branded contact form with dynamic fields",
+  "category": "moustcamara",
+  "icon": "email",
+  "keywords": ["contact", "form", "email"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

@@ -133,6 +133,15 @@ function moustcamara_enqueue_styles() {
         '1.0',
         true
     );
+    
+    // Contact Form script
+    wp_enqueue_script(
+        'moustcamara-contact-form',
+        get_template_directory_uri() . '/js/contact-form.js',
+        array('lucide-icons'),
+        '1.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'moustcamara_enqueue_styles');
 
@@ -352,6 +361,23 @@ function moustcamara_register_acf_blocks() {
             ),
         ));
         
+        // Contact Form Block
+        acf_register_block_type(array(
+            'name'              => 'contact-form',
+            'title'             => __('Moust Contact Form'),
+            'description'       => __('Branded contact form with dynamic fields'),
+            'render_template'   => 'blocks/contact-form/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'email',
+            'keywords'          => array('contact', 'form', 'email', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
         // Final CTA Block
         acf_register_block_type(array(
             'name'              => 'final-cta',
@@ -455,3 +481,64 @@ function plausible_analytics() {
     <?php
 }
 add_action('wp_head', 'plausible_analytics');
+// Contact Form AJAX Handler
+function handle_contact_form_submission() {
+    // Verify nonce
+    if (!isset($_POST['moust_contact_nonce']) || !wp_verify_nonce($_POST['moust_contact_nonce'], 'moust_contact_form')) {
+        wp_send_json_error('Security check failed.');
+        return;
+    }
+    
+    // Get recipient email
+    $recipient = isset($_POST['recipient_email']) ? sanitize_email($_POST['recipient_email']) : get_option('admin_email');
+    
+    if (!is_email($recipient)) {
+        wp_send_json_error('Invalid recipient email.');
+        return;
+    }
+    
+    // Build email content
+    $subject = 'New Contact Form Submission from ' . get_bloginfo('name');
+    $message = "New contact form submission:\n\n";
+    
+    // Process all form fields
+    foreach ($_POST as $key => $value) {
+        // Skip WordPress and internal fields
+        if (in_array($key, array('action', 'moust_contact_nonce', 'recipient_email', '_wp_http_referer'))) {
+            continue;
+        }
+        
+        // Handle arrays (checkboxes)
+        if (is_array($value)) {
+            $value = implode(', ', array_map('sanitize_text_field', $value));
+        } else {
+            $value = sanitize_text_field($value);
+        }
+        
+        // Format field name
+        $field_name = ucwords(str_replace(array('-', '_'), ' ', $key));
+        
+        $message .= $field_name . ": " . $value . "\n";
+    }
+    
+    $message .= "\n---\n";
+    $message .= "Sent from: " . home_url() . "\n";
+    $message .= "Time: " . current_time('mysql') . "\n";
+    
+    // Set email headers
+    $headers = array(
+        'Content-Type: text/plain; charset=UTF-8',
+        'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>'
+    );
+    
+    // Send email
+    $sent = wp_mail($recipient, $subject, $message, $headers);
+    
+    if ($sent) {
+        wp_send_json_success('Message sent successfully!');
+    } else {
+        wp_send_json_error('Failed to send message. Please try again.');
+    }
+}
+add_action('wp_ajax_submit_contact_form', 'handle_contact_form_submission');
+add_action('wp_ajax_nopriv_submit_contact_form', 'handle_contact_form_submission');
