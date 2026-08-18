@@ -142,6 +142,15 @@ function moustcamara_enqueue_styles() {
         '1.0',
         true
     );
+    
+    // Testimonials script
+    wp_enqueue_script(
+        'moustcamara-testimonials',
+        get_template_directory_uri() . '/js/testimonials.js',
+        array('lucide-icons'),
+        '1.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'moustcamara_enqueue_styles');
 
