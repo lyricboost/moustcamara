@@ -3379,6 +3379,16 @@ body:not(.page-template-page-home) .site-main {
   transition: all 0.2s ease;
 }
 
+.moust-form .form-check-input[type="radio"] {
+  border-radius: 50%;
+}
+
+.moust-form .form-check-input[type="radio"]:checked {
+  background-color: #313d59;
+  border-color: #313d59;
+  background-image: none;
+}
+
 .moust-form .form-check-input:checked {
   background-color: var(--color-navy);
   border-color: var(--color-navy);
