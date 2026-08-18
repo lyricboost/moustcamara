@@ -503,7 +503,7 @@ function handle_contact_form_submission() {
     
     // Build email content and extract key fields
     $subject = 'New Contact Form Submission from ' . get_bloginfo('name');
-    $message = "New contact form submission:\n\n";
+    $message = "<p>New contact form submission:</p><br>";
     
     // Process all form fields
     foreach ($_POST as $key => $value) {
@@ -532,16 +532,16 @@ function handle_contact_form_submission() {
         // Format field name
         $field_name = ucwords(str_replace(array('-', '_'), ' ', $key));
         
-        $message .= $field_name . ": " . $value . "\n";
+        $message .= "<p><strong>" . $field_name . ":</strong> " . $value . "</p>";
     }
     
-    $message .= "\n---\n";
-    $message .= "Sent from: " . home_url() . "\n";
-    $message .= "Time: " . current_time('mysql') . "\n";
+    $message .= "<br><hr>";
+    $message .= "<p><small>Sent from: " . home_url() . "<br>";
+    $message .= "Time: " . current_time('mysql') . "</small></p>";
     
     // Set email headers
     $headers = array(
-        'Content-Type: text/plain; charset=UTF-8',
+        'Content-Type: text/html; charset=UTF-8',
         'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>'
     );
     
