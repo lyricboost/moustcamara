@@ -497,7 +497,11 @@ function handle_contact_form_submission() {
         return;
     }
     
-    // Build email content
+    // Extract user email for reply-to
+    $user_email = '';
+    $user_name = '';
+    
+    // Build email content and extract key fields
     $subject = 'New Contact Form Submission from ' . get_bloginfo('name');
     $message = "New contact form submission:\n\n";
     
@@ -515,6 +519,16 @@ function handle_contact_form_submission() {
             $value = sanitize_text_field($value);
         }
         
+        // Extract email for reply-to
+        if (strtolower($key) === 'email' && is_email($value)) {
+            $user_email = $value;
+        }
+        
+        // Extract name
+        if (strtolower($key) === 'name') {
+            $user_name = $value;
+        }
+        
         // Format field name
         $field_name = ucwords(str_replace(array('-', '_'), ' ', $key));
         
@@ -530,6 +544,12 @@ function handle_contact_form_submission() {
         'Content-Type: text/plain; charset=UTF-8',
         'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>'
     );
+    
+    // Add reply-to if user provided email
+    if (!empty($user_email)) {
+        $reply_to_name = !empty($user_name) ? $user_name : $user_email;
+        $headers[] = 'Reply-To: ' . $reply_to_name . ' <' . $user_email . '>';
+    }
     
     // Send email
     $sent = wp_mail($recipient, $subject, $message, $headers);
