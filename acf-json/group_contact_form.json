@@ -1,0 +1,344 @@
+{
+    "key": "group_contact_form",
+    "title": "Contact Form Settings",
+    "fields": [
+        {
+            "key": "field_contact_heading",
+            "label": "Heading",
+            "name": "heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Main heading for the form section",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Get in Touch",
+            "placeholder": "Contact Us",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contact_description",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Optional description text below heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0,
+            "default_value": ""
+        },
+        {
+            "key": "field_contact_image",
+            "label": "Side Image",
+            "name": "side_image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "Optional image to display on the left side (desktop) or top (mobile)",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_contact_bg_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Select background color",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "white": "White",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "dark-gray": "Dark Gray",
+                "navy": "Navy",
+                "black": "Black"
+            },
+            "default_value": "white",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_contact_fields",
+            "label": "Form Fields",
+            "name": "form_fields",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add and configure form fields",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "button_label": "Add Field",
+            "min": 0,
+            "max": 0,
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_contact_field_type",
+                    "label": "Field Type",
+                    "name": "field_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Type of form field",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "text": "Text Input",
+                        "email": "Email Input",
+                        "textarea": "Text Area",
+                        "select": "Dropdown Select",
+                        "radio": "Radio Buttons",
+                        "checkbox": "Checkboxes"
+                    },
+                    "default_value": "text",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "return_format": "value",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_contact_fields"
+                },
+                {
+                    "key": "field_contact_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Field label (also used as field name)",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "Full Name",
+                    "default_value": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_contact_fields"
+                },
+                {
+                    "key": "field_contact_placeholder",
+                    "label": "Placeholder",
+                    "name": "placeholder",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Placeholder text (for text\/email\/textarea only)",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "placeholder": "Enter your name...",
+                    "default_value": "",
+                    "maxlength": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_contact_fields"
+                },
+                {
+                    "key": "field_contact_required",
+                    "label": "Required",
+                    "name": "required",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Make this field required",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 0,
+                    "ui": 1,
+                    "message": "",
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_contact_fields"
+                },
+                {
+                    "key": "field_contact_options",
+                    "label": "Options",
+                    "name": "options",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Options for select\/radio\/checkbox (one per line)",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_contact_field_type",
+                                "operator": "==",
+                                "value": "select"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_contact_field_type",
+                                "operator": "==",
+                                "value": "radio"
+                            }
+                        ],
+                        [
+                            {
+                                "field": "field_contact_field_type",
+                                "operator": "==",
+                                "value": "checkbox"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "rows": 4,
+                    "placeholder": "Option 1\nOption 2\nOption 3",
+                    "default_value": "",
+                    "new_lines": "",
+                    "maxlength": "",
+                    "parent_repeater": "field_contact_fields"
+                }
+            ]
+        },
+        {
+            "key": "field_contact_submit_text",
+            "label": "Submit Button Text",
+            "name": "submit_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text for the submit button",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Send Message",
+            "placeholder": "Submit",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contact_recipient",
+            "label": "Recipient Email",
+            "name": "recipient_email",
+            "aria-label": "",
+            "type": "email",
+            "instructions": "Where to send form submissions (defaults to site admin email)",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "your@email.com",
+            "default_value": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_contact_success_message",
+            "label": "Success Message",
+            "name": "success_message",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Message shown after successful submission",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Thank you! Your message has been sent.",
+            "placeholder": "Thank you for contacting us!",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/contact-form"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1786727275
+}

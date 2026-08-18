@@ -17,11 +17,24 @@
                 "key": "field_contact_description",
                 "label": "Description",
                 "name": "description",
-                "type": "textarea",
+                "type": "wysiwyg",
                 "instructions": "Optional description text below heading",
                 "required": 0,
-                "rows": 3,
-                "placeholder": "We'd love to hear from you..."
+                "tabs": "all",
+                "toolbar": "basic",
+                "media_upload": 0,
+                "delay": 0
+            },
+            {
+                "key": "field_contact_image",
+                "label": "Side Image",
+                "name": "side_image",
+                "type": "image",
+                "instructions": "Optional image to display on the left side (desktop) or top (mobile)",
+                "required": 0,
+                "return_format": "array",
+                "preview_size": "medium",
+                "library": "all"
             },
             {
                 "key": "field_contact_bg_color",
