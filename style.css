@@ -788,15 +788,22 @@ body:not(.page-template-page-home) .site-main {
 }
 
 /* CTA button on navy background */
-.split-section.bg-navy .hero-alt-cta-btn {
+.split-section.bg-navy .hero-alt-cta-btn,
+.bg-navy .hero-alt-cta-btn {
   background: #111827;
   border-color: #111827;
 }
 
-.split-section.bg-navy .hero-alt-cta-btn:hover {
-  background: #1f2937;
-  border-color: #1f2937;
+.split-section.bg-navy .hero-alt-cta-btn:hover,
+.bg-navy .hero-alt-cta-btn:hover {
+  background: transparent;
+  border-color: var(--color-white);
   color: var(--color-white);
+}
+
+.split-section.bg-navy .hero-alt-cta-btn:hover svg,
+.bg-navy .hero-alt-cta-btn:hover svg {
+  stroke: var(--color-white);
 }
 
 /* Light text variations for dark backgrounds */
