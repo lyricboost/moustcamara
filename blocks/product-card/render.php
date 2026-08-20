@@ -15,7 +15,9 @@ $price_secondary = get_field('price_secondary');
 $features = get_field('features') ?: [];
 $fine_print = get_field('fine_print');
 $cta_text = get_field('cta_text');
+$cta_link_type = get_field('cta_link_type') ?: 'url';
 $cta_link = get_field('cta_link');
+$typeform_url = get_field('typeform_url');
 $image = get_field('image');
 $image_position = get_field('image_position') ?: 'left';
 $image_style = get_field('image_style') ?: 'square';
@@ -23,6 +25,15 @@ $image_focal_point = get_field('image_focal_point') ?: 'center';
 $image_breakout = get_field('image_breakout');
 $layout = get_field('layout') ?: 'split';
 $background = get_field('background_color') ?: 'none';
+
+// Extract Typeform ID if using Typeform popup
+$typeform_id = '';
+if ($cta_link_type === 'typeform' && !empty($typeform_url)) {
+    preg_match('/typeform\.com\/to\/([a-zA-Z0-9]+)/', $typeform_url, $matches);
+    if (!empty($matches[1])) {
+        $typeform_id = $matches[1];
+    }
+}
 
 // Build CSS classes
 $classes = ['product-card-section'];
@@ -106,14 +117,31 @@ $section_class = implode(' ', $classes);
                         </ul>
                     <?php endif; ?>
                     
-                    <?php if ($cta_text && $cta_link): ?>
-                        <a href="<?php echo esc_url($cta_link); ?>" class="product-card-cta">
-                            <?php echo esc_html($cta_text); ?>
-                            <svg class="product-card-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <line x1="5" y1="12" x2="19" y2="12"></line>
-                                <polyline points="12 5 19 12 12 19"></polyline>
-                            </svg>
-                        </a>
+                    <?php if ($cta_text && (($cta_link_type === 'url' && $cta_link) || ($cta_link_type === 'typeform' && $typeform_id))): ?>
+                        <?php if ($cta_link_type === 'typeform' && $typeform_id): ?>
+                            <button 
+                                data-tf-popup="<?php echo esc_attr($typeform_id); ?>" 
+                                data-tf-opacity="100"
+                                data-tf-size="100"
+                                data-tf-iframe-props="title=Typeform"
+                                data-tf-transitive-search-params
+                                data-tf-medium="snippet"
+                                class="product-card-cta product-card-cta--typeform">
+                                <?php echo esc_html($cta_text); ?>
+                                <svg class="product-card-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </button>
+                        <?php else: ?>
+                            <a href="<?php echo esc_url($cta_link); ?>" class="product-card-cta">
+                                <?php echo esc_html($cta_text); ?>
+                                <svg class="product-card-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        <?php endif; ?>
                     <?php endif; ?>
                     
                     <?php if ($fine_print): ?>
@@ -183,14 +211,31 @@ $section_class = implode(' ', $classes);
                                     </ul>
                                 <?php endif; ?>
                                 
-                                <?php if ($cta_text && $cta_link): ?>
-                                    <a href="<?php echo esc_url($cta_link); ?>" class="product-card-cta">
-                                        <?php echo esc_html($cta_text); ?>
-                                        <svg class="product-card-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                        </svg>
-                                    </a>
+                                <?php if ($cta_text && (($cta_link_type === 'url' && $cta_link) || ($cta_link_type === 'typeform' && $typeform_id))): ?>
+                                    <?php if ($cta_link_type === 'typeform' && $typeform_id): ?>
+                                        <button 
+                                            data-tf-popup="<?php echo esc_attr($typeform_id); ?>" 
+                                            data-tf-opacity="100"
+                                            data-tf-size="100"
+                                            data-tf-iframe-props="title=Typeform"
+                                            data-tf-transitive-search-params
+                                            data-tf-medium="snippet"
+                                            class="product-card-cta product-card-cta--typeform">
+                                            <?php echo esc_html($cta_text); ?>
+                                            <svg class="product-card-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </button>
+                                    <?php else: ?>
+                                        <a href="<?php echo esc_url($cta_link); ?>" class="product-card-cta">
+                                            <?php echo esc_html($cta_text); ?>
+                                            <svg class="product-card-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                            </svg>
+                                        </a>
+                                    <?php endif; ?>
                                 <?php endif; ?>
                                 
                                 <?php if ($fine_print): ?>
@@ -217,6 +262,10 @@ $section_class = implode(' ', $classes);
         <?php endif; ?>
     </div>
 </section>
+
+<?php if ($cta_link_type === 'typeform' && $typeform_id && !wp_script_is('typeform-embed', 'enqueued')): ?>
+<script src="//embed.typeform.com/next/embed.js"></script>
+<?php endif; ?>
 
 <script>
   if (typeof lucide !== 'undefined') {

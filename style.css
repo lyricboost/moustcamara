@@ -2851,6 +2851,8 @@ body:not(.page-template-page-home) .site-main {
   border: 2px solid #313d59;
   width: fit-content;
   white-space: nowrap;
+  cursor: pointer;
+  font-family: inherit;
 }
 
 .product-card-cta:hover {

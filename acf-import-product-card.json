@@ -207,13 +207,54 @@
       "placeholder": "Get Started"
     },
     {
+      "key": "field_product_card_cta_link_type",
+      "label": "CTA Link Type",
+      "name": "cta_link_type",
+      "type": "select",
+      "choices": {
+        "url": "Direct Link or Anchor",
+        "typeform": "Typeform Popup"
+      },
+      "default_value": "url",
+      "ui": 1,
+      "required": 0,
+      "instructions": "Choose how the CTA button should work"
+    },
+    {
       "key": "field_product_card_cta_link",
       "label": "CTA Button Link",
       "name": "cta_link",
       "type": "text",
       "required": 0,
       "instructions": "URL or anchor link (e.g., '#contact' or 'https://...')",
-      "placeholder": "#contact"
+      "placeholder": "#contact",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_product_card_cta_link_type",
+            "operator": "==",
+            "value": "url"
+          }
+        ]
+      ]
+    },
+    {
+      "key": "field_product_card_typeform_url",
+      "label": "Typeform URL",
+      "name": "typeform_url",
+      "type": "url",
+      "required": 0,
+      "instructions": "Enter the full Typeform URL (e.g., https://form.typeform.com/to/YOUR_FORM_ID)",
+      "placeholder": "https://form.typeform.com/to/YOUR_FORM_ID",
+      "conditional_logic": [
+        [
+          {
+            "field": "field_product_card_cta_link_type",
+            "operator": "==",
+            "value": "typeform"
+          }
+        ]
+      ]
     },
     {
       "key": "field_product_card_fine_print",

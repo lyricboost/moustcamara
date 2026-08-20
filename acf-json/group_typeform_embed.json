@@ -46,7 +46,9 @@
             "allow_in_bindings": 1,
             "ui": 1,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_typeform_embed_height",
@@ -175,7 +177,9 @@
             "allow_in_bindings": 1,
             "ui": 1,
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -196,5 +200,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1770875696
+    "display_title": "",
+    "modified": 1787260120
 }

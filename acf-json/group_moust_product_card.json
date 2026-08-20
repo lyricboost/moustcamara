@@ -413,6 +413,32 @@
             "append": ""
         },
         {
+            "key": "field_product_card_cta_link_type",
+            "label": "CTA Link Type",
+            "name": "cta_link_type",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Choose how the CTA button should work",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "url": "Direct Link or Anchor",
+                "typeform": "Typeform Popup"
+            },
+            "default_value": "url",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
             "key": "field_product_card_cta_link",
             "label": "CTA Button Link",
             "name": "cta_link",
@@ -420,7 +446,15 @@
             "type": "text",
             "instructions": "URL or anchor link (e.g., '#contact' or 'https:\/\/...')",
             "required": 0,
-            "conditional_logic": false,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_product_card_cta_link_type",
+                        "operator": "==",
+                        "value": "url"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -431,6 +465,31 @@
             "maxlength": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_product_card_typeform_url",
+            "label": "Typeform URL",
+            "name": "typeform_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter the full Typeform URL (e.g., https:\/\/form.typeform.com\/to\/YOUR_FORM_ID)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_product_card_cta_link_type",
+                        "operator": "==",
+                        "value": "typeform"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https:\/\/form.typeform.com\/to\/YOUR_FORM_ID"
         },
         {
             "key": "field_product_card_fine_print",
