@@ -403,6 +403,23 @@ function moustcamara_register_acf_blocks() {
                 'jsx' => true,
             ),
         ));
+        
+        // Typeform Embed Block
+        acf_register_block_type(array(
+            'name'              => 'typeform-embed',
+            'title'             => __('Moust Typeform Embed'),
+            'description'       => __('Embed Typeform surveys and forms with various display options'),
+            'render_template'   => 'blocks/typeform-embed/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'feedback',
+            'keywords'          => array('typeform', 'form', 'survey', 'embed', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
     }
 }
 

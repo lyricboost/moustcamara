@@ -3794,3 +3794,72 @@ body:not(.page-template-page-home) .site-main {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   TYPEFORM EMBED BLOCK
+   ============================================ */
+.typeform-embed-section {
+  padding: 5rem 0;
+}
+
+.typeform-embed-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.typeform-header {
+  margin-bottom: 2.5rem;
+}
+
+.typeform-header h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.typeform-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.typeform-embed-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.typeform-popup-container,
+.typeform-slider-container,
+.typeform-popover-container {
+  padding: 2rem 0;
+}
+
+/* Dark background text color */
+.typeform-embed-section.text-light .typeform-header h2,
+.typeform-embed-section.text-light .typeform-description {
+  color: #ffffff;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .typeform-embed-section {
+    padding: 2rem 0;
+  }
+
+  .typeform-header h2 {
+    font-size: 1.75rem;
+  }
+
+  .typeform-description {
+    font-size: 1rem;
+  }
+
+  .typeform-embed-container {
+    min-height: 400px;
+  }
+}
+

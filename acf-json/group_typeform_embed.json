@@ -1,0 +1,200 @@
+{
+    "key": "group_typeform_embed",
+    "title": "Typeform Embed Block Fields",
+    "fields": [
+        {
+            "key": "field_typeform_url",
+            "label": "Typeform URL",
+            "name": "typeform_url",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "Enter the full Typeform URL (e.g., https:\/\/form.typeform.com\/to\/YOUR_FORM_ID)",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "https:\/\/form.typeform.com\/to\/YOUR_FORM_ID"
+        },
+        {
+            "key": "field_typeform_display_mode",
+            "label": "Display Mode",
+            "name": "display_mode",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Choose how the Typeform should be displayed",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "embed": "Standard Embed (inline)",
+                "popup": "Popup (full screen modal)",
+                "slider": "Slider (side panel)",
+                "popover": "Popover (centered modal)"
+            },
+            "default_value": "embed",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_typeform_embed_height",
+            "label": "Embed Height",
+            "name": "embed_height",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "Height in pixels for the embedded form",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_typeform_display_mode",
+                        "operator": "==",
+                        "value": "embed"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 500,
+            "min": 300,
+            "max": 1000,
+            "step": 50,
+            "placeholder": "",
+            "prepend": "",
+            "append": "px"
+        },
+        {
+            "key": "field_typeform_button_text",
+            "label": "Button Text",
+            "name": "button_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text to display on the trigger button",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_typeform_display_mode",
+                        "operator": "!=",
+                        "value": "embed"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "Open Form",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_typeform_heading",
+            "label": "Section Heading",
+            "name": "heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional heading above the form",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_typeform_description",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Optional description text",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_typeform_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (White)",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "dark-gray": "Dark Gray",
+                "black": "Black",
+                "navy": "Navy"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "ui": 1,
+            "ajax": 0,
+            "placeholder": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/typeform-embed"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1770875696
+}

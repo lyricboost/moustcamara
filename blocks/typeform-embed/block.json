@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/typeform-embed",
+  "title": "Moust Typeform Embed",
+  "description": "Embed Typeform surveys and forms with various display options",
+  "category": "moustcamara",
+  "icon": "feedback",
+  "keywords": ["typeform", "form", "survey", "embed"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}
