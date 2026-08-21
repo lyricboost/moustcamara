@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/mailing-list",
+  "title": "Moust Mailing List",
+  "description": "Mailing list signup form with Mailchimp integration",
+  "category": "moustcamara",
+  "icon": "email-alt",
+  "keywords": ["mailing", "list", "newsletter", "signup", "mailchimp"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

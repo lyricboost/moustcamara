@@ -1,0 +1,152 @@
+{
+  "key": "group_mailing_list",
+  "title": "Moust Mailing List Block",
+  "fields": [
+    {
+      "key": "field_mailing_list_custom_id",
+      "label": "Custom ID",
+      "name": "custom_id",
+      "type": "text",
+      "required": 0,
+      "instructions": "Optional anchor ID for linking to this section"
+    },
+    {
+      "key": "field_mailing_list_layout",
+      "label": "Layout",
+      "name": "layout",
+      "type": "select",
+      "choices": {
+        "split": "Split (Image + Content)",
+        "centered": "Centered (No Image)"
+      },
+      "default_value": "split",
+      "required": 0
+    },
+    {
+      "key": "field_mailing_list_heading",
+      "label": "Heading",
+      "name": "heading",
+      "type": "text",
+      "required": 1,
+      "placeholder": "Join Our Mailing List"
+    },
+    {
+      "key": "field_mailing_list_description",
+      "label": "Description",
+      "name": "description",
+      "type": "wysiwyg",
+      "tabs": "visual",
+      "toolbar": "basic",
+      "media_upload": 0,
+      "required": 0
+    },
+    {
+      "key": "field_mailing_list_form_fields",
+      "label": "Form Fields",
+      "name": "form_fields",
+      "type": "repeater",
+      "instructions": "Add form fields for the signup form",
+      "layout": "table",
+      "button_label": "Add Field",
+      "sub_fields": [
+        {
+          "key": "field_mailing_list_field_type",
+          "label": "Field Type",
+          "name": "field_type",
+          "type": "select",
+          "choices": {
+            "text": "Text",
+            "email": "Email"
+          },
+          "default_value": "text",
+          "required": 1
+        },
+        {
+          "key": "field_mailing_list_field_label",
+          "label": "Label",
+          "name": "label",
+          "type": "text",
+          "required": 1,
+          "placeholder": "Name"
+        },
+        {
+          "key": "field_mailing_list_field_placeholder",
+          "label": "Placeholder",
+          "name": "placeholder",
+          "type": "text",
+          "placeholder": "Enter your name"
+        },
+        {
+          "key": "field_mailing_list_field_required",
+          "label": "Required",
+          "name": "required",
+          "type": "true_false",
+          "ui": 1
+        },
+        {
+          "key": "field_mailing_list_mailchimp_field",
+          "label": "Mailchimp Field Name",
+          "name": "mailchimp_field",
+          "type": "select",
+          "instructions": "Map to Mailchimp field",
+          "choices": {
+            "EMAIL": "Email Address",
+            "FNAME": "First Name",
+            "LNAME": "Last Name",
+            "NAME": "Full Name"
+          },
+          "allow_null": 1,
+          "ui": 1,
+          "placeholder": "Select field mapping"
+        }
+      ]
+    },
+    {
+      "key": "field_mailing_list_submit_text",
+      "label": "Submit Button Text",
+      "name": "submit_text",
+      "type": "text",
+      "placeholder": "Subscribe",
+      "default_value": "Subscribe"
+    },
+    {
+      "key": "field_mailing_list_fine_print",
+      "label": "Fine Print",
+      "name": "fine_print",
+      "type": "wysiwyg",
+      "instructions": "Small text at bottom (privacy policy, etc.)",
+      "tabs": "visual",
+      "toolbar": "basic",
+      "media_upload": 0
+    },
+    {
+      "key": "field_mailing_list_mailchimp_list_id",
+      "label": "Mailchimp List ID",
+      "name": "mailchimp_list_id",
+      "type": "text",
+      "instructions": "Your Mailchimp audience/list ID"
+    },
+    {
+      "key": "field_mailing_list_mailchimp_api_key",
+      "label": "Mailchimp API Key",
+      "name": "mailchimp_api_key",
+      "type": "text",
+      "instructions": "Your Mailchimp API key (stored securely)"
+    },
+    {
+      "key": "field_mailing_list_background_color",
+      "label": "Background Color",
+      "name": "background_color",
+      "type": "select",
+      "choices": {
+        "none": "None (Transparent)",
+        "light-gray": "Light Gray",
+        "medium-gray": "Medium Gray",
+        "navy": "Navy",
+        "dark-gray": "Dark Gray",
+        "black": "Black"
+      },
+      "default_value": "none"
+    }
+  ]
+}

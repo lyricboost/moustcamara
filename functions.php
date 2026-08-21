@@ -420,6 +420,23 @@ function moustcamara_register_acf_blocks() {
                 'jsx' => true,
             ),
         ));
+        
+        // Mailing List Block
+        acf_register_block_type(array(
+            'name'              => 'mailing-list',
+            'title'             => __('Moust Mailing List'),
+            'description'       => __('Mailing list signup form with Mailchimp integration'),
+            'render_template'   => 'blocks/mailing-list/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'email-alt',
+            'keywords'          => array('mailing', 'list', 'newsletter', 'signup', 'mailchimp', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
     }
 }
 
@@ -588,3 +605,80 @@ function handle_contact_form_submission() {
 }
 add_action('wp_ajax_submit_contact_form', 'handle_contact_form_submission');
 add_action('wp_ajax_nopriv_submit_contact_form', 'handle_contact_form_submission');
+
+// Handle Mailing List Signup
+function handle_mailing_list_signup() {
+    // Verify nonce
+    if (!isset($_POST['mailing_list_nonce']) || !wp_verify_nonce($_POST['mailing_list_nonce'], 'mailing_list_signup')) {
+        wp_send_json_error(array('message' => 'Security verification failed.'));
+        return;
+    }
+    
+    // Get form data
+    $list_id = isset($_POST['list_id']) ? sanitize_text_field($_POST['list_id']) : '';
+    
+    // Collect subscriber data
+    $subscriber_data = array();
+    foreach ($_POST as $key => $value) {
+        if (in_array($key, array('action', 'mailing_list_nonce', 'list_id'))) {
+            continue;
+        }
+        
+        $subscriber_data[$key] = sanitize_text_field($value);
+    }
+    
+    // Validate email exists
+    $email = '';
+    foreach ($subscriber_data as $key => $value) {
+        if (filter_var($value, FILTER_VALIDATE_EMAIL)) {
+            $email = $value;
+            break;
+        }
+    }
+    
+    if (empty($email)) {
+        wp_send_json_error(array('message' => 'Please provide a valid email address.'));
+        return;
+    }
+    
+    // TODO: Integrate with Mailchimp API here
+    // For now, we'll store locally
+    
+    // Store subscriber in WordPress options as backup
+    $subscribers = get_option('mailing_list_subscribers', array());
+    $subscribers[] = array(
+        'email' => $email,
+        'data' => $subscriber_data,
+        'list_id' => $list_id,
+        'timestamp' => current_time('mysql')
+    );
+    update_option('mailing_list_subscribers', $subscribers);
+    
+    // Send notification email to admin
+    $admin_email = get_option('admin_email');
+    $subject = 'New Mailing List Signup - ' . get_bloginfo('name');
+    $message = '<h2>New Mailing List Subscriber</h2>';
+    $message .= '<p><strong>Email:</strong> ' . $email . '</p>';
+    
+    foreach ($subscriber_data as $key => $value) {
+        if ($value !== $email) {
+            $field_name = ucwords(str_replace(array('-', '_'), ' ', $key));
+            $message .= '<p><strong>' . $field_name . ':</strong> ' . $value . '</p>';
+        }
+    }
+    
+    $message .= '<br><hr>';
+    $message .= '<p><small>List ID: ' . $list_id . '<br>';
+    $message .= 'Subscribed: ' . current_time('mysql') . '</small></p>';
+    
+    $headers = array(
+        'Content-Type: text/html; charset=UTF-8',
+        'From: ' . get_bloginfo('name') . ' <' . get_option('admin_email') . '>'
+    );
+    
+    wp_mail($admin_email, $subject, $message, $headers);
+    
+    wp_send_json_success(array('message' => 'Thank you for subscribing!'));
+}
+add_action('wp_ajax_mailing_list_signup', 'handle_mailing_list_signup');
+add_action('wp_ajax_nopriv_mailing_list_signup', 'handle_mailing_list_signup');

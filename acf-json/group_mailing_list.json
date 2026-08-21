@@ -1,0 +1,572 @@
+{
+    "key": "group_mailing_list",
+    "title": "Moust Mailing List Block",
+    "fields": [
+        {
+            "key": "field_mailing_list_custom_id",
+            "label": "Custom ID",
+            "name": "custom_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional anchor ID for linking to this section",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_mailing_list_layout",
+            "label": "Layout",
+            "name": "layout",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "split": "Split (Image + Content)",
+                "centered": "Centered (No Image)"
+            },
+            "default_value": "split",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value"
+        },
+        {
+            "key": "field_mailing_list_image",
+            "label": "Image",
+            "name": "image",
+            "aria-label": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_mailing_list_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
+        },
+        {
+            "key": "field_mailing_list_image_position",
+            "label": "Image Position",
+            "name": "image_position",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_mailing_list_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "default_value": "left",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value"
+        },
+        {
+            "key": "field_mailing_list_image_style",
+            "label": "Image Style",
+            "name": "image_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_mailing_list_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "circle": "Circle",
+                "square": "Square"
+            },
+            "default_value": "square",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value"
+        },
+        {
+            "key": "field_mailing_list_image_focal_point",
+            "label": "Image Focal Point",
+            "name": "image_focal_point",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Where to focus the image crop",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_mailing_list_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "center": "Center",
+                "top": "Top",
+                "bottom": "Bottom"
+            },
+            "default_value": "center",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value"
+        },
+        {
+            "key": "field_mailing_list_image_breakout",
+            "label": "Image Breakout (Desktop)",
+            "name": "image_breakout",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Allow image to extend beyond content area on desktop",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_mailing_list_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_mailing_list_badge",
+            "label": "Badge Text",
+            "name": "badge",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional small badge above heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Newsletter",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_mailing_list_heading",
+            "label": "Heading",
+            "name": "heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "Join Our Mailing List",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_mailing_list_heading_size",
+            "label": "Heading Size",
+            "name": "heading_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "medium": "Medium",
+                "large": "Large"
+            },
+            "default_value": "medium",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value"
+        },
+        {
+            "key": "field_mailing_list_description",
+            "label": "Description",
+            "name": "description",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_mailing_list_form_fields",
+            "label": "Form Fields",
+            "name": "form_fields",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add form fields for the signup form",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "table",
+            "button_label": "Add Field",
+            "min": 0,
+            "max": 0,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_mailing_list_field_type",
+                    "label": "Field Type",
+                    "name": "field_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "text": "Text",
+                        "email": "Email"
+                    },
+                    "default_value": "text",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "parent_repeater": "field_mailing_list_form_fields"
+                },
+                {
+                    "key": "field_mailing_list_field_label",
+                    "label": "Label",
+                    "name": "label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Name",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_mailing_list_form_fields"
+                },
+                {
+                    "key": "field_mailing_list_field_placeholder",
+                    "label": "Placeholder",
+                    "name": "placeholder",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "Enter your name",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_mailing_list_form_fields"
+                },
+                {
+                    "key": "field_mailing_list_field_required",
+                    "label": "Required",
+                    "name": "required",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_mailing_list_form_fields"
+                },
+                {
+                    "key": "field_mailing_list_mailchimp_field",
+                    "label": "Mailchimp Field Name",
+                    "name": "mailchimp_field",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Map to Mailchimp field",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "EMAIL": "Email Address",
+                        "FNAME": "First Name",
+                        "LNAME": "Last Name",
+                        "NAME": "Full Name"
+                    },
+                    "default_value": "",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 1,
+                    "ui": 1,
+                    "ajax": 0,
+                    "placeholder": "Select field mapping",
+                    "parent_repeater": "field_mailing_list_form_fields"
+                }
+            ]
+        },
+        {
+            "key": "field_mailing_list_submit_text",
+            "label": "Submit Button Text",
+            "name": "submit_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placeholder": "Subscribe",
+            "default_value": "Subscribe",
+            "maxlength": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_mailing_list_fine_print",
+            "label": "Fine Print",
+            "name": "fine_print",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Small text at bottom (privacy policy, etc.)",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "tabs": "visual",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "default_value": "",
+            "delay": 0
+        },
+        {
+            "key": "field_mailing_list_mailchimp_list_id",
+            "label": "Mailchimp List ID",
+            "name": "mailchimp_list_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Your Mailchimp audience\/list ID",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_mailing_list_mailchimp_api_key",
+            "label": "Mailchimp API Key",
+            "name": "mailchimp_api_key",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Your Mailchimp API key (stored securely)",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_mailing_list_background_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (Transparent)",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
+                "black": "Black"
+            },
+            "default_value": "none",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/mailing-list"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "modified": 1786494984
+}
