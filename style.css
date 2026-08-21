@@ -3904,7 +3904,7 @@ body:not(.page-template-page-home) .site-main {
 /* Heading */
 .mailing-list-heading {
   font-size: clamp(32px, 5vw, 42px);
-  font-weight: 700;
+  font-weight: 600;
   line-height: 1.2;
   color: var(--color-text-dark);
   margin: 0;
@@ -3988,18 +3988,20 @@ body:not(.page-template-page-home) .site-main {
 
 .mailing-list-input {
   width: 100%;
-  padding: 16px 20px;
-  font-size: 16px;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  padding: 0.625rem 0.875rem;
+  font-size: 0.9375rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.375rem;
+  transition: all 0.2s ease;
   font-family: inherit;
+  background: var(--color-white);
+  color: var(--color-navy);
 }
 
 .mailing-list-input:focus {
   outline: none;
-  border-color: #313d59;
-  box-shadow: 0 0 0 3px rgba(49, 61, 89, 0.1);
+  border-color: var(--color-navy);
+  box-shadow: 0 0 0 2px rgba(49, 61, 89, 0.08);
 }
 
 .mailing-list-input::placeholder {
@@ -4142,8 +4144,22 @@ body:not(.page-template-page-home) .site-main {
     font-size: 16px;
   }
   
+  /* Full width image on mobile */
+  .mailing-list-wrapper--split .col-lg-6:has(.mailing-list-image) {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 40px;
+  }
+  
+  .mailing-list-wrapper--split .mailing-list-image {
+    justify-content: center !important;
+  }
+  
   .mailing-list-image-wrapper {
-    max-width: 300px;
+    max-width: 100%;
+    width: 100%;
   }
   
   .mailing-list-submit {
