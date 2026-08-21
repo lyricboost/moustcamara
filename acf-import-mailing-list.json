@@ -132,6 +132,25 @@
       "required": 0
     },
     {
+      "key": "field_mailing_list_image_breakout",
+      "label": "Image Breakout",
+      "name": "image_breakout",
+      "type": "true_false",
+      "instructions": "Make image pop out of section on desktop (adds negative top margin)",
+      "ui": 1,
+      "default_value": 0,
+      "conditional_logic": [
+        [
+          {
+            "field": "field_mailing_list_layout",
+            "operator": "==",
+            "value": "split"
+          }
+        ]
+      ],
+      "required": 0
+    },
+    {
       "key": "field_mailing_list_form_fields",
       "label": "Form Fields",
       "name": "form_fields",

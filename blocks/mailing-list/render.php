@@ -6,7 +6,7 @@
  */
 
 $custom_id = get_field('custom_id');
-$badge = get_field('badge');
+$eyebrow = get_field('eyebrow');
 $heading = get_field('heading');
 $heading_size = get_field('heading_size') ?: 'medium';
 $description = get_field('description');
@@ -73,8 +73,8 @@ $form_id = 'mailing-list-' . uniqid();
             <!-- Centered Layout (no image) -->
             <div class="mailing-list-wrapper mailing-list-wrapper--centered">
                 <div class="mailing-list-content">
-                    <?php if ($badge): ?>
-                        <div class="mailing-list-badge"><?php echo esc_html($badge); ?></div>
+                    <?php if ($eyebrow): ?>
+                        <div class="mailing-list-eyebrow"><?php echo esc_html($eyebrow); ?></div>
                     <?php endif; ?>
                     
                     <?php if ($heading): ?>
@@ -88,6 +88,8 @@ $form_id = 'mailing-list-' . uniqid();
                     <!-- Mailing List Form -->
                     <form class="mailing-list-form" id="<?php echo esc_attr($form_id); ?>" data-list-id="<?php echo esc_attr($mailchimp_list_id); ?>">
                         <?php wp_nonce_field('mailing_list_signup', 'mailing_list_nonce'); ?>
+                        <input type="hidden" name="list_id" value="<?php echo esc_attr($mailchimp_list_id); ?>">
+                        <input type="hidden" name="mailchimp_api_key" value="<?php echo esc_attr($mailchimp_api_key); ?>">
                         
                         <?php if (!empty($form_fields)): ?>
                             <div class="mailing-list-fields">
@@ -171,8 +173,8 @@ $form_id = 'mailing-list-' . uniqid();
                     <?php endif; ?>
                     
                             <div class="mailing-list-content">
-                                <?php if ($badge): ?>
-                                    <div class="mailing-list-badge"><?php echo esc_html($badge); ?></div>
+                                <?php if ($eyebrow): ?>
+                                    <div class="mailing-list-eyebrow"><?php echo esc_html($eyebrow); ?></div>
                                 <?php endif; ?>
                                 
                                 <?php if ($heading): ?>
@@ -186,6 +188,8 @@ $form_id = 'mailing-list-' . uniqid();
                                 <!-- Mailing List Form -->
                                 <form class="mailing-list-form" id="<?php echo esc_attr($form_id); ?>" data-list-id="<?php echo esc_attr($mailchimp_list_id); ?>">
                                     <?php wp_nonce_field('mailing_list_signup', 'mailing_list_nonce'); ?>
+                                    <input type="hidden" name="list_id" value="<?php echo esc_attr($mailchimp_list_id); ?>">
+                                    <input type="hidden" name="mailchimp_api_key" value="<?php echo esc_attr($mailchimp_api_key); ?>">
                                     
                                     <?php if (!empty($form_fields)): ?>
                                         <div class="mailing-list-fields">

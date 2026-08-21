@@ -91,13 +91,13 @@
             "delay": 0
         },
         {
-            "key": "field_mailing_list_badge",
-            "label": "Badge",
-            "name": "badge",
+            "key": "field_mailing_list_eyebrow",
+            "label": "Eyebrow",
+            "name": "eyebrow",
             "aria-label": "",
             "type": "text",
-            "instructions": "Optional badge\/label above heading",
-            "required": false,
+            "instructions": "Optional eyebrow text above heading",
+            "required": 0,
             "conditional_logic": false,
             "wrapper": {
                 "width": "",
@@ -117,7 +117,7 @@
             "aria-label": "",
             "type": "image",
             "instructions": "Image for split layout",
-            "required": false,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -133,15 +133,15 @@
                 "id": ""
             },
             "return_format": "array",
+            "preview_size": "medium",
             "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": "",
-            "preview_size": "medium"
+            "min_width": 0,
+            "min_height": 0,
+            "min_size": 0,
+            "max_width": 0,
+            "max_height": 0,
+            "max_size": 0,
+            "mime_types": ""
         },
         {
             "key": "field_mailing_list_image_position",
@@ -150,7 +150,7 @@
             "aria-label": "",
             "type": "select",
             "instructions": "",
-            "required": false,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -186,7 +186,7 @@
             "aria-label": "",
             "type": "select",
             "instructions": "",
-            "required": false,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -222,7 +222,7 @@
             "aria-label": "",
             "type": "select",
             "instructions": "",
-            "required": false,
+            "required": 0,
             "conditional_logic": [
                 [
                     {
@@ -251,6 +251,34 @@
             "return_format": "value",
             "create_options": 0,
             "save_options": 0
+        },
+        {
+            "key": "field_mailing_list_image_breakout",
+            "label": "Image Breakout",
+            "name": "image_breakout",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Make image pop out of section on desktop (adds negative top margin)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_mailing_list_layout",
+                        "operator": "==",
+                        "value": "split"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "ui": 1,
+            "default_value": 0,
+            "message": "",
+            "ui_on_text": "",
+            "ui_off_text": ""
         },
         {
             "key": "field_mailing_list_form_fields",
@@ -530,5 +558,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1787336000
+    "modified": 1787338760
 }

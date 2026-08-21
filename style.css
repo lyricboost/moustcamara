@@ -3230,18 +3230,20 @@ body:not(.page-template-page-home) .site-main {
   }
 }
 
-/* Breakout Image (Desktop) */
+/* Breakout Image (Desktop) - Better approach using :has() */
 @media (min-width: 992px) {
+  /* Add bottom padding to any section followed by a breakout section */
+  section:has(+ .product-card--breakout),
+  section:has(+ .mailing-list--breakout) {
+    padding-bottom: 8rem;
+  }
+  
   .product-card--breakout {
     padding-top: 0;
   }
 
   .product-card--breakout .product-card-image-wrapper {
     margin-top: -60px;
-  }
-
-  .product-card--breakout + .product-card-section {
-    padding-bottom: 12rem;
   }
 }
 
@@ -3884,21 +3886,21 @@ body:not(.page-template-page-home) .site-main {
 .mailing-list-content {
   display: flex;
   flex-direction: column;
-  gap: 32px;
 }
 
-/* Badge */
-.mailing-list-badge {
-  display: inline-block;
-  padding: 6px 16px;
-  background: rgba(49, 61, 89, 0.1);
-  color: #313d59;
-  font-size: 13px;
+/* Eyebrow */
+.mailing-list-eyebrow {
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-radius: 20px;
-  width: fit-content;
+  letter-spacing: 1.5px;
+  margin-bottom: 1rem;
+  color: var(--color-text-gray);
+  opacity: 0.8;
+}
+
+.mailing-list-wrapper--centered .mailing-list-eyebrow {
+  text-align: center;
 }
 
 /* Heading */
@@ -3907,7 +3909,7 @@ body:not(.page-template-page-home) .site-main {
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-text-dark);
-  margin: 0;
+  margin: 0 0 1rem 0;
 }
 
 .mailing-list--heading-large .mailing-list-heading {
@@ -3919,6 +3921,7 @@ body:not(.page-template-page-home) .site-main {
   font-size: 18px;
   line-height: 1.6;
   color: var(--color-text-gray);
+  margin-bottom: 2rem;
 }
 
 .mailing-list-description p {
@@ -3944,7 +3947,7 @@ body:not(.page-template-page-home) .site-main {
 .mailing-list-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
@@ -3980,6 +3983,7 @@ body:not(.page-template-page-home) .site-main {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-bottom: 0.5rem;
 }
 
 .mailing-list-field {
@@ -4077,13 +4081,12 @@ body:not(.page-template-page-home) .site-main {
   line-height: 1.5;
   color: var(--color-text-gray);
   opacity: 0.7;
-  margin: 0;
+  margin: 1rem 0 0 0;
 }
 
 /* Dark Background Overrides */
-.mailing-list-section.text-light .mailing-list-badge {
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
+.mailing-list-section.text-light .mailing-list-eyebrow {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .mailing-list-section.text-light .mailing-list-heading {
@@ -4129,11 +4132,12 @@ body:not(.page-template-page-home) .site-main {
 /* Mobile Optimizations */
 @media (max-width: 768px) {
   .mailing-list-section {
-    padding: 60px 0;
+    padding: 60px 0 0;
   }
   
   .mailing-list-content {
     gap: 20px;
+    padding: 0rem 0rem 2rem;
   }
   
   .mailing-list-heading {
@@ -4144,25 +4148,54 @@ body:not(.page-template-page-home) .site-main {
     font-size: 16px;
   }
   
-  /* Full width image on mobile */
-  .mailing-list-wrapper--split .col-lg-6:has(.mailing-list-image) {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    margin-bottom: 40px;
+  /* Remove Bootstrap row gap on mobile */
+  .mailing-list-wrapper--split .row {
+    --bs-gutter-y: 0;
+    --bs-gutter-x: 0;
+    margin: 0;
   }
   
-  .mailing-list-wrapper--split .mailing-list-image {
-    justify-content: center !important;
+  /* Remove column padding/margin on mobile for image column */
+  .mailing-list-wrapper--split .col-lg-6:has(.mailing-list-image) {
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Full width background image on mobile, hide wrapper */
+  .mailing-list-image {
+    position: relative;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    min-height: 400px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: flex-start !important;
   }
   
   .mailing-list-image-wrapper {
-    max-width: 100%;
-    width: 100%;
+    display: none;
   }
   
   .mailing-list-submit {
     width: 100%;
+  }
+}
+
+/* Desktop - Hide background image, show actual img element */
+@media (min-width: 769px) {
+  .mailing-list-image {
+    background-image: none !important;
+  }
+}
+
+/* Breakout Image (Desktop) */
+@media (min-width: 992px) {
+  .mailing-list--breakout {
+    padding-top: 0;
+  }
+
+  .mailing-list--breakout .mailing-list-image-wrapper {
+    margin-top: -60px;
   }
 }

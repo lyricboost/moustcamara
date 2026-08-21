@@ -641,8 +641,66 @@ function handle_mailing_list_signup() {
         return;
     }
     
-    // TODO: Integrate with Mailchimp API here
-    // For now, we'll store locally
+    // Get Mailchimp API key from the block (if provided)
+    $api_key = isset($_POST['mailchimp_api_key']) ? sanitize_text_field($_POST['mailchimp_api_key']) : '';
+    
+    // Integrate with Mailchimp API
+    $mailchimp_success = false;
+    if (!empty($api_key) && !empty($list_id)) {
+        // Extract datacenter from API key (last part after dash)
+        preg_match('/\-([a-z0-9]+)$/', $api_key, $matches);
+        $datacenter = isset($matches[1]) ? $matches[1] : 'us1';
+        
+        // Build merge fields for Mailchimp
+        $merge_fields = array();
+        foreach ($subscriber_data as $key => $value) {
+            // Skip email, we handle it separately
+            if (filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                continue;
+            }
+            
+            // Map to Mailchimp merge field (uppercase)
+            $merge_key = strtoupper($key);
+            $merge_fields[$merge_key] = $value;
+        }
+        
+        // Prepare Mailchimp API request
+        $mailchimp_data = array(
+            'email_address' => $email,
+            'status' => 'subscribed', // Single opt-in - subscribers added immediately
+            'merge_fields' => $merge_fields
+        );
+        
+        // Make API request to Mailchimp
+        $response = wp_remote_post(
+            "https://{$datacenter}.api.mailchimp.com/3.0/lists/{$list_id}/members",
+            array(
+                'headers' => array(
+                    'Authorization' => 'Basic ' . base64_encode('user:' . $api_key),
+                    'Content-Type' => 'application/json'
+                ),
+                'body' => json_encode($mailchimp_data),
+                'timeout' => 15
+            )
+        );
+        
+        // Check response
+        if (!is_wp_error($response)) {
+            $response_code = wp_remote_retrieve_response_code($response);
+            if ($response_code === 200 || $response_code === 201) {
+                $mailchimp_success = true;
+            } else {
+                // Log error for debugging
+                $response_body = json_decode(wp_remote_retrieve_body($response), true);
+                error_log('Mailchimp API Error: ' . print_r($response_body, true));
+                
+                // Check for specific error: already subscribed
+                if (isset($response_body['title']) && $response_body['title'] === 'Member Exists') {
+                    $mailchimp_success = true; // Treat as success
+                }
+            }
+        }
+    }
     
     // Store subscriber in WordPress options as backup
     $subscribers = get_option('mailing_list_subscribers', array());
@@ -650,6 +708,7 @@ function handle_mailing_list_signup() {
         'email' => $email,
         'data' => $subscriber_data,
         'list_id' => $list_id,
+        'mailchimp_synced' => $mailchimp_success,
         'timestamp' => current_time('mysql')
     );
     update_option('mailing_list_subscribers', $subscribers);
