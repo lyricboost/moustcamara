@@ -3894,7 +3894,7 @@ body:not(.page-template-page-home) .site-main {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: var(--color-text-gray);
   opacity: 0.8;
 }
@@ -3909,7 +3909,7 @@ body:not(.page-template-page-home) .site-main {
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-text-dark);
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.75rem 0;
 }
 
 .mailing-list--heading-large .mailing-list-heading {
@@ -3921,7 +3921,7 @@ body:not(.page-template-page-home) .site-main {
   font-size: 18px;
   line-height: 1.6;
   color: var(--color-text-gray);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .mailing-list-description p {
@@ -4136,16 +4136,21 @@ body:not(.page-template-page-home) .site-main {
   }
   
   .mailing-list-content {
-    gap: 20px;
     padding: 0rem 0rem 2rem;
+  }
+  
+  .mailing-list-eyebrow {
+    margin-bottom: 0.5rem;
   }
   
   .mailing-list-heading {
     font-size: 28px;
+    margin-bottom: 0.5rem;
   }
   
   .mailing-list-description {
     font-size: 16px;
+    margin-bottom: 1.25rem;
   }
   
   /* Remove Bootstrap row gap on mobile */
