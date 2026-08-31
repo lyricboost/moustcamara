@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/one-column",
+  "title": "Moust One Column",
+  "description": "Single column content section with heading, description, and CTA",
+  "category": "moustcamara",
+  "icon": "align-center",
+  "keywords": ["one-column", "content", "section", "moust"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

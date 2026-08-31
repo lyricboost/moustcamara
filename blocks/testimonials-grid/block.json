@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "acf/testimonials-grid",
+  "title": "Moust Testimonials Grid",
+  "description": "Grid layout for testimonials with faint divider lines",
+  "category": "moustcamara",
+  "icon": "grid-view",
+  "keywords": ["testimonials", "grid", "reviews", "quotes"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

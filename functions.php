@@ -437,6 +437,40 @@ function moustcamara_register_acf_blocks() {
                 'jsx' => true,
             ),
         ));
+        
+        // Testimonials Grid Block
+        acf_register_block_type(array(
+            'name'              => 'testimonials-grid',
+            'title'             => __('Moust Testimonials Grid'),
+            'description'       => __('Grid layout for testimonials with faint divider lines'),
+            'render_template'   => 'blocks/testimonials-grid/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'grid-view',
+            'keywords'          => array('testimonials', 'grid', 'reviews', 'quotes', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
+        // One Column Block
+        acf_register_block_type(array(
+            'name'              => 'one-column',
+            'title'             => __('Moust One Column'),
+            'description'       => __('Single column content section with heading, description, and CTA'),
+            'render_template'   => 'blocks/one-column/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'align-center',
+            'keywords'          => array('one-column', 'content', 'section', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
     }
 }
 

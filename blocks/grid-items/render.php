@@ -53,20 +53,24 @@ if (empty($items)) {
 <section class="<?php echo esc_attr($block_classes); ?>"<?php echo $custom_id ? ' id="' . esc_attr($custom_id) . '"' : ''; ?>>
     <div class="container-fluid px-4">
         <div class="grid-items-inner">
+            <?php if ($eyebrow || $heading_line_1 || $heading_line_2 || $subheading) : ?>
             <div class="grid-items-header">
                 <?php if ($eyebrow) : ?>
                     <p class="grid-items-eyebrow text-center"><?php echo esc_html($eyebrow); ?></p>
                 <?php endif; ?>
+                <?php if ($heading_line_1) : ?>
                 <h2 class="grid-items-heading<?php echo $heading_size === 'medium' ? ' grid-items-heading--medium' : ''; ?> text-center">
                     <span class="grid-items-heading-line-1<?php echo $heading_line_1_muted ? ' grid-items-heading-muted' : ''; ?>"><?php echo esc_html($heading_line_1); ?></span>
                     <?php if ($heading_line_2) : ?>
                         <span class="grid-items-heading-line-2"><?php echo esc_html($heading_line_2); ?></span>
                     <?php endif; ?>
                 </h2>
+                <?php endif; ?>
                 <?php if ($subheading) : ?>
                     <p class="grid-items-subheading text-center"><?php echo wp_kses_post($subheading); ?></p>
                 <?php endif; ?>
             </div>
+            <?php endif; ?>
             
             <?php if ($items) : ?>
                 <div class="row g-4">
