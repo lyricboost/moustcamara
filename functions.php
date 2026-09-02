@@ -267,6 +267,23 @@ function moustcamara_register_acf_blocks() {
                 'jsx' => true,
             ),
         ));
+
+        // Split Text (two-column text) Block
+        acf_register_block_type(array(
+            'name'              => 'split-text',
+            'title'             => __('Moust Split Text'),
+            'description'       => __('Two column text layout with features list'),
+            'render_template'   => 'blocks/split-text/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'columns',
+            'keywords'          => array('split', 'text', 'features', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
         
         // Grid Items Block
         acf_register_block_type(array(

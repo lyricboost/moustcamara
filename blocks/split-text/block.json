@@ -1,0 +1,17 @@
+{
+  "name": "acf/split-text",
+  "title": "Split — Text Columns",
+  "description": "Two column text layout: left has eyebrow/heading/subheading/body/CTA; right lists features with descriptions.",
+  "category": "moustcamara",
+  "icon": "columns",
+  "keywords": ["split", "text", "features"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

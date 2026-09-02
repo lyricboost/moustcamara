@@ -1,0 +1,127 @@
+[
+  {
+    "key": "group_moust_split_text_block",
+    "title": "Moust - Split Text Block Fields",
+    "fields": [
+      {
+        "key": "field_moust_split_text_eyebrow",
+        "label": "Eyebrow",
+        "name": "split_text_eyebrow",
+        "type": "text",
+        "required": 0
+      },
+      {
+        "key": "field_moust_split_text_heading",
+        "label": "Heading",
+        "name": "split_text_heading",
+        "type": "text",
+        "required": 0
+      },
+      {
+        "key": "field_moust_split_text_heading_size",
+        "label": "Heading Size",
+        "name": "split_text_heading_size",
+        "type": "select",
+        "choices": {
+          "section": "Section",
+          "page": "Page"
+        },
+        "default_value": "section"
+      },
+      {
+        "key": "field_moust_split_text_subheading",
+        "label": "Subheading",
+        "name": "split_text_subheading",
+        "type": "text",
+        "required": 0
+      },
+      {
+        "key": "field_moust_split_text_body",
+        "label": "Body",
+        "name": "split_text_body",
+        "type": "wysiwyg",
+        "tabs": "all",
+        "toolbar": "basic",
+        "required": 0
+      },
+      {
+        "key": "field_moust_split_text_cta_text",
+        "label": "CTA Text",
+        "name": "split_text_cta_text",
+        "type": "text",
+        "required": 0
+      },
+      {
+        "key": "field_moust_split_text_cta_link",
+        "label": "CTA Link",
+        "name": "split_text_cta_link",
+        "type": "url",
+        "required": 0
+      },
+      {
+        "key": "field_moust_split_text_features",
+        "label": "Features",
+        "name": "split_text_features",
+        "type": "repeater",
+        "sub_fields": [
+          {
+            "key": "field_moust_split_text_feature_title",
+            "label": "Feature Title",
+            "name": "feature_title",
+            "type": "text"
+          },
+          {
+            "key": "field_moust_split_text_feature_description",
+            "label": "Feature Description",
+            "name": "feature_description",
+            "type": "wysiwyg",
+            "toolbar": "basic",
+            "tabs": "all"
+          }
+        ]
+      },
+      {
+        "key": "field_moust_split_text_layout",
+        "label": "Layout",
+        "name": "split_text_layout",
+        "type": "select",
+        "choices": {
+          "text_left": "Text Left",
+          "text_right": "Text Right"
+        },
+        "default_value": "text_left"
+      },
+      {
+        "key": "field_moust_split_text_background_color",
+        "label": "Background Color",
+        "name": "background_color",
+        "type": "select",
+        "choices": {
+          "none": "None (White)",
+          "light-gray": "Light Gray",
+          "navy": "Navy",
+          "dark-gray": "Dark Gray",
+          "black": "Black"
+        },
+        "default_value": "none"
+      }
+    ],
+    "location": [
+      [
+        {
+          "param": "block",
+          "operator": "==",
+          "value": "acf/split-text"
+        }
+      ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Fields for Split Text block"
+  }
+]
