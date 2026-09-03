@@ -887,8 +887,10 @@ body:not(.page-template-page-home) .site-main {
     margin-top: -60px;
   }
 
-  .split-section--breakout + .split-section {
-    padding-bottom: 12rem;
+  /* Add bottom padding to any section immediately preceding a breakout,
+     so the breakout image has room to overlap into it */
+  section:has(+ .split-section--breakout) {
+    padding-bottom: 8rem;
   }
 }
 
@@ -4043,7 +4045,7 @@ body:not(.page-template-page-home) .site-main {
 
 .one-column-header {
   max-width: 80%;
-  margin: 0 auto 3rem;
+  margin: 0 auto;
 }
 
 .one-column-eyebrow {
@@ -4106,10 +4108,6 @@ body:not(.page-template-page-home) .site-main {
   margin-bottom: 0;
 }
 
-.one-column-cta {
-  margin-top: 3rem;
-}
-
 /* Light text variant for dark backgrounds */
 .one-column-section.text-light .one-column-eyebrow {
   color: rgba(255, 255, 255, 0.8);
@@ -4127,22 +4125,18 @@ body:not(.page-template-page-home) .site-main {
   color: rgba(255, 255, 255, 0.85);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .one-column-section {
     padding: 2.5rem 0 3rem;
   }
 
   .one-column-header {
     max-width: 100%;
-    margin: 0 auto 2rem;
+    margin: 0 auto;
   }
 
   .one-column-description {
     margin: 1.5rem auto;
-  }
-
-  .one-column-cta {
-    margin-top: 2rem;
   }
 }
 

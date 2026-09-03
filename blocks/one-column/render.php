@@ -71,7 +71,7 @@ if ($text_class) {
             <?php endif; ?>
 
             <?php if (!empty($cta_text) && !empty($cta_link)) : ?>
-            <div class="one-column-cta text-center mt-4">
+            <div class="one-column-cta text-center mt-3">
                 <a href="<?php echo esc_url($cta_link); ?>" class="hero-alt-cta-btn">
                     <?php echo esc_html($cta_text); ?>
                     <svg class="hero-alt-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">

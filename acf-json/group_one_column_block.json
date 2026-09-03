@@ -1,16 +1,16 @@
 {
     "key": "group_one_column_block",
-    "title": "One Column Block",
+    "title": "One Column Block Fields",
     "fields": [
         {
             "key": "field_one_column_custom_id",
             "label": "Custom ID",
-            "name": "custom_id",
+            "name": "one_column_custom_id",
             "aria-label": "",
             "type": "text",
-            "instructions": "Optional custom ID for anchoring links (e.g., #about)",
+            "instructions": "Unique identifier for this block (e.g., 'about', 'mission'). Used for anchor links.",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -18,41 +18,21 @@
             },
             "default_value": "",
             "maxlength": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
-            "key": "field_one_column_eyebrow",
-            "label": "Eyebrow Text",
-            "name": "eyebrow",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "Optional small uppercase text above the heading",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "placeholder": "",
+            "placeholder": "e.g., about",
             "prepend": "",
             "append": ""
         },
         {
             "key": "field_one_column_heading_line_1",
             "label": "Heading Line 1",
-            "name": "heading_line_1",
+            "name": "one_column_heading_line_1",
             "aria-label": "",
             "type": "text",
             "instructions": "First line of the heading",
-            "required": 0,
-            "conditional_logic": 0,
+            "required": 1,
+            "conditional_logic": false,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -65,14 +45,14 @@
         {
             "key": "field_one_column_heading_line_2",
             "label": "Heading Line 2",
-            "name": "heading_line_2",
+            "name": "one_column_heading_line_2",
             "aria-label": "",
             "type": "text",
-            "instructions": "Second line of the heading (optional)",
+            "instructions": "Second line of the heading",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": false,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -84,59 +64,58 @@
         },
         {
             "key": "field_one_column_heading_line_1_muted",
-            "label": "Make Line 1 Muted",
-            "name": "heading_line_1_muted",
+            "label": "Lower Opacity for Line 1",
+            "name": "one_column_heading_line_1_muted",
             "aria-label": "",
             "type": "true_false",
-            "instructions": "Make first line of heading slightly transparent",
+            "instructions": "Apply 0.75 opacity to the first heading line",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "message": "",
-            "default_value": 0,
-            "ui_on_text": "",
-            "ui_off_text": "",
+            "default_value": 1,
             "ui": 1
         },
         {
             "key": "field_one_column_heading_size",
             "label": "Heading Size",
-            "name": "heading_size",
+            "name": "one_column_heading_size",
             "aria-label": "",
             "type": "select",
-            "instructions": "Select heading size (default is Large)",
+            "instructions": "Size of the heading text",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
             "choices": {
-                "large": "Large (Default)",
+                "large": "Large",
                 "medium": "Medium"
             },
             "default_value": "large",
-            "return_format": "value",
-            "multiple": 0,
             "allow_null": 0,
-            "ui": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
             "ajax": 0,
-            "placeholder": ""
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
-            "key": "field_one_column_subheading",
-            "label": "Subheading",
-            "name": "subheading",
+            "key": "field_one_column_eyebrow",
+            "label": "Eyebrow",
+            "name": "one_column_eyebrow",
             "aria-label": "",
-            "type": "textarea",
-            "instructions": "Optional subheading text below the heading",
+            "type": "text",
+            "instructions": "Small label above the heading",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -144,19 +123,39 @@
             },
             "default_value": "",
             "maxlength": "",
-            "rows": 3,
-            "placeholder": "",
-            "new_lines": ""
+            "placeholder": "e.g., THE FLOW",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_one_column_subheading",
+            "label": "Subheading",
+            "name": "one_column_subheading",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Text below heading, before the description",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "rows": 2,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
         },
         {
             "key": "field_one_column_description",
             "label": "Description",
-            "name": "description",
+            "name": "one_column_description",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "Optional rich text description below the subheading",
+            "instructions": "Optional rich text content below the header",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -170,13 +169,13 @@
         },
         {
             "key": "field_one_column_cta_text",
-            "label": "CTA Button Text",
-            "name": "cta_text",
+            "label": "Section CTA Button Text",
+            "name": "one_column_cta_text",
             "aria-label": "",
             "type": "text",
-            "instructions": "Optional call-to-action button text",
+            "instructions": "Text for the overarching CTA button below the content",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": false,
             "wrapper": {
                 "width": "50",
                 "class": "",
@@ -184,44 +183,65 @@
             },
             "default_value": "",
             "maxlength": "",
-            "placeholder": "",
+            "placeholder": "e.g., Get Started",
             "prepend": "",
             "append": ""
         },
         {
             "key": "field_one_column_cta_link",
-            "label": "CTA Button Link",
-            "name": "cta_link",
+            "label": "Section CTA Button Link",
+            "name": "one_column_cta_link",
             "aria-label": "",
             "type": "url",
-            "instructions": "Optional button link URL",
+            "instructions": "URL for the overarching CTA button",
             "required": 0,
-            "conditional_logic": 0,
             "wrapper": {
                 "width": "50",
                 "class": "",
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_one_column_cta_text",
+                        "operator": "!=empty"
+                    }
+                ]
+            ]
         },
         {
-            "key": "field_one_column_background_color",
+            "key": "field_one_column_bg_color",
             "label": "Background Color",
             "name": "background_color",
             "aria-label": "",
-            "type": "color_picker",
-            "instructions": "Optional background color for the section",
-            "required": 0,
-            "conditional_logic": 0,
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "enable_opacity": 1,
-            "return_format": "array"
+            "choices": {
+                "none": "None (White)",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
+                "black": "Black"
+            },
+            "default_value": "none",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -238,8 +258,10 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [],
     "active": true,
     "description": "",
-    "show_in_rest": 0
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1780857600
 }
