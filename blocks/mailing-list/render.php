@@ -65,7 +65,50 @@ $section_class = implode(' ', $classes);
 
 // Generate unique form ID
 $form_id = 'mailing-list-' . uniqid();
+
+// Anti-bot: signed server-generated timestamp
+$form_stamp = moustcamara_signed_form_timestamp();
+
+// Cloudflare Turnstile (optional - define keys in wp-config.php)
+$turnstile_site_key = defined('MOUSTCAMARA_TURNSTILE_SITE_KEY') ? MOUSTCAMARA_TURNSTILE_SITE_KEY : '';
+
+// Reusable anti-bot fields markup
+ob_start();
 ?>
+<input type="hidden" name="form_ts" value="<?php echo esc_attr($form_stamp['ts']); ?>">
+<input type="hidden" name="form_sig" value="<?php echo esc_attr($form_stamp['sig']); ?>">
+<div class="ml-hp-field" aria-hidden="true">
+    <label for="<?php echo esc_attr($form_id); ?>-company-website">Company Website</label>
+    <input
+        type="text"
+        id="<?php echo esc_attr($form_id); ?>-company-website"
+        name="company_website"
+        tabindex="-1"
+        autocomplete="off"
+        value=""
+    >
+</div>
+<?php if ($turnstile_site_key): ?>
+    <div class="cf-turnstile" data-sitekey="<?php echo esc_attr($turnstile_site_key); ?>" data-appearance="interaction-only"></div>
+<?php endif; ?>
+<?php
+$antibot_fields = ob_get_clean();
+?>
+<style>
+.ml-hp-field {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+</style>
+<?php if ($turnstile_site_key): ?>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<?php endif; ?>
 
 <section class="<?php echo esc_attr($section_class); ?>"<?php echo $custom_id ? ' id="' . esc_attr($custom_id) . '"' : ''; ?>>
     <div class="container-fluid px-4">
@@ -90,6 +133,7 @@ $form_id = 'mailing-list-' . uniqid();
                         <?php wp_nonce_field('mailing_list_signup', 'mailing_list_nonce'); ?>
                         <input type="hidden" name="list_id" value="<?php echo esc_attr($mailchimp_list_id); ?>">
                         <input type="hidden" name="mailchimp_api_key" value="<?php echo esc_attr($mailchimp_api_key); ?>">
+                        <?php echo $antibot_fields; ?>
                         
                         <?php if (!empty($form_fields)): ?>
                             <div class="mailing-list-fields">
@@ -190,6 +234,7 @@ $form_id = 'mailing-list-' . uniqid();
                                     <?php wp_nonce_field('mailing_list_signup', 'mailing_list_nonce'); ?>
                                     <input type="hidden" name="list_id" value="<?php echo esc_attr($mailchimp_list_id); ?>">
                                     <input type="hidden" name="mailchimp_api_key" value="<?php echo esc_attr($mailchimp_api_key); ?>">
+                                    <?php echo $antibot_fields; ?>
                                     
                                     <?php if (!empty($form_fields)): ?>
                                         <div class="mailing-list-fields">

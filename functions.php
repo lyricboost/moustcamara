@@ -657,6 +657,36 @@ function handle_contact_form_submission() {
 add_action('wp_ajax_submit_contact_form', 'handle_contact_form_submission');
 add_action('wp_ajax_nopriv_submit_contact_form', 'handle_contact_form_submission');
 
+// ============================================
+// Mailing List Anti-Bot Helpers
+// ============================================
+
+/**
+ * Get the visitor's IP address.
+ */
+function moustcamara_get_client_ip() {
+    if (!empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+        return sanitize_text_field($_SERVER['HTTP_CF_CONNECTING_IP']);
+    }
+    if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ips = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+        return sanitize_text_field(trim($ips[0]));
+    }
+    return isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field($_SERVER['REMOTE_ADDR']) : '';
+}
+
+/**
+ * Generate a signed timestamp for form render time.
+ * Returns array with 'ts' and 'sig'.
+ */
+function moustcamara_signed_form_timestamp() {
+    $ts = time();
+    return array(
+        'ts'  => $ts,
+        'sig' => hash_hmac('sha256', (string) $ts, wp_salt('nonce')),
+    );
+}
+
 // Handle Mailing List Signup
 function handle_mailing_list_signup() {
     // Verify nonce
@@ -665,13 +695,53 @@ function handle_mailing_list_signup() {
         return;
     }
     
+    // 1. Honeypot check - silently return fake success so bots don't learn
+    if (!empty($_POST['company_website'])) {
+        wp_send_json_success(array('message' => 'Thank you for subscribing!'));
+        return;
+    }
+    
+    // 2. Minimum completion time check (signed server-generated timestamp)
+    $form_ts  = isset($_POST['form_ts']) ? sanitize_text_field($_POST['form_ts']) : '';
+    $form_sig = isset($_POST['form_sig']) ? sanitize_text_field($_POST['form_sig']) : '';
+    $expected_sig = hash_hmac('sha256', (string) $form_ts, wp_salt('nonce'));
+    
+    if (empty($form_ts) || empty($form_sig) || !hash_equals($expected_sig, $form_sig)) {
+        // Tampered or missing timestamp - fake success
+        wp_send_json_success(array('message' => 'Thank you for subscribing!'));
+        return;
+    }
+    
+    $elapsed = time() - (int) $form_ts;
+    if ($elapsed < 3) {
+        // Submitted implausibly fast - fake success
+        wp_send_json_success(array('message' => 'Thank you for subscribing!'));
+        return;
+    }
+    if ($elapsed > DAY_IN_SECONDS) {
+        wp_send_json_error(array('message' => 'This form has expired. Please refresh the page and try again.'));
+        return;
+    }
+    
+    // 3. Rate limit per IP: max 3 attempts per 15 minutes
+    $client_ip = moustcamara_get_client_ip();
+    if (!empty($client_ip)) {
+        $ip_key = 'ml_rate_ip_' . md5($client_ip);
+        $ip_attempts = (int) get_transient($ip_key);
+        if ($ip_attempts >= 3) {
+            wp_send_json_error(array('message' => 'Too many attempts. Please try again later.'));
+            return;
+        }
+        set_transient($ip_key, $ip_attempts + 1, 15 * MINUTE_IN_SECONDS);
+    }
+    
     // Get form data
     $list_id = isset($_POST['list_id']) ? sanitize_text_field($_POST['list_id']) : '';
     
     // Collect subscriber data
     $subscriber_data = array();
     foreach ($_POST as $key => $value) {
-        if (in_array($key, array('action', 'mailing_list_nonce', 'list_id'))) {
+        if (in_array($key, array('action', 'mailing_list_nonce', 'list_id', 'mailchimp_api_key', 'company_website', 'form_ts', 'form_sig', 'cf-turnstile-response', '_wp_http_referer'))) {
             continue;
         }
         
@@ -690,6 +760,41 @@ function handle_mailing_list_signup() {
     if (empty($email)) {
         wp_send_json_error(array('message' => 'Please provide a valid email address.'));
         return;
+    }
+    
+    // 3b. Rate limit per email: max 5 attempts per day
+    $email_key = 'ml_rate_email_' . md5(strtolower($email));
+    $email_attempts = (int) get_transient($email_key);
+    if ($email_attempts >= 5) {
+        wp_send_json_error(array('message' => 'Too many attempts for this email. Please try again tomorrow.'));
+        return;
+    }
+    set_transient($email_key, $email_attempts + 1, DAY_IN_SECONDS);
+    
+    // 4. Cloudflare Turnstile verification (if configured)
+    if (defined('MOUSTCAMARA_TURNSTILE_SECRET_KEY') && MOUSTCAMARA_TURNSTILE_SECRET_KEY) {
+        $turnstile_token = isset($_POST['cf-turnstile-response']) ? sanitize_text_field($_POST['cf-turnstile-response']) : '';
+        
+        if (empty($turnstile_token)) {
+            wp_send_json_error(array('message' => 'Verification failed. Please refresh the page and try again.'));
+            return;
+        }
+        
+        $verify_response = wp_remote_post('https://challenges.cloudflare.com/turnstile/v0/siteverify', array(
+            'body' => array(
+                'secret'   => MOUSTCAMARA_TURNSTILE_SECRET_KEY,
+                'response' => $turnstile_token,
+                'remoteip' => $client_ip,
+            ),
+            'timeout' => 10,
+        ));
+        
+        $verify_body = is_wp_error($verify_response) ? array() : json_decode(wp_remote_retrieve_body($verify_response), true);
+        if (empty($verify_body['success'])) {
+            error_log('Turnstile verification failed: ' . print_r($verify_body, true));
+            wp_send_json_error(array('message' => 'Verification failed. Please refresh the page and try again.'));
+            return;
+        }
     }
     
     // Get Mailchimp API key from the block (if provided)
