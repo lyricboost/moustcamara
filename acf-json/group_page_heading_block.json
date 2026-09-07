@@ -1,0 +1,300 @@
+{
+    "key": "group_page_heading_block",
+    "title": "Page Heading Block Fields",
+    "fields": [
+        {
+            "key": "field_page_heading_custom_id",
+            "label": "Custom ID",
+            "name": "page_heading_custom_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Unique identifier for this block (e.g., 'page-top', 'intro'). Used for anchor links.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., page-top",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_page_heading_heading_line_1",
+            "label": "Heading Line 1",
+            "name": "page_heading_heading_line_1",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "First line of the heading",
+            "required": 1,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_page_heading_heading_line_2",
+            "label": "Heading Line 2",
+            "name": "page_heading_heading_line_2",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Second line of the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_page_heading_heading_line_1_muted",
+            "label": "Lower Opacity for Line 1",
+            "name": "page_heading_heading_line_1_muted",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Apply 0.75 opacity to the first heading line",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 1,
+            "ui": 1
+        },
+        {
+            "key": "field_page_heading_heading_size",
+            "label": "Heading Size",
+            "name": "page_heading_heading_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Size of the heading text",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "large": "Large",
+                "medium": "Medium"
+            },
+            "default_value": "large",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_page_heading_eyebrow_mode",
+            "label": "Eyebrow Mode",
+            "name": "page_heading_eyebrow_mode",
+            "aria-label": "",
+            "type": "radio",
+            "instructions": "Choose how the eyebrow (small label above the heading) is generated",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "manual": "Manual Text",
+                "breadcrumbs": "Automatic Breadcrumbs (parent > sub page)"
+            },
+            "default_value": "manual",
+            "return_format": "value",
+            "allow_null": 0,
+            "other_choice": 0,
+            "layout": "horizontal",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_page_heading_eyebrow",
+            "label": "Eyebrow Text",
+            "name": "page_heading_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label above the heading",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_page_heading_eyebrow_mode",
+                        "operator": "==",
+                        "value": "manual"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., THE FLOW",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_page_heading_subheading",
+            "label": "Subheading",
+            "name": "page_heading_subheading",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Text below the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "rows": 2,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_page_heading_body",
+            "label": "Body Content",
+            "name": "page_heading_body",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Rich text content displayed below the heading and subheading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_page_heading_cta_text",
+            "label": "Section CTA Button Text",
+            "name": "page_heading_cta_text",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Text for the CTA button below the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., Get Started",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_page_heading_cta_link",
+            "label": "Section CTA Button Link",
+            "name": "page_heading_cta_link",
+            "aria-label": "",
+            "type": "url",
+            "instructions": "URL for the CTA button",
+            "required": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_page_heading_cta_text",
+                        "operator": "!=empty"
+                    }
+                ]
+            ]
+        },
+        {
+            "key": "field_page_heading_bg_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (White)",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
+                "black": "Black"
+            },
+            "default_value": "none",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/page-heading"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1788998400
+}

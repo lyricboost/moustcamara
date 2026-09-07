@@ -302,6 +302,23 @@ function moustcamara_register_acf_blocks() {
             ),
         ));
         
+        // Page Heading Block
+        acf_register_block_type(array(
+            'name'              => 'page-heading',
+            'title'             => __('Moust Page Heading'),
+            'description'       => __('Page heading with eyebrow (manual text or automatic breadcrumbs), heading, and subheading'),
+            'render_template'   => 'blocks/page-heading/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'heading',
+            'keywords'          => array('page', 'heading', 'title', 'breadcrumbs', 'eyebrow', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
         // Table Grid Block
         acf_register_block_type(array(
             'name'              => 'table-grid',

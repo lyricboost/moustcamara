@@ -981,6 +981,125 @@ body:not(.page-template-page-home) .site-main {
   margin-bottom: 12px;
 }
 
+/* ============================================
+   PAGE HEADING BLOCK
+   ============================================ */
+.page-heading-section {
+  padding: 5rem 0 3rem;
+}
+
+.page-heading-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.page-heading-header {
+  max-width: 80%;
+  margin: 0 auto 2rem;
+}
+
+.page-heading-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #313d59;
+  margin-bottom: 12px;
+}
+
+.page-heading-heading {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #313d59;
+  line-height: 1.3;
+}
+
+.page-heading-heading--medium {
+  font-size: clamp(28px, 3.5vw, 42px);
+}
+
+.page-heading-heading-line-1 {
+  display: block;
+}
+
+.page-heading-heading-line-2 {
+  display: block;
+}
+
+.page-heading-heading-muted {
+  opacity: 0.75;
+}
+
+.page-heading-subheading {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.7;
+  margin-bottom: 0;
+  color: #313d59;
+  max-width: 700px;
+  margin: auto;
+  opacity: .75;
+}
+
+.page-heading-body {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.7;
+  color: #313d59;
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+}
+
+.page-heading-body p:last-child {
+  margin-bottom: 0;
+}
+
+.text-light .page-heading-eyebrow,
+.text-light .page-heading-heading,
+.text-light .page-heading-subheading,
+.text-light .page-heading-body {
+  color: inherit;
+}
+
+/* Page Heading breadcrumbs (eyebrow) */
+.page-heading-breadcrumbs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.page-heading-breadcrumbs-link {
+  color: inherit;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.page-heading-breadcrumbs-link:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
+
+.page-heading-breadcrumbs-separator {
+  opacity: 0.5;
+}
+
+.page-heading-breadcrumbs-current {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .page-heading-section {
+    padding: 2.5rem 0 2rem;
+  }
+
+  .page-heading-header {
+    max-width: 100%;
+    margin: 0 auto 1.5rem;
+  }
+}
+
 .grid-items-heading {
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 600;

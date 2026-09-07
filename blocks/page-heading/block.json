@@ -1,0 +1,17 @@
+{
+  "name": "acf/page-heading",
+  "title": "Page Heading",
+  "description": "Page heading section with eyebrow (manual text or automatic breadcrumbs), heading, and subheading",
+  "category": "moustcamara",
+  "icon": "heading",
+  "keywords": ["page", "heading", "title", "breadcrumbs", "eyebrow"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}
