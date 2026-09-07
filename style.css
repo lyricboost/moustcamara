@@ -889,7 +889,7 @@ body:not(.page-template-page-home) .site-main {
 
   /* Add bottom padding to any section immediately preceding a breakout,
      so the breakout image has room to overlap into it */
-  section:has(+ .split-section--breakout) {
+  section:has(+ .split-section--breakout), section:has(+ .mailing-list--breakout) {
     padding-bottom: 8rem;
   }
 }
@@ -995,7 +995,7 @@ body:not(.page-template-page-home) .site-main {
 
 .page-heading-header {
   max-width: 80%;
-  margin: 0 auto 2rem;
+  margin: 0 auto;
 }
 
 .page-heading-eyebrow {
@@ -1096,7 +1096,7 @@ body:not(.page-template-page-home) .site-main {
 
   .page-heading-header {
     max-width: 100%;
-    margin: 0 auto 1.5rem;
+    margin: 0 auto;
   }
 }
 
@@ -1185,11 +1185,12 @@ body:not(.page-template-page-home) .site-main {
 
 .gallery-item-content {
   padding-top: 1.25rem;
+  text-align: center;
 }
 
 .gallery-item-title {
-  font-size: clamp(18px, 2vw, 22px);
-  font-weight: 600;
+  font-size: clamp(18px, 2vw, 18px);
+  font-weight: 300;
   color: #313d59;
   margin-bottom: 0.5rem;
 }
@@ -1372,7 +1373,10 @@ body:not(.page-template-page-home) .site-main {
 
 .grid-item {
   text-align: center;
-  padding: 0rem 1.5rem 1.5rem;
+  padding: 0 1.5rem;
+  /* Vertical separation between rows is handled by the Bootstrap
+     row gutter (.row.g-4), which only applies between rows. No
+     bottom padding here, so a single row doesn't get dead space. */
 }
 
 @media (max-width: 968px) {
@@ -4869,13 +4873,18 @@ body:not(.page-template-page-home) .site-main {
   }
 }
 
-/* Breakout Image (Desktop) */
-@media (min-width: 992px) {
+/* Breakout Image (Desktop) - same method as Split block:
+   pull up the outer image container (not the inner wrapper), so
+   only the image overlaps upward and the section itself stays put.
+   The preceding section gets extra bottom padding via :has() rule
+   near the Split block breakout styles. */
+@media (min-width: 969px) {
   .mailing-list--breakout {
     padding-top: 0;
   }
 
-  .mailing-list--breakout .mailing-list-image-wrapper {
+  .mailing-list--breakout .mailing-list-image {
+    height: auto;
     margin-top: -60px;
   }
 }

@@ -79,7 +79,9 @@ if ($image_style === 'square') {
                                 <p class="split-eyebrow"><?php echo esc_html($eyebrow); ?></p>
                             <?php endif; ?>
                             <h2 class="split-heading"><?php echo esc_html($heading); ?></h2>
-                            <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
+                            <?php if ($subheading) : ?>
+                                <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
+                            <?php endif; ?>
                             <?php if ($body_text) : ?>
                                 <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>
                             <?php endif; ?>
@@ -115,7 +117,9 @@ if ($image_style === 'square') {
                             $heading_class = 'split-heading' . ($heading_size === 'page' ? ' split-heading--page' : '');
                             ?>
                             <<?php echo $heading_tag; ?> class="<?php echo esc_attr($heading_class); ?>"><?php echo esc_html($heading); ?></<?php echo $heading_tag; ?>>
-                            <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
+                            <?php if ($subheading) : ?>
+                                <p class="split-subheading"><?php echo esc_html($subheading); ?></p>
+                            <?php endif; ?>
                             <?php if ($body_text) : ?>
                                 <div class="split-body-text"><?php echo wp_kses_post($body_text); ?></div>
                             <?php endif; ?>
