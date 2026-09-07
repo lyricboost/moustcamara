@@ -1,0 +1,285 @@
+{
+    "key": "group_gallery_block",
+    "title": "Gallery Block Fields",
+    "fields": [
+        {
+            "key": "field_gallery_custom_id",
+            "label": "Custom ID",
+            "name": "gallery_custom_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Unique identifier for this block (e.g., 'portfolio', 'gallery'). Used for anchor links.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., gallery",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_gallery_eyebrow",
+            "label": "Eyebrow",
+            "name": "gallery_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label above the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., GALLERY",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_gallery_heading",
+            "label": "Heading",
+            "name": "gallery_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional section heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_gallery_subheading",
+            "label": "Subheading",
+            "name": "gallery_subheading",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Text below heading, before the gallery",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "rows": 2,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_gallery_columns",
+            "label": "Images Per Row (Desktop)",
+            "name": "gallery_columns",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Number of images per row on desktop screens",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2 Per Row",
+                "3": "3 Per Row"
+            },
+            "default_value": "2",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_gallery_image_style",
+            "label": "Image Style",
+            "name": "gallery_image_style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Display style for the images",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "box": "Box (Rounded corners with shadow)",
+                "free": "Free (No borders, shadows, or styling)"
+            },
+            "default_value": "box",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_gallery_images",
+            "label": "Gallery Images",
+            "name": "gallery_images",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Image",
+            "rows_per_page": 20,
+            "collapsed": "",
+            "sub_fields": [
+                {
+                    "key": "field_gallery_image_image",
+                    "label": "Image",
+                    "name": "image",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_gallery_images"
+                },
+                {
+                    "key": "field_gallery_image_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional heading displayed below the image",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_gallery_images"
+                },
+                {
+                    "key": "field_gallery_image_description",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "Optional rich text description displayed below the heading",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "basic",
+                    "media_upload": 0,
+                    "delay": 1,
+                    "parent_repeater": "field_gallery_images"
+                }
+            ]
+        },
+        {
+            "key": "field_gallery_bg_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (White)",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
+                "black": "Black"
+            },
+            "default_value": "none",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/gallery"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1788998400
+}

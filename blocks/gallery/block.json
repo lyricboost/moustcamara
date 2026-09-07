@@ -1,0 +1,17 @@
+{
+  "name": "acf/gallery",
+  "title": "Gallery",
+  "description": "Grid of large images, 2 or 3 per row, with optional per-image heading and rich text description",
+  "category": "moustcamara",
+  "icon": "format-gallery",
+  "keywords": ["gallery", "images", "grid", "photos"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

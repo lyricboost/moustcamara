@@ -319,6 +319,23 @@ function moustcamara_register_acf_blocks() {
             ),
         ));
         
+        // Gallery Block
+        acf_register_block_type(array(
+            'name'              => 'gallery',
+            'title'             => __('Moust Gallery'),
+            'description'       => __('Grid of large images, 2 or 3 per row, with optional per-image heading and description'),
+            'render_template'   => 'blocks/gallery/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'format-gallery',
+            'keywords'          => array('gallery', 'images', 'grid', 'photos', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
         // Table Grid Block
         acf_register_block_type(array(
             'name'              => 'table-grid',

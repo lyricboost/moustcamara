@@ -944,7 +944,7 @@ body:not(.page-template-page-home) .site-main {
    GRID ITEMS BLOCK
    ============================================ */
 .grid-items-section {
-  padding: 5rem 0 10rem;
+  padding: 5rem 0;
 }
 
 .grid-items-inner {
@@ -1097,6 +1097,221 @@ body:not(.page-template-page-home) .site-main {
   .page-heading-header {
     max-width: 100%;
     margin: 0 auto 1.5rem;
+  }
+}
+
+/* ============================================
+   GALLERY BLOCK
+   ============================================ */
+.gallery-section {
+  padding: 5rem 0;
+}
+
+.gallery-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-header {
+  max-width: 80%;
+  margin: 0 auto 3rem;
+}
+
+.gallery-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #313d59;
+  margin-bottom: 12px;
+}
+
+.gallery-heading {
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #313d59;
+  line-height: 1.3;
+}
+
+.gallery-subheading {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.7;
+  margin-bottom: 0;
+  color: #313d59;
+  max-width: 700px;
+  margin: auto;
+  opacity: .75;
+}
+
+.gallery-item {
+  margin: 0;
+}
+
+/* Images restricted by width, natural height */
+.gallery-item-image-wrapper {
+  width: 100%;
+  display: block;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+  text-align: inherit;
+}
+
+.gallery-item-image-wrapper:focus-visible {
+  outline: 2px solid #313d59;
+  outline-offset: 3px;
+}
+
+.gallery-item-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Box style: rounded corners + shadow (like Split block) */
+.gallery--box .gallery-item-image-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Free style: no borders, shadows, or styling */
+.gallery--free .gallery-item-image-wrapper {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.gallery-item-content {
+  padding-top: 1.25rem;
+}
+
+.gallery-item-title {
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  color: #313d59;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-item-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #313d59;
+  opacity: .85;
+}
+
+.gallery-item-description p:last-child {
+  margin-bottom: 0;
+}
+
+.text-light .gallery-eyebrow,
+.text-light .gallery-heading,
+.text-light .gallery-subheading,
+.text-light .gallery-item-title,
+.text-light .gallery-item-description {
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  .gallery-section {
+    padding: 3rem 0;
+  }
+
+  .gallery-header {
+    max-width: 100%;
+    margin: 0 auto 2rem;
+  }
+}
+
+/* Gallery Lightbox (click to zoom) */
+.gallery-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.gallery-lightbox.is-open {
+  display: block;
+}
+
+.gallery-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 35, 0.92);
+  cursor: pointer;
+}
+
+.gallery-lightbox-stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 3rem;
+}
+
+.gallery-lightbox-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.gallery-lightbox-image.is-dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+.gallery-lightbox-image.is-zoomed {
+  cursor: grab;
+}
+
+.gallery-lightbox-controls {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.gallery-lightbox-btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.gallery-lightbox-btn:hover,
+.gallery-lightbox-btn:focus-visible {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.gallery-lightbox-btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .gallery-lightbox-stage {
+    padding: 1rem;
   }
 }
 

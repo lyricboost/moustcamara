@@ -175,11 +175,11 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "active": true,
-    "description": "",
+    "active": false,
+    "description": "DEPRECATED - Legacy duplicate of group_grid_items_block. Deactivated 2026-09-06 to remove duplicate Grid Items repeater in the editor. Do not reactivate.",
     "show_in_rest": false,
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1788198323
+    "modified": 1788998400
 }
