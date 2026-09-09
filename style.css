@@ -1454,8 +1454,11 @@ body:not(.page-template-page-home) .site-main {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
-  padding: 0;
+  height: 0;
+  /* Classic responsive 16:9 video technique: height comes from
+     padding, which is always calculated from the element's WIDTH.
+     More reliable than aspect-ratio across mobile browsers. */
+  padding: 56.25% 0 0;
   border: none;
   border-radius: 8px;
   overflow: hidden;
@@ -1533,18 +1536,21 @@ body:not(.page-template-page-home) .site-main {
    flex column wrapper) so the column keeps its normal grid width
    and the 16:9 aspect ratio stays responsive. */
 /* Mobile: edge-to-edge cover, no rounded corners.
-   Same method as the split block: the row gutters and column padding
-   are already zeroed by the shared .split-inner mobile rules, and the
-   viewport bleed goes on the wrapper (.video-cover-col, the equivalent
-   of .split-image), with the cover simply filling it. */
+   Standard full-bleed pattern: anchor the element's left edge to the
+   center of its parent, then pull back by half the viewport. Immune
+   to flex centering/shrinking and parent padding. */
 @media (max-width: 968px) {
   .video-cover-col {
-    width: 100vw;
-    margin-left: calc(-50vw + 50%);
+    display: block !important; /* Neutralize d-flex so the bleed is not affected by flex alignment */
+    width: 100%;
   }
 
   .video-cover {
-    width: 100%;
+    position: relative;
+    left: 50%;
+    width: 100vw;
+    max-width: none;
+    margin-left: -50vw;
     border-radius: 0;
     box-shadow: none;
   }
