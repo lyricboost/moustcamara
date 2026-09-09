@@ -1,0 +1,455 @@
+{
+    "key": "group_stats_block",
+    "title": "Stats Block Fields",
+    "fields": [
+        {
+            "key": "field_stats_custom_id",
+            "label": "Custom ID",
+            "name": "stats_custom_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Unique identifier for this block (e.g., 'impact', 'our-reach'). Used for anchor links.",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., impact",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stats_eyebrow",
+            "label": "Eyebrow",
+            "name": "stats_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label above the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., OUR REACH",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stats_heading_line_1",
+            "label": "Heading Line 1",
+            "name": "stats_heading_line_1",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "First line of the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., Our Impact in Numbers",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stats_heading_line_2",
+            "label": "Heading Line 2",
+            "name": "stats_heading_line_2",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Second line of the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_stats_heading_line_1_muted",
+            "label": "Lower Opacity for Line 1",
+            "name": "stats_heading_line_1_muted",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Apply 0.75 opacity to the first heading line",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "ui": 1
+        },
+        {
+            "key": "field_stats_heading_size",
+            "label": "Heading Size",
+            "name": "stats_heading_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Size of the heading text",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "large": "Large",
+                "medium": "Medium"
+            },
+            "default_value": "large",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_stats_subheading",
+            "label": "Subheading",
+            "name": "stats_subheading",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Text below heading, before the stats",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "rows": 2,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_stats_columns_desktop",
+            "label": "Stats Per Row (Desktop)",
+            "name": "stats_columns_desktop",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Number of stats per row on desktop screens",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "2": "2 Per Row",
+                "3": "3 Per Row",
+                "4": "4 Per Row"
+            },
+            "default_value": "4",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_stats_columns_mobile",
+            "label": "Stats Per Row (Mobile)",
+            "name": "stats_columns_mobile",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Number of stats per row on mobile screens",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1 Per Row",
+                "2": "2 Per Row"
+            },
+            "default_value": "2",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_stats_items",
+            "label": "Stats",
+            "name": "stats_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Stat",
+            "rows_per_page": 20,
+            "collapsed": "field_stats_item_value",
+            "sub_fields": [
+                {
+                    "key": "field_stats_item_value",
+                    "label": "Stat",
+                    "name": "stat_value",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "The stat itself (e.g., 5,000 or 12,000 or 15)",
+                    "required": 1,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., 5,000",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stats_items"
+                },
+                {
+                    "key": "field_stats_item_prefix_type",
+                    "label": "Prefix",
+                    "name": "prefix_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Optional symbol or text before the stat",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "dollar": "Dollar ($)",
+                        "percent": "Percent (%)",
+                        "plus": "Plus (+)",
+                        "minus": "Minus (\u2212)",
+                        "x": "X (\u00d7)",
+                        "arrow-down": "Down Arrow (\u2193)",
+                        "arrow-up": "Up Arrow (\u2191)",
+                        "text": "Manual Text"
+                    },
+                    "default_value": "none",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_stats_items"
+                },
+                {
+                    "key": "field_stats_item_prefix_text",
+                    "label": "Prefix Text",
+                    "name": "prefix_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_stats_item_prefix_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stats_items"
+                },
+                {
+                    "key": "field_stats_item_suffix_type",
+                    "label": "Suffix",
+                    "name": "suffix_type",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Optional symbol or text after the stat",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "none": "None",
+                        "dollar": "Dollar ($)",
+                        "percent": "Percent (%)",
+                        "plus": "Plus (+)",
+                        "minus": "Minus (\u2212)",
+                        "x": "X (\u00d7)",
+                        "arrow-down": "Down Arrow (\u2193)",
+                        "arrow-up": "Up Arrow (\u2191)",
+                        "text": "Manual Text"
+                    },
+                    "default_value": "none",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 1,
+                    "return_format": "value",
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_stats_items"
+                },
+                {
+                    "key": "field_stats_item_suffix_text",
+                    "label": "Suffix Text",
+                    "name": "suffix_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_stats_item_suffix_type",
+                                "operator": "==",
+                                "value": "text"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "25",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stats_items"
+                },
+                {
+                    "key": "field_stats_item_label",
+                    "label": "Description",
+                    "name": "stat_label",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "What the stat describes (e.g., 'copies sold', 'years in business')",
+                    "required": 0,
+                    "conditional_logic": false,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., copies sold",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_stats_items"
+                }
+            ]
+        },
+        {
+            "key": "field_stats_bg_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (White)",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
+                "black": "Black"
+            },
+            "default_value": "none",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/stats"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [],
+    "active": true,
+    "description": "",
+    "show_in_rest": false,
+    "display_title": "",
+    "modified": 1789257600
+}

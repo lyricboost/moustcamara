@@ -336,6 +336,40 @@ function moustcamara_register_acf_blocks() {
             ),
         ));
         
+        // Stats Block
+        acf_register_block_type(array(
+            'name'              => 'stats',
+            'title'             => __('Moust Stats'),
+            'description'       => __('Grid of statistics with large numbers, optional prefix/suffix, and description labels'),
+            'render_template'   => 'blocks/stats/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'chart-bar',
+            'keywords'          => array('stats', 'statistics', 'numbers', 'impact', 'metrics', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
+        // Video Block
+        acf_register_block_type(array(
+            'name'              => 'video',
+            'title'             => __('Moust Video'),
+            'description'       => __('Split layout with a clickable 16:9 video cover that opens a YouTube video in a modal'),
+            'render_template'   => 'blocks/video/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'video-alt3',
+            'keywords'          => array('video', 'youtube', 'split', 'modal', 'play', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
         // Table Grid Block
         acf_register_block_type(array(
             'name'              => 'table-grid',

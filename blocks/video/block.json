@@ -1,0 +1,17 @@
+{
+  "name": "acf/video",
+  "title": "Video",
+  "description": "Split layout with a clickable 16:9 video cover that opens a YouTube video in a modal",
+  "category": "moustcamara",
+  "icon": "video-alt3",
+  "keywords": ["video", "youtube", "split", "modal", "play"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}

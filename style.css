@@ -1316,6 +1316,331 @@ body:not(.page-template-page-home) .site-main {
   }
 }
 
+/* ============================================
+   STATS BLOCK
+   ============================================ */
+.stats-section {
+  padding: 5rem 0;
+}
+
+.stats-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.stats-header {
+  max-width: 80%;
+  margin: 0 auto 3.5rem;
+}
+
+.stats-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #313d59;
+  margin-bottom: 12px;
+}
+
+.stats-heading {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #313d59;
+  line-height: 1.3;
+}
+
+.stats-heading--medium {
+  font-size: clamp(28px, 3.5vw, 42px);
+}
+
+.stats-heading-line-1 {
+  display: block;
+}
+
+.stats-heading-line-2 {
+  display: block;
+}
+
+.stats-heading-muted {
+  opacity: 0.75;
+}
+
+.stats-subheading {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.7;
+  margin-bottom: 0;
+  color: #313d59;
+  max-width: 700px;
+  margin: auto;
+  opacity: .75;
+}
+
+/* Stat items - clean, no cards/boxes/borders */
+.stats-item {
+  text-align: center;
+}
+
+.stats-item-value-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.25rem;
+  line-height: 1;
+}
+
+.stats-item-value {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  color: #313d59;
+  line-height: 1.1;
+}
+
+/* Prefix/suffix: smaller and lighter than the stat */
+.stats-item-affix {
+  font-size: clamp(22px, 2.5vw, 34px);
+  font-weight: 600;
+  color: #313d59;
+  opacity: 0.55;
+  line-height: 1;
+}
+
+.stats-item-affix-icon {
+  width: clamp(22px, 2.5vw, 34px);
+  height: clamp(22px, 2.5vw, 34px);
+  stroke-width: 2.5;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+.stats-item-label {
+  font-size: clamp(15px, 1.25vw, 17px);
+  line-height: 1.5;
+  color: #313d59;
+  opacity: 0.75;
+  margin: 0.75rem 0 0;
+}
+
+.text-light .stats-eyebrow,
+.text-light .stats-heading,
+.text-light .stats-subheading,
+.text-light .stats-item-value,
+.text-light .stats-item-affix,
+.text-light .stats-item-label {
+  color: inherit;
+}
+
+@media (max-width: 640px) {
+  .stats-section {
+    padding: 3rem 0;
+  }
+
+  .stats-header {
+    max-width: 100%;
+    margin: 0 auto 2.5rem;
+  }
+}
+
+/* ============================================
+   VIDEO BLOCK
+   (inherits split-section styles; below are
+   the 16:9 cover + modal specifics)
+   ============================================ */
+.video-cover-col {
+  width: 100%;
+}
+
+.video-cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #1a2032;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.video-cover:disabled {
+  cursor: default;
+}
+
+.video-cover-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.video-cover:hover .video-cover-image,
+.video-cover:focus-visible .video-cover-image {
+  transform: scale(1.03);
+}
+
+.video-cover:focus-visible {
+  outline: 2px solid #313d59;
+  outline-offset: 3px;
+}
+
+/* Play button overlay */
+.video-cover-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  color: #313d59;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.video-cover-play svg {
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.25rem; /* Optically center the triangle */
+  fill: #313d59; /* Pin the triangle color so text-light (dark bg) can't turn it white-on-white */
+}
+
+.video-cover:hover .video-cover-play,
+.video-cover:focus-visible .video-cover-play {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: #fff;
+}
+
+/* Video breakout: pull up the cover like the split image.
+   Top alignment on desktop comes from the align-items-lg-start
+   utility set in the template (Bootstrap utilities are !important
+   so they can't be overridden here). */
+@media (min-width: 969px) {
+  .video-section.split-section--breakout .video-cover-col {
+    margin-top: -60px;
+  }
+}
+
+/* Mobile: edge-to-edge cover, no rounded corners (like split).
+   The viewport-bleed is applied to the cover button itself (not the
+   flex column wrapper) so the column keeps its normal grid width
+   and the 16:9 aspect ratio stays responsive. */
+/* Mobile: edge-to-edge cover, no rounded corners.
+   Same method as the split block: the row gutters and column padding
+   are already zeroed by the shared .split-inner mobile rules, and the
+   viewport bleed goes on the wrapper (.video-cover-col, the equivalent
+   of .split-image), with the cover simply filling it. */
+@media (max-width: 968px) {
+  .video-cover-col {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+  }
+
+  .video-cover {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .video-cover-play {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .video-cover-play svg {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+}
+
+/* Video Modal */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+}
+
+.video-modal.is-open {
+  display: block;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 20, 35, 0.92);
+  cursor: pointer;
+}
+
+.video-modal-dialog {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(1100px, calc(100vw - 3rem));
+}
+
+.video-modal-frame-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -3.25rem;
+  right: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-size: 1.5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.video-modal-close:hover,
+.video-modal-close:focus-visible {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.video-modal-close:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .video-modal-dialog {
+    width: calc(100vw - 1.5rem);
+  }
+}
+
 .grid-items-heading {
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 600;

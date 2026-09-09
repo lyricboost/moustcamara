@@ -1,0 +1,17 @@
+{
+  "name": "acf/stats",
+  "title": "Stats",
+  "description": "Grid of statistics with large numbers, optional prefix/suffix (icon or text), and description labels",
+  "category": "moustcamara",
+  "icon": "chart-bar",
+  "keywords": ["stats", "statistics", "numbers", "impact", "metrics"],
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "render.php"
+  },
+  "supports": {
+    "align": ["wide", "full"],
+    "mode": true,
+    "jsx": true
+  }
+}
