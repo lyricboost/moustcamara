@@ -61,6 +61,12 @@ body:not(.page-template-page-home) .site-main {
   padding-top: 80px;
 }
 
+@media (max-width: 991.98px) {
+  body:not(.page-template-page-home) .site-main {
+    padding-top: 56px; /* Matches the slimmer mobile header */
+  }
+}
+
 /* Transparent header for full-width home pages */
 .page-template-page-home .site-header {
   background: transparent;
@@ -218,6 +224,42 @@ body:not(.page-template-page-home) .site-main {
 
 .site-header .navbar {
   min-height: 80px;
+}
+
+/* Mobile: slimmer header - smaller logo, toggler, and padding */
+@media (max-width: 991.98px) {
+  .site-header .navbar {
+    min-height: 0;
+  }
+
+  .site-header .navbar > .container-fluid {
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+  }
+
+  /* Logo reduced 25% (40px -> 30px) */
+  .logo-wrapper,
+  .logo-wrapper a,
+  .logo-wrapper .custom-logo-link,
+  .logo-wrapper img,
+  .logo-wrapper .custom-logo {
+    max-height: 30px !important;
+  }
+
+  .logo-wrapper {
+    height: 30px !important;
+  }
+
+  /* Menu icon reduced 25% (Bootstrap default 1.5em -> 1.125em) */
+  .navbar-toggler-icon {
+    width: 1.125em;
+    height: 1.125em;
+  }
+
+  .navbar-toggler {
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+  }
 }
 
 .navbar-brand {
