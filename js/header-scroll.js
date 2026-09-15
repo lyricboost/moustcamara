@@ -6,8 +6,9 @@
 (function() {
     'use strict';
     
-    // Only run on pages using Home Page (Full Width) template
-    if (!document.body.classList.contains('page-template-page-home')) {
+    // Only run on pages using Home Page (Full Width) template or the 404 page
+    if (!document.body.classList.contains('page-template-page-home') &&
+        !document.body.classList.contains('error404')) {
         return;
     }
     

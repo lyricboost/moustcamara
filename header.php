@@ -37,7 +37,7 @@
                         'container' => false,
                         'fallback_cb' => false,
                         'walker' => new Bootstrap_Walker_Nav_Menu(),
-                        'depth' => 1,
+                        'depth' => 2,
                     ));
                     ?>
                     <a href="https://calendly.com/moustcamara/intro-call-with-moust-camara" target="new" class="cta-btn cta-btn--small">

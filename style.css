@@ -57,23 +57,25 @@ b, strong {
    ============================================ */
 
 /* Fixed header spacing - push content down */
-body:not(.page-template-page-home) .site-main {
+body:not(.page-template-page-home):not(.error404) .site-main {
   padding-top: 80px;
 }
 
 @media (max-width: 991.98px) {
-  body:not(.page-template-page-home) .site-main {
+  body:not(.page-template-page-home):not(.error404) .site-main {
     padding-top: 56px; /* Matches the slimmer mobile header */
   }
 }
 
 /* Transparent header for full-width home pages */
+.error404 .site-header,
 .page-template-page-home .site-header {
   background: transparent;
   border-bottom: none !important;
   box-shadow: none !important;
 }
 
+.error404 .site-header .navbar,
 .page-template-page-home .site-header .navbar {
   background: transparent;
   border: none !important;
@@ -172,6 +174,108 @@ body:not(.page-template-page-home) .site-main {
   display: none;
 }
 
+/* ============================================
+   NAV DROPDOWN (SUB MENU)
+   ============================================ */
+
+/* Subtle chevron on parent items — fully reset to avoid underline-effect conflicts */
+.navbar-nav-custom .dropdown-toggle::after,
+.navbar-nav .navbar-nav-custom .dropdown-toggle::after {
+  content: '' !important;
+  display: inline-block !important;
+  position: static !important;
+  width: 0.32em !important;
+  height: 0.32em !important;
+  border: none !important;
+  border-right: 1.5px solid currentColor !important;
+  border-bottom: 1.5px solid currentColor !important;
+  background: none !important;
+  transform: rotate(45deg) !important;
+  margin-left: 0.5em;
+  margin-bottom: 0.2em;
+  vertical-align: middle;
+  transition: transform 0.2s ease;
+  left: auto !important;
+  bottom: auto !important;
+}
+
+.navbar-nav-custom .dropdown.show .dropdown-toggle::after,
+.navbar-nav-custom .dropdown:hover .dropdown-toggle::after {
+  transform: rotate(225deg) !important;
+  margin-bottom: 0;
+}
+
+/* Desktop: clean white panel, soft shadow, no dividers */
+@media (min-width: 992px) {
+  .navbar-nav-custom .dropdown {
+    position: relative;
+  }
+
+  .navbar-nav-custom .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s;
+    /* Header is 80px tall and links are vertically centered, so the header's
+       bottom edge sits 40px below the link's vertical midpoint (50%). */
+    position: absolute !important;
+    top: calc(50% + 40px) !important;
+    left: -1.25rem !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+    inset: auto !important;
+    margin: 0;
+    min-width: 14rem;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    /* Match the header's shadow depth */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 0.5rem 0 0.75rem;
+    list-style: none;
+  }
+
+  /* Re-apply top/left since `inset: auto` resets them */
+  .navbar-nav-custom .dropdown-menu {
+    top: calc(50% + 40px) !important;
+    left: -1.25rem !important;
+    /* Clip everything above the panel's top edge so its shadow never
+       bleeds onto the header — makes the two surfaces read as fused */
+    clip-path: inset(0 -24px -24px -24px);
+  }
+
+  /* Hover bridge covering the gap between link and header bottom edge */
+  .navbar-nav-custom .dropdown-menu::before {
+    content: '';
+    position: absolute;
+    top: -3rem;
+    left: 0;
+    right: 0;
+    height: 3rem;
+  }
+
+  .navbar-nav-custom .dropdown:hover .dropdown-menu,
+  .navbar-nav-custom .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .navbar-nav-custom .dropdown-menu .nav-link {
+    display: block;
+    padding: 0.6rem 1.25rem !important;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: rgb(112 119 137);
+    white-space: nowrap;
+  }
+
+  .navbar-nav-custom .dropdown-menu .nav-link:hover {
+    color: #313d59;
+    background: transparent;
+  }
+}
+
 .navbar-toggler {
   margin-right: -12px;
 }
@@ -193,6 +297,30 @@ body:not(.page-template-page-home) .site-main {
   font-weight: 600;
 }
 
+/* Mobile sub menu: inline, simply indented — no borders, cards or dividers */
+.offcanvas .navbar-nav-custom .dropdown-menu {
+  display: block !important;
+  position: static;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 0 0 0.25rem 1.25rem;
+  list-style: none;
+}
+
+.offcanvas .navbar-nav-custom .dropdown-menu .nav-link {
+  font-size: 0.95rem;
+  color: rgb(112 119 137);
+  padding: 0.5rem 0 !important;
+}
+
+/* Parent items with children just act as labels on mobile */
+.offcanvas .navbar-nav-custom .dropdown-toggle::after {
+  display: none !important;
+}
+
 /* ============================================
    HEADER ENHANCEMENTS
    ============================================ */
@@ -211,12 +339,14 @@ body:not(.page-template-page-home) .site-main {
 }
 
 /* Transparent header at top of home page */
+.error404 .site-header.header-transparent,
 .page-template-page-home .site-header.header-transparent {
   background: transparent;
   box-shadow: none;
 }
 
 /* Solid background when scrolled */
+.error404 .site-header:not(.header-transparent),
 .page-template-page-home .site-header:not(.header-transparent) {
   background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -5259,5 +5389,67 @@ body:not(.page-template-page-home) .site-main {
   .mailing-list--breakout .mailing-list-image {
     height: auto;
     margin-top: -60px;
+  }
+}
+
+/* ============================================
+   404 NOT FOUND PAGE
+   ============================================ */
+.error-404-section {
+  padding: 120px 0;
+  min-height: 55vh;
+  display: flex;
+  align-items: center;
+}
+
+/* Clear the fixed header now that .error404 has no site-main padding */
+.error404 .error-404-section {
+  padding-top: 200px;
+}
+
+.error-404-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.error-404-cta {
+  margin-top: 2.5rem;
+}
+
+@media (max-width: 767.98px) {
+  .error-404-section {
+    padding: 80px 0;
+  }
+}
+
+/* 404 Hero variant (hero-alt style, text left, photo subject on right) */
+.error-404-hero {
+  min-height: 100vh;
+  padding-top: 120px;
+  background-size: cover;
+  background-position: center right;
+}
+
+.error-404-hero .hero-alt-inner {
+  padding-left: 4vw;
+  padding-right: 4vw;
+}
+
+.error-404-hero-content {
+  max-width: 600px;
+}
+
+.error-404-hero .hero-alt-heading {
+  font-size: clamp(40px, 5.5vw, 72px);
+}
+
+@media (max-width: 991.98px) {
+  .error-404-hero {
+    min-height: 100vh;
+    background-position: 75% center;
+  }
+
+  .error-404-hero-content {
+    max-width: 100%;
   }
 }
