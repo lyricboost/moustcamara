@@ -1,0 +1,547 @@
+{
+    "key": "group_moust_pricing_block",
+    "title": "Moust - Pricing Block Fields",
+    "fields": [
+        {
+            "key": "field_pricing_custom_id",
+            "label": "Custom ID (Optional)",
+            "name": "pricing_custom_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "For anchor links",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., pricing",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pricing_eyebrow",
+            "label": "Eyebrow (Optional)",
+            "name": "pricing_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small text above heading",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "PRICING",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pricing_heading",
+            "label": "Heading (Optional)",
+            "name": "pricing_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., Simple, transparent pricing",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pricing_subheading",
+            "label": "Subheading (Optional)",
+            "name": "pricing_subheading",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Description below heading",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "rows": 2,
+            "new_lines": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_pricing_enable_annual_toggle",
+            "label": "Enable Annual Pricing Toggle",
+            "name": "pricing_enable_annual_toggle",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Show Monthly\/Annually toggle above the cards",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_pricing_annual_savings_label",
+            "label": "Annual Savings Label",
+            "name": "pricing_annual_savings_label",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Optional label shown below the toggle",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_pricing_enable_annual_toggle",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., Save 20% with annual billing",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_pricing_tiers",
+            "label": "Pricing Tiers",
+            "name": "pricing_tiers",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Add 2 or 3 pricing options",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 1,
+            "max": 3,
+            "collapsed": "field_pricing_tier_plan_name",
+            "button_label": "Add Pricing Tier",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_pricing_tier_eyebrow",
+                    "label": "Tier Eyebrow",
+                    "name": "tier_eyebrow",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Small label above the plan name (optional)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., ONE-TIME",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_plan_name",
+                    "label": "Plan Name",
+                    "name": "plan_name",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., Single Coaching Call",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_badge_text",
+                    "label": "Badge Text",
+                    "name": "badge_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional badge in the card corner (e.g., Best Value)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., Best Value",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_highlight",
+                    "label": "Highlight This Tier",
+                    "name": "highlight",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Dark navy card styling to make this tier stand out",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_price",
+                    "label": "Price",
+                    "name": "price",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Number only ($ added automatically), or text like \"$2K\" or \"Free\"",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., 500",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_annual_price",
+                    "label": "Annual Monthly Price",
+                    "name": "annual_price",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Per-month price when billed annually (only used if annual toggle is on)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "33",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., 400",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_price_period",
+                    "label": "Price Period",
+                    "name": "price_period",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "34",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., \/ month or \/ one call",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_price_note",
+                    "label": "Price Note",
+                    "name": "price_note",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Optional note below price",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_description",
+                    "label": "Description",
+                    "name": "description",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Short paragraph describing the offer",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "rows": 3,
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_features",
+                    "label": "Features",
+                    "name": "features",
+                    "aria-label": "",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layout": "table",
+                    "pagination": 0,
+                    "min": 0,
+                    "max": 0,
+                    "collapsed": "field_pricing_tier_feature_text",
+                    "button_label": "Add Feature",
+                    "rows_per_page": 20,
+                    "sub_fields": [
+                        {
+                            "key": "field_pricing_tier_feature_text",
+                            "label": "Feature Text",
+                            "name": "feature_text",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_pricing_tier_features"
+                        },
+                        {
+                            "key": "field_pricing_tier_feature_note",
+                            "label": "Feature Note",
+                            "name": "feature_note",
+                            "aria-label": "",
+                            "type": "text",
+                            "instructions": "Optional additional detail",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "maxlength": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "parent_repeater": "field_pricing_tier_features"
+                        }
+                    ],
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_button_text",
+                    "label": "Button Text",
+                    "name": "button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., Book a Single Call",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_button_link",
+                    "label": "Button Link",
+                    "name": "button_link",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_button_coming_soon",
+                    "label": "Coming Soon State",
+                    "name": "button_coming_soon",
+                    "aria-label": "",
+                    "type": "true_false",
+                    "instructions": "Show button in muted disabled state",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 0,
+                    "ui": 1,
+                    "ui_on_text": "",
+                    "ui_off_text": "",
+                    "parent_repeater": "field_pricing_tiers"
+                },
+                {
+                    "key": "field_pricing_tier_footnote",
+                    "label": "Footnote",
+                    "name": "footnote",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Small italic text below the button (optional)",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., Book now, schedule at your convenience",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_pricing_tiers"
+                }
+            ]
+        },
+        {
+            "key": "field_pricing_bg_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (White)",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
+                "black": "Black"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/pricing"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1789500001
+}

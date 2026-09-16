@@ -151,6 +151,15 @@ function moustcamara_enqueue_styles() {
         '1.0',
         true
     );
+    
+    // Pricing script
+    wp_enqueue_script(
+        'moustcamara-pricing',
+        get_template_directory_uri() . '/js/pricing.js',
+        array(),
+        '1.0',
+        true
+    );
 }
 add_action('wp_enqueue_scripts', 'moustcamara_enqueue_styles');
 
@@ -532,6 +541,23 @@ function moustcamara_register_acf_blocks() {
             'category'          => 'moustcamara',
             'icon'              => 'grid-view',
             'keywords'          => array('testimonials', 'grid', 'carousel', 'reviews', 'quotes', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
+        // Pricing Block
+        acf_register_block_type(array(
+            'name'              => 'pricing',
+            'title'             => __('Moust Pricing'),
+            'description'       => __('Pricing cards with features, optional highlight and monthly/annual toggle'),
+            'render_template'   => 'blocks/pricing/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'money-alt',
+            'keywords'          => array('pricing', 'plans', 'tiers', 'comparison', 'cards', 'moust'),
             'mode'              => 'preview',
             'supports'          => array(
                 'align' => array('wide', 'full'),
