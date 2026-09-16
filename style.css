@@ -4765,12 +4765,69 @@ body:not(.page-template-page-home):not(.error404) .site-main {
   border-left-color: rgba(255, 255, 255, 0.08);
 }
 
+.testimonials-grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
 .testimonials-grid-cols-2 {
   grid-template-columns: repeat(2, 1fr);
 }
 
 .testimonials-grid-cols-3 {
   grid-template-columns: repeat(3, 1fr);
+}
+
+/* Carousel Mode - items are shown/hidden via JS (testimonials.js).
+   Without JS (e.g., editor preview), all items display as a grid fallback. */
+
+.testimonials-grid-carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.testimonials-carousel-btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  color: #313d59;
+  padding: 0;
+}
+
+.testimonials-carousel-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  stroke: currentColor;
+}
+
+.testimonials-carousel-btn:hover:not(:disabled) {
+  background: #313d59;
+  border-color: #313d59;
+  color: #ffffff;
+}
+
+.testimonials-carousel-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.testimonials-grid-section.text-light .testimonials-carousel-btn {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+.testimonials-grid-section.text-light .testimonials-carousel-btn:hover:not(:disabled) {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: #313d59;
 }
 
 /* Grid Items */
@@ -4781,7 +4838,7 @@ body:not(.page-template-page-home):not(.error404) .site-main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  min-height: 280px;
+  /* min-height: 280px; */
 }
 
 .testimonials-grid-section.text-light .testimonial-grid-item {
@@ -5414,6 +5471,11 @@ body:not(.page-template-page-home):not(.error404) .site-main {
 
 .error-404-cta {
   margin-top: 2.5rem;
+}
+
+/* Back-direction arrow: nudge left on hover */
+.error-404-back-btn:hover .hero-alt-cta-arrow {
+  transform: translateX(-2px);
 }
 
 @media (max-width: 767.98px) {

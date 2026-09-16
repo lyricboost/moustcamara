@@ -15,6 +15,8 @@ $heading = get_field('testimonials_grid_heading');
 $subheading = get_field('testimonials_grid_subheading');
 $testimonials = get_field('testimonials_grid_items');
 $grid_columns = get_field('testimonials_grid_columns') ?: '2';
+$display_mode = get_field('testimonials_grid_display_mode') ?: 'grid';
+$is_carousel = ($display_mode === 'carousel');
 $cta_text = get_field('testimonials_grid_cta_text');
 $cta_link = get_field('testimonials_grid_cta_link');
 $bg_color = get_field('background_color') ?: 'none';
@@ -26,6 +28,9 @@ if (in_array($bg_color, ['navy', 'dark-gray', 'black'])) {
 }
 
 $block_classes = 'testimonials-grid-section';
+if ($is_carousel) {
+    $block_classes .= ' testimonials-grid-section--carousel';
+}
 if (!empty($block['className'])) {
     $block_classes .= ' ' . $block['className'];
 }
@@ -58,7 +63,7 @@ if ($text_class) {
             <?php endif; ?>
             
             <?php if ($testimonials) : ?>
-                <div class="testimonials-grid-container testimonials-grid-cols-<?php echo esc_attr($grid_columns); ?>">
+                <div class="testimonials-grid-container testimonials-grid-cols-<?php echo esc_attr($grid_columns); ?><?php echo $is_carousel ? ' testimonials-grid-carousel' : ''; ?>"<?php echo $is_carousel ? ' data-items-per-slide="' . esc_attr($grid_columns) . '"' : ''; ?>>
                     <?php foreach ($testimonials as $index => $item) : ?>
                         <div class="testimonial-grid-item">
                             <?php if (!empty($item['testimonial_text'])) : ?>
@@ -87,6 +92,16 @@ if ($text_class) {
                         </div>
                     <?php endforeach; ?>
                 </div>
+                <?php if ($is_carousel && count($testimonials) > (int) $grid_columns) : ?>
+                    <div class="testimonials-grid-carousel-nav">
+                        <button type="button" class="testimonials-carousel-btn testimonials-carousel-prev" aria-label="<?php esc_attr_e('Previous testimonials'); ?>">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <button type="button" class="testimonials-carousel-btn testimonials-carousel-next" aria-label="<?php esc_attr_e('Next testimonials'); ?>">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                <?php endif; ?>
             <?php else : ?>
                 <p class="text-center">No testimonials added yet.</p>
             <?php endif; ?>

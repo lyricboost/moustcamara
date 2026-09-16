@@ -523,15 +523,15 @@ function moustcamara_register_acf_blocks() {
             ),
         ));
         
-        // Testimonials Grid Block
+        // Testimonials Block (grid or carousel)
         acf_register_block_type(array(
             'name'              => 'testimonials-grid',
-            'title'             => __('Moust Testimonials Grid'),
-            'description'       => __('Grid layout for testimonials with faint divider lines'),
+            'title'             => __('Moust Testimonials'),
+            'description'       => __('Testimonials in a grid or carousel layout with faint divider lines'),
             'render_template'   => 'blocks/testimonials-grid/render.php',
             'category'          => 'moustcamara',
             'icon'              => 'grid-view',
-            'keywords'          => array('testimonials', 'grid', 'reviews', 'quotes', 'moust'),
+            'keywords'          => array('testimonials', 'grid', 'carousel', 'reviews', 'quotes', 'moust'),
             'mode'              => 'preview',
             'supports'          => array(
                 'align' => array('wide', 'full'),

@@ -20,12 +20,12 @@ $bg_image = home_url('/wp-content/uploads/2026/09/Moust-hmm-photo-scaled.jpg');
                     <p class="hero-alt-subheading">
                         Let&rsquo;s get you back on track.
                     </p>
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="hero-alt-cta-btn">
-                        Back to Homepage
+                    <a href="<?php echo esc_url(home_url('/')); ?>" class="hero-alt-cta-btn error-404-back-btn">
                         <svg class="hero-alt-cta-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                            <polyline points="12 5 19 12 12 19"></polyline>
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
                         </svg>
+                        Back to Home
                     </a>
                 </div>
             </div>

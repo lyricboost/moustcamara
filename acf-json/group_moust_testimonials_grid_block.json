@@ -1,6 +1,6 @@
 {
     "key": "group_moust_testimonials_grid_block",
-    "title": "Moust - Testimonials Grid Block Fields",
+    "title": "Moust - Testimonials Block Fields",
     "fields": [
         {
             "key": "field_testimonials_grid_custom_id",
@@ -83,22 +83,51 @@
             "placeholder": ""
         },
         {
-            "key": "field_testimonials_grid_columns",
-            "label": "Grid Columns",
-            "name": "testimonials_grid_columns",
+            "key": "field_testimonials_grid_display_mode",
+            "label": "Display Mode",
+            "name": "testimonials_grid_display_mode",
             "aria-label": "",
             "type": "select",
-            "instructions": "",
+            "instructions": "Grid shows all items at once. Carousel shows one \"row\" per slide with prev\/next navigation.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
             "choices": {
-                "2": "2 Columns",
-                "3": "3 Columns"
+                "grid": "Grid",
+                "carousel": "Carousel"
+            },
+            "default_value": "grid",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_testimonials_grid_columns",
+            "label": "Items Per Row \/ Slide",
+            "name": "testimonials_grid_columns",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "In Grid mode this is columns per row. In Carousel mode this is items shown per slide.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "1": "1 Per Row",
+                "2": "2 Per Row",
+                "3": "3 Per Row"
             },
             "default_value": 2,
             "return_format": "value",
@@ -312,5 +341,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1788192253
+    "modified": 1789500000
 }
