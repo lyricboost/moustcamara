@@ -6,6 +6,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('.pricing-section');
 
     sections.forEach(section => {
+        // Calendly popup CTAs
+        section.querySelectorAll('.pricing-card-btn--calendly').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.dataset.calendlyUrl;
+                if (window.Calendly && url) {
+                    window.Calendly.initPopupWidget({ url: url });
+                } else if (url) {
+                    // Fallback if the Calendly widget hasn't loaded
+                    window.open(url, '_blank', 'noopener');
+                }
+            });
+        });
+
         const toggleButtons = section.querySelectorAll('.pricing-toggle-option');
         if (!toggleButtons.length) return;
 

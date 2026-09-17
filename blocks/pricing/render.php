@@ -45,6 +45,36 @@ if (!$pricing_tiers) {
     return;
 }
 
+/**
+ * Detect the CTA link experience from the URL itself.
+ * Returns: 'typeform' | 'calendly' | 'url'
+ */
+if (!function_exists('moust_pricing_detect_link_type')) {
+    function moust_pricing_detect_link_type($url) {
+        if (empty($url)) {
+            return 'url';
+        }
+        if (preg_match('/typeform\.com\/to\/([a-zA-Z0-9]+)/', $url)) {
+            return 'typeform';
+        }
+        if (strpos($url, 'calendly.com') !== false) {
+            return 'calendly';
+        }
+        return 'url';
+    }
+}
+
+$needs_typeform = false;
+$needs_calendly = false;
+foreach ($pricing_tiers as $tier_check) {
+    $detected = moust_pricing_detect_link_type($tier_check['button_link'] ?? '');
+    if ($detected === 'typeform') {
+        $needs_typeform = true;
+    } elseif ($detected === 'calendly') {
+        $needs_calendly = true;
+    }
+}
+
 $tier_count = count($pricing_tiers);
 ?>
 
@@ -185,9 +215,42 @@ $tier_count = count($pricing_tiers);
 
                         <?php if ($button_text) : ?>
                             <div class="pricing-card-cta">
+                                <?php
+                                $link_type = moust_pricing_detect_link_type($button_link);
+                                $typeform_id = '';
+                                if ($link_type === 'typeform') {
+                                    preg_match('/typeform\.com\/to\/([a-zA-Z0-9]+)/', $button_link, $tf_matches);
+                                    $typeform_id = $tf_matches[1] ?? '';
+                                }
+                                ?>
                                 <?php if ($button_coming_soon) : ?>
                                     <button type="button" class="pricing-card-btn pricing-card-btn--disabled" disabled>
                                         <?php echo esc_html($button_text); ?>
+                                    </button>
+                                <?php elseif ($link_type === 'typeform' && $typeform_id) : ?>
+                                    <button type="button"
+                                        data-tf-popup="<?php echo esc_attr($typeform_id); ?>"
+                                        data-tf-opacity="100"
+                                        data-tf-size="100"
+                                        data-tf-iframe-props="title=Typeform"
+                                        data-tf-transitive-search-params
+                                        data-tf-medium="snippet"
+                                        class="hero-alt-cta-btn pricing-card-btn">
+                                        <?php echo esc_html($button_text); ?>
+                                        <svg class="hero-alt-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
+                                    </button>
+                                <?php elseif ($link_type === 'calendly' && $button_link) : ?>
+                                    <button type="button"
+                                        class="hero-alt-cta-btn pricing-card-btn pricing-card-btn--calendly"
+                                        data-calendly-url="<?php echo esc_url($button_link); ?>">
+                                        <?php echo esc_html($button_text); ?>
+                                        <svg class="hero-alt-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                                            <polyline points="12 5 19 12 12 19"></polyline>
+                                        </svg>
                                     </button>
                                 <?php elseif ($button_link) : ?>
                                     <a href="<?php echo esc_url($button_link); ?>" class="hero-alt-cta-btn pricing-card-btn">
@@ -210,3 +273,12 @@ $tier_count = count($pricing_tiers);
         </div>
     </div>
 </section>
+
+<?php if ($needs_typeform && !$is_preview) : ?>
+<script src="//embed.typeform.com/next/embed.js"></script>
+<?php endif; ?>
+
+<?php if ($needs_calendly && !$is_preview) : ?>
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<?php endif; ?>

@@ -435,7 +435,7 @@
                     "name": "button_link",
                     "aria-label": "",
                     "type": "url",
-                    "instructions": "",
+                    "instructions": "Paste any link \u2014 Typeform and Calendly links open as popups automatically; all other links (Stripe, pages, etc.) open normally",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -543,5 +543,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1789500001
+    "modified": 1789600000
 }
