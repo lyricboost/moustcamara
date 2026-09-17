@@ -188,6 +188,15 @@ function moustcamara_enqueue_editor_styles() {
         }
     ';
     wp_add_inline_style('moustcamara-editor-style', $custom_css);
+    
+    // Editor sidebar resizer
+    wp_enqueue_script(
+        'moustcamara-editor-sidebar-resizer',
+        get_template_directory_uri() . '/js/editor-sidebar-resizer.js',
+        array(),
+        filemtime(get_template_directory() . '/js/editor-sidebar-resizer.js'),
+        true
+    );
 }
 add_action('enqueue_block_editor_assets', 'moustcamara_enqueue_editor_styles');
 

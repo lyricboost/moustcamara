@@ -103,7 +103,7 @@ $col_class = $columns === '2' ? 'col-lg-6' : 'col-lg-4';
             <?php endif; ?>
 
             <?php if (!empty($cta_text) && !empty($cta_link)) : ?>
-            <div class="capability-cards-cta text-center mt-3">
+            <div class="capability-cards-cta text-center">
                 <a href="<?php echo esc_url($cta_link); ?>" class="hero-alt-cta-btn">
                     <?php echo esc_html($cta_text); ?>
                     <svg class="hero-alt-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor">

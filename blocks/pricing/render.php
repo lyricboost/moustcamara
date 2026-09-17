@@ -98,8 +98,12 @@ $tier_count = count($pricing_tiers);
                         $card_classes .= ' pricing-card--highlight';
                     }
 
+                    // Treat comma-formatted values (e.g., "2,000") as numeric
+                    $price_numeric = is_numeric(str_replace(',', '', (string) $price));
+                    $annual_price_numeric = is_numeric(str_replace(',', '', (string) $annual_price));
+
                     // Annual billed total
-                    $annual_billing_total = is_numeric($annual_price) ? ($annual_price * 12) : null;
+                    $annual_billing_total = $annual_price_numeric ? ((float) str_replace(',', '', $annual_price) * 12) : null;
                 ?>
                     <div class="<?php echo esc_attr($card_classes); ?>">
                         <?php if ($badge_text) : ?>
@@ -117,7 +121,7 @@ $tier_count = count($pricing_tiers);
                             <div class="pricing-card-price-wrapper">
                                 <div class="pricing-card-price" data-period="monthly">
                                     <?php
-                                    if (is_numeric($price)) {
+                                    if ($price_numeric) {
                                         echo '<span class="pricing-card-currency">$</span>' . esc_html($price);
                                     } else {
                                         echo esc_html($price);
@@ -128,7 +132,7 @@ $tier_count = count($pricing_tiers);
                                 <?php if ($enable_annual_toggle && isset($annual_price) && $annual_price !== '') : ?>
                                     <div class="pricing-card-price" data-period="annual" style="display: none;">
                                         <?php
-                                        if (is_numeric($annual_price)) {
+                                        if ($annual_price_numeric) {
                                             echo '<span class="pricing-card-currency">$</span>' . esc_html($annual_price);
                                         } else {
                                             echo esc_html($annual_price);
