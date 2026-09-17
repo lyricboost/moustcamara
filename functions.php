@@ -42,9 +42,60 @@ function moustcamara_register_menus() {
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'moustcamara'),
         'footer' => __('Footer Menu', 'moustcamara'),
+        'footer-col-1' => __('Footer Column 1', 'moustcamara'),
+        'footer-col-2' => __('Footer Column 2', 'moustcamara'),
+        'footer-col-3' => __('Footer Column 3', 'moustcamara'),
+        'footer-bottom' => __('Footer Bottom Row', 'moustcamara'),
     ));
 }
 add_action('after_setup_theme', 'moustcamara_register_menus');
+
+/**
+ * Footer menus: flag external links so they open in a new tab and
+ * render a small "arrow up-right" indicator after the label.
+ */
+function moustcamara_is_external_url($url) {
+    if (empty($url) || strpos($url, '#') === 0 || strpos($url, '/') === 0) {
+        return false;
+    }
+    if (preg_match('/^(mailto|tel):/i', $url)) {
+        return false;
+    }
+    $host = parse_url($url, PHP_URL_HOST);
+    if (empty($host)) {
+        return false;
+    }
+    $site_host = parse_url(home_url(), PHP_URL_HOST);
+    return strcasecmp($host, $site_host) !== 0;
+}
+
+function moustcamara_footer_menu_locations() {
+    return array('footer-col-1', 'footer-col-2', 'footer-col-3', 'footer-bottom', 'footer');
+}
+
+function moustcamara_footer_menu_link_atts($atts, $item, $args) {
+    if (empty($args->theme_location) || !in_array($args->theme_location, moustcamara_footer_menu_locations(), true)) {
+        return $atts;
+    }
+    if (moustcamara_is_external_url($atts['href'] ?? '')) {
+        $atts['target'] = '_blank';
+        $atts['rel'] = 'noopener noreferrer';
+        $atts['class'] = trim(($atts['class'] ?? '') . ' footer-link--external');
+    }
+    return $atts;
+}
+add_filter('nav_menu_link_attributes', 'moustcamara_footer_menu_link_atts', 10, 3);
+
+function moustcamara_footer_menu_external_icon($title, $item, $args, $depth) {
+    if (empty($args->theme_location) || !in_array($args->theme_location, moustcamara_footer_menu_locations(), true)) {
+        return $title;
+    }
+    if (moustcamara_is_external_url($item->url ?? '')) {
+        $title .= '<svg class="footer-external-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>';
+    }
+    return $title;
+}
+add_filter('nav_menu_item_title', 'moustcamara_footer_menu_external_icon', 10, 4);
 
 // Enqueue Styles and Scripts
 function moustcamara_enqueue_styles() {
@@ -160,6 +211,18 @@ function moustcamara_enqueue_styles() {
         '1.0',
         true
     );
+    
+    // Footer script (newsletter + mobile accordion)
+    wp_enqueue_script(
+        'moustcamara-footer',
+        get_template_directory_uri() . '/js/footer.js',
+        array('lucide-icons'),
+        '1.0',
+        true
+    );
+    wp_localize_script('moustcamara-footer', 'moustFooter', array(
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+    ));
 }
 add_action('wp_enqueue_scripts', 'moustcamara_enqueue_styles');
 
@@ -199,6 +262,19 @@ function moustcamara_enqueue_editor_styles() {
     );
 }
 add_action('enqueue_block_editor_assets', 'moustcamara_enqueue_editor_styles');
+
+// ACF Options Page - Footer Settings
+if (function_exists('acf_add_options_page')) {
+    acf_add_options_page(array(
+        'page_title'  => 'Footer Settings',
+        'menu_title'  => 'Footer Settings',
+        'menu_slug'   => 'footer-settings',
+        'capability'  => 'edit_theme_options',
+        'position'    => 61,
+        'icon_url'    => 'dashicons-align-wide',
+        'redirect'    => false,
+    ));
+}
 
 // ACF JSON Save Point
 function moustcamara_acf_json_save_point($path) {
@@ -844,7 +920,7 @@ function handle_mailing_list_signup() {
     // Collect subscriber data
     $subscriber_data = array();
     foreach ($_POST as $key => $value) {
-        if (in_array($key, array('action', 'mailing_list_nonce', 'list_id', 'mailchimp_api_key', 'company_website', 'form_ts', 'form_sig', 'cf-turnstile-response', '_wp_http_referer'))) {
+        if (in_array($key, array('action', 'mailing_list_nonce', 'list_id', 'mailchimp_api_key', 'footer_newsletter', 'company_website', 'form_ts', 'form_sig', 'cf-turnstile-response', '_wp_http_referer'))) {
             continue;
         }
         
@@ -903,6 +979,15 @@ function handle_mailing_list_signup() {
     // Get Mailchimp API key from the block (if provided)
     $api_key = isset($_POST['mailchimp_api_key']) ? sanitize_text_field($_POST['mailchimp_api_key']) : '';
     
+    // Footer newsletter: key is never exposed client-side — read it (and list ID) from options server-side
+    if (!empty($_POST['footer_newsletter']) && function_exists('get_field')) {
+        $api_key = (string) get_field('footer_newsletter_api_key', 'option');
+        $option_list_id = (string) get_field('footer_newsletter_list_id', 'option');
+        if (!empty($option_list_id)) {
+            $list_id = sanitize_text_field($option_list_id);
+        }
+    }
+    
     // Integrate with Mailchimp API
     $mailchimp_success = false;
     if (!empty($api_key) && !empty($list_id)) {
@@ -927,8 +1012,13 @@ function handle_mailing_list_signup() {
         $mailchimp_data = array(
             'email_address' => $email,
             'status' => 'subscribed', // Single opt-in - subscribers added immediately
-            'merge_fields' => $merge_fields
         );
+        
+        // Only include merge_fields when non-empty; an empty PHP array would
+        // JSON-encode to [] but Mailchimp requires an object, causing a 400.
+        if (!empty($merge_fields)) {
+            $mailchimp_data['merge_fields'] = (object) $merge_fields;
+        }
         
         // Make API request to Mailchimp
         $response = wp_remote_post(

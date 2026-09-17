@@ -270,6 +270,13 @@ $tier_count = count($pricing_tiers);
                     </div>
                 <?php endforeach; ?>
             </div>
+            <?php
+            $after_content = get_field('pricing_after_content');
+            if ($after_content) : ?>
+                <div class="pricing-after-content">
+                    <?php echo wp_kses_post($after_content); ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 </section>

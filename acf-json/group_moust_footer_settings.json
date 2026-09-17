@@ -1,0 +1,235 @@
+{
+    "key": "group_moust_footer_settings",
+    "title": "Moust - Footer Settings",
+    "fields": [
+        {
+            "key": "field_footer_brand_tab",
+            "label": "Brand",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_footer_brand_text",
+            "label": "Brand Text",
+            "name": "footer_brand_text",
+            "type": "text",
+            "instructions": "Shown if no logo is uploaded",
+            "default_value": "Moust Camara",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_logo",
+            "label": "Logo (Optional)",
+            "name": "footer_logo",
+            "type": "image",
+            "instructions": "White\/light version recommended. Displayed at ~2rem height.",
+            "return_format": "array",
+            "library": "all",
+            "preview_size": "medium",
+            "mime_types": "png,svg,webp",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_newsletter_tab",
+            "label": "Newsletter",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_footer_newsletter_enable",
+            "label": "Show Newsletter Signup",
+            "name": "footer_newsletter_enable",
+            "type": "true_false",
+            "default_value": 1,
+            "ui": 1,
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_newsletter_heading",
+            "label": "Newsletter Heading",
+            "name": "footer_newsletter_heading",
+            "type": "text",
+            "instructions": "Bold heading above the signup form (body text size, weight 600)",
+            "default_value": "Camara Lens Newsletter",
+            "conditional_logic": [[{ "field": "field_footer_newsletter_enable", "operator": "==", "value": "1" }]],
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_newsletter_text",
+            "label": "Newsletter Text",
+            "name": "footer_newsletter_text",
+            "type": "text",
+            "instructions": "Short line above the signup form",
+            "default_value": "Ideas on building better products and using AI with intention.",
+            "conditional_logic": [[{ "field": "field_footer_newsletter_enable", "operator": "==", "value": "1" }]],
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_newsletter_placeholder",
+            "label": "Email Placeholder",
+            "name": "footer_newsletter_placeholder",
+            "type": "text",
+            "default_value": "Your email address",
+            "conditional_logic": [[{ "field": "field_footer_newsletter_enable", "operator": "==", "value": "1" }]],
+            "wrapper": { "width": "33", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_newsletter_button_text",
+            "label": "Button Text",
+            "name": "footer_newsletter_button_text",
+            "type": "text",
+            "default_value": "Subscribe",
+            "conditional_logic": [[{ "field": "field_footer_newsletter_enable", "operator": "==", "value": "1" }]],
+            "wrapper": { "width": "33", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_newsletter_list_id",
+            "label": "Mailchimp List ID",
+            "name": "footer_newsletter_list_id",
+            "type": "text",
+            "conditional_logic": [[{ "field": "field_footer_newsletter_enable", "operator": "==", "value": "1" }]],
+            "wrapper": { "width": "34", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_newsletter_api_key",
+            "label": "Mailchimp API Key",
+            "name": "footer_newsletter_api_key",
+            "type": "text",
+            "conditional_logic": [[{ "field": "field_footer_newsletter_enable", "operator": "==", "value": "1" }]],
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_social_tab",
+            "label": "Social Links",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_footer_social_links",
+            "label": "Social Links",
+            "name": "footer_social_links",
+            "type": "repeater",
+            "layout": "table",
+            "button_label": "Add Social Link",
+            "sub_fields": [
+                {
+                    "key": "field_footer_social_icon",
+                    "label": "Icon",
+                    "name": "icon",
+                    "type": "select",
+                    "choices": {
+                        "linkedin": "LinkedIn",
+                        "youtube": "YouTube",
+                        "instagram": "Instagram",
+                        "twitter": "X \/ Twitter",
+                        "facebook": "Facebook",
+                        "github": "GitHub",
+                        "music": "TikTok \/ Music",
+                        "mail": "Email",
+                        "globe": "Website",
+                        "rss": "RSS"
+                    },
+                    "default_value": "linkedin",
+                    "return_format": "value",
+                    "parent_repeater": "field_footer_social_links"
+                },
+                {
+                    "key": "field_footer_social_url",
+                    "label": "URL",
+                    "name": "url",
+                    "type": "url",
+                    "parent_repeater": "field_footer_social_links"
+                },
+                {
+                    "key": "field_footer_social_label",
+                    "label": "Label",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "For accessibility (e.g., LinkedIn)",
+                    "parent_repeater": "field_footer_social_links"
+                }
+            ]
+        },
+        {
+            "key": "field_footer_columns_tab",
+            "label": "Link Columns",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_footer_col1_title",
+            "label": "Column 1 Title",
+            "name": "footer_col1_title",
+            "type": "text",
+            "default_value": "Explore",
+            "instructions": "Links are managed in Appearance > Menus (assign a menu to \"Footer Column 1\")",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_col2_title",
+            "label": "Column 2 Title",
+            "name": "footer_col2_title",
+            "type": "text",
+            "default_value": "Work with me",
+            "instructions": "Links are managed in Appearance > Menus (assign a menu to \"Footer Column 2\")",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_col3_title",
+            "label": "Column 3 Title",
+            "name": "footer_col3_title",
+            "type": "text",
+            "default_value": "Resources",
+            "instructions": "Links are managed in Appearance > Menus (assign a menu to \"Footer Column 3\")",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        },
+        {
+            "key": "field_footer_menus_notice",
+            "label": "",
+            "name": "",
+            "type": "message",
+            "message": "Footer link columns and the bottom row links are managed through the native WordPress menu system: go to Appearance > Menus and assign menus to the \"Footer Column 1\", \"Footer Column 2\", \"Footer Column 3\", and \"Footer Bottom Row\" locations. Relative links like \/work are supported there. External links automatically open in a new tab and show an arrow indicator.",
+            "new_lines": "wpautop",
+            "esc_html": 0
+        },
+        {
+            "key": "field_footer_bottom_tab",
+            "label": "Bottom Row",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_footer_copyright_text",
+            "label": "Copyright Text",
+            "name": "footer_copyright_text",
+            "type": "text",
+            "instructions": "Year is added automatically. Bottom row links (Privacy, Terms) are managed in Appearance > Menus via the \"Footer Bottom Row\" location.",
+            "default_value": "Moust Camara",
+            "wrapper": { "width": "50", "class": "", "id": "" }
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "footer-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1789600400
+}

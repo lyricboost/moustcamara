@@ -492,6 +492,26 @@
             ]
         },
         {
+            "key": "field_pricing_after_content",
+            "label": "After Cards Content",
+            "name": "pricing_after_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Rich text displayed below the pricing cards (e.g. 'Have a question before purchasing? Contact me').",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "100",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
             "key": "field_pricing_bg_color",
             "label": "Background Color",
             "name": "background_color",
