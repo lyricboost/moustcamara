@@ -21,6 +21,7 @@ $image_position = get_field('split_image_position') ?: 'left';
 $image_style = get_field('split_image_style') ?: 'square';
 $image_focal_point = get_field('split_image_focal_point') ?: 'center';
 $image_breakout = get_field('split_image_breakout');
+$image_breakout_direction = get_field('split_image_breakout_direction') ?: 'top';
 $cta_text = get_field('split_cta_text');
 $cta_link = get_field('split_cta_link');
 $bg_color = get_field('background_color') ?: 'none';
@@ -45,7 +46,12 @@ if ($text_class) {
     $block_classes .= ' ' . $text_class;
 }
 if ($image_breakout) {
-    $block_classes .= ' split-section--breakout';
+    // Distinct classes rather than a modifier pair, so the top-breakout
+    // rules (and the `section:has(+ ...)` spacing hook) never apply to a
+    // bottom breakout.
+    $block_classes .= $image_breakout_direction === 'bottom'
+        ? ' split-section--breakout-bottom'
+        : ' split-section--breakout';
 }
 if ($image_focal_point !== 'center') {
     $block_classes .= ' split-section--focal-' . $image_focal_point;

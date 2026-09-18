@@ -1375,6 +1375,34 @@ a:hover > .footer-external-icon {
   section:has(+ .split-section--breakout), section:has(+ .mailing-list--breakout) {
     padding-bottom: 8rem;
   }
+
+  /* --- Reverse breakout: image overlaps the section BELOW --- */
+  .split-section--breakout-bottom {
+    padding-bottom: 0;
+    /* A top breakout sits later in the DOM than the section it overlaps, so
+       it paints on top for free. A bottom breakout is the other way round,
+       so it needs lifting above the next section's background. */
+    position: relative;
+    z-index: 1;
+  }
+
+  /* The row is align-items:center, so a negative bottom margin shrinks the
+     image's margin box and lets it overflow downward. Centring is measured
+     from that shortened box, which is why no phantom gap appears above the
+     image the way it would if we nudged it with translate/top instead. */
+  .split-section--breakout-bottom .split-image {
+    margin-bottom: -20px;
+  }
+
+  /* Give the following section room to be overlapped into */
+  .split-section--breakout-bottom + section {
+    padding-top: 8rem;
+  }
+
+  /* Keep the video block's cover in step, since it shares these classes */
+  .video-section.split-section--breakout-bottom .video-cover-col {
+    margin-bottom: -20px;
+  }
 }
 
 @media (max-width: 968px) {
@@ -2328,69 +2356,89 @@ a:hover > .footer-external-icon {
    FINAL CTA BLOCK
    ============================================ */
 .final-cta-section {
-  padding: 5rem 0;
+  padding: 3rem 0 5rem;
 }
 
-.final-cta-inner {
-  max-width: 800px;
-  margin: 0 auto
+.cta-heading-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cta-heading-header {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.cta-heading-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #313d59;
+  margin-bottom: 12px;
+}
+
+.cta-heading-heading {
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #313d59;
+  line-height: 1.3;
+}
+
+.cta-heading-heading--medium {
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.cta-heading-heading-line-1,
+.cta-heading-heading-line-2 {
+  display: block;
+}
+
+.cta-heading-heading-muted {
+  opacity: 0.75;
+}
+
+.cta-heading-subheading {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.7;
+  color: #313d59;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.75;
+}
+
+.cta-heading-body {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.7;
+  color: #313d59;
+  max-width: 700px;
+  margin: 1.5rem auto 0;
+}
+
+.cta-heading-body p:last-child {
+  margin-bottom: 0;
+}
+
+.text-light .cta-heading-eyebrow,
+.text-light .cta-heading-heading,
+.text-light .cta-heading-subheading,
+.text-light .cta-heading-body,
+.text-light .cta-heading-body a {
+  color: var(--color-white);
+}
+
+@media (max-width: 640px) {
+  .final-cta-section {
+    padding: 2.5rem 0 3.5rem;
+  }
+
+  .cta-heading-header {
+    max-width: 100%;
+  }
 }
 
 .text-light .grid-item-button:hover {
-  background: var(--color-light-gray);
-}
-
-/* ============================================
-   FINAL CTA BLOCK
-   ============================================ */
-.final-cta-section {
-  padding: 5rem 0;
-}
-
-.final-cta-heading {
-  font-size: clamp(32px, 4.5vw, 52px);
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-.final-cta-text {
-  font-size: clamp(16px, 1.6vw, 20px);
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-  color: var(--color-text-gray);
-}
-
-.text-light .final-cta-text {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.final-cta-button {
-  display: inline-block;
-  padding: 16px 48px;
-  background: var(--color-light-gray);
-  color: var(--color-text-dark);
-  text-decoration: none;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  transition: all 0.3s ease;
-}
-
-.final-cta-button:hover {
-  background: var(--color-medium-gray);
-  color: var(--color-text-dark);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.text-light .final-cta-button {
-  background: var(--color-white);
-  color: var(--color-text-dark);
-}
-
-.text-light .final-cta-button:hover {
   background: var(--color-light-gray);
 }
 
@@ -6303,7 +6351,7 @@ a:hover > .footer-external-icon {
   align-items: center;
   /* Full viewport height, less the fixed site header */
   min-height: calc(100vh - var(--header-height));
-  padding: 3rem 0;
+  padding: 3rem 0 5rem;
   overflow: hidden;
 }
 
@@ -6317,7 +6365,7 @@ a:hover > .footer-external-icon {
 .narrative-inner {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 3.5rem;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -6578,7 +6626,7 @@ button.narrative-image:hover .narrative-play {
 }
 
 .narrative-body {
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--color-text-dark);
   opacity: 0.85;

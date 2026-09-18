@@ -248,6 +248,42 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_split_image_breakout_direction",
+            "label": "Breakout Direction (Desktop)",
+            "name": "split_image_breakout_direction",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Which edge the image breaks out of. \"Top\" overlaps into the section above, \"Bottom\" overlaps into the section below.",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_split_image_breakout",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "top": "Top (overlap section above)",
+                "bottom": "Bottom (overlap section below)"
+            },
+            "default_value": "top",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_split_image_focal_point",
             "label": "Image Focal Point",
             "name": "split_image_focal_point",

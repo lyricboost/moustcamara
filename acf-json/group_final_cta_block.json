@@ -3,44 +3,170 @@
     "title": "Final CTA Block Fields",
     "fields": [
         {
-            "key": "field_cta_heading",
-            "label": "Heading",
-            "name": "cta_heading",
+            "key": "field_cta_custom_id",
+            "label": "Custom ID",
+            "name": "cta_custom_id",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
-            "required": 1,
+            "instructions": "Unique identifier for this block (e.g., 'get-started'). Used for anchor links.",
+            "required": 0,
             "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "More information coming soon...",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., get-started",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cta_heading",
+            "label": "Heading Line 1",
+            "name": "cta_heading",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "First line of the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
             "maxlength": "",
             "placeholder": "",
             "prepend": "",
             "append": ""
         },
         {
-            "key": "field_cta_text",
-            "label": "Text",
-            "name": "cta_text",
+            "key": "field_cta_heading_line_2",
+            "label": "Heading Line 2",
+            "name": "cta_heading_line_2",
             "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 1,
+            "type": "text",
+            "instructions": "Second line of the heading (optional)",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cta_heading_line_1_muted",
+            "label": "Lower Opacity for Line 1",
+            "name": "cta_heading_line_1_muted",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Apply reduced opacity to the first heading line",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_cta_heading_size",
+            "label": "Heading Size",
+            "name": "cta_heading_size",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Size of the heading text",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "large": "Large",
+                "medium": "Medium"
+            },
+            "default_value": "large",
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 1,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_cta_eyebrow",
+            "label": "Eyebrow Text",
+            "name": "cta_eyebrow",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Small label displayed above the heading",
+            "required": 0,
             "conditional_logic": false,
             "wrapper": {
                 "width": "",
                 "class": "",
                 "id": ""
             },
-            "default_value": "Sign up to the newsletter to stay up to date.",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., GET IN TOUCH",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_cta_text",
+            "label": "Subheading",
+            "name": "cta_text",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Supporting text below the heading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
             "rows": 2,
             "new_lines": "",
             "maxlength": "",
             "placeholder": ""
+        },
+        {
+            "key": "field_cta_body",
+            "label": "Body Content",
+            "name": "cta_body",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Optional rich text below the subheading",
+            "required": 0,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
         },
         {
             "key": "field_cta_button_text",
@@ -48,17 +174,17 @@
             "name": "cta_button_text",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
-            "required": 1,
+            "instructions": "Leave empty to hide the button",
+            "required": 0,
             "conditional_logic": false,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "Sign Up Page",
+            "default_value": "",
             "maxlength": "",
-            "placeholder": "",
+            "placeholder": "e.g., Contact me",
             "prepend": "",
             "append": ""
         },
@@ -69,14 +195,21 @@
             "aria-label": "",
             "type": "url",
             "instructions": "",
-            "required": 1,
-            "conditional_logic": false,
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_cta_button_text",
+                        "operator": "!=empty"
+                    }
+                ]
+            ],
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "#",
+            "default_value": "",
             "placeholder": ""
         },
         {
@@ -95,12 +228,13 @@
             },
             "choices": {
                 "none": "None (White)",
-                "cream": "Cream",
-                "terracotta": "Terracotta",
-                "terracotta-dark": "Terracotta Dark",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
                 "black": "Black"
             },
-            "default_value": "terracotta",
+            "default_value": "none",
             "allow_null": 0,
             "multiple": 0,
             "ui": 1,
@@ -130,5 +264,5 @@
     "description": "",
     "show_in_rest": false,
     "display_title": "",
-    "modified": 1770875525
+    "modified": 1789689600
 }
