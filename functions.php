@@ -212,6 +212,15 @@ function moustcamara_enqueue_styles() {
         true
     );
     
+    // Narrative block carousel
+    wp_enqueue_script(
+        'moustcamara-narrative',
+        get_template_directory_uri() . '/js/narrative.js',
+        array(),
+        '1.0',
+        true
+    );
+    
     // Footer script (newsletter + mobile accordion)
     wp_enqueue_script(
         'moustcamara-footer',
@@ -643,6 +652,23 @@ function moustcamara_register_acf_blocks() {
             'category'          => 'moustcamara',
             'icon'              => 'money-alt',
             'keywords'          => array('pricing', 'plans', 'tiers', 'comparison', 'cards', 'moust'),
+            'mode'              => 'preview',
+            'supports'          => array(
+                'align' => array('wide', 'full'),
+                'mode' => true,
+                'jsx' => true,
+            ),
+        ));
+        
+        // Narrative Block
+        acf_register_block_type(array(
+            'name'              => 'narrative',
+            'title'             => __('Moust Narrative'),
+            'description'       => __('Full-height carousel of narrative items with a stacked two-image layout and optional video playback'),
+            'render_template'   => 'blocks/narrative/render.php',
+            'category'          => 'moustcamara',
+            'icon'              => 'slides',
+            'keywords'          => array('narrative', 'carousel', 'slider', 'story', 'video', 'moust'),
             'mode'              => 'preview',
             'supports'          => array(
                 'align' => array('wide', 'full'),

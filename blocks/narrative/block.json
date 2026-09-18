@@ -1,0 +1,14 @@
+{
+	"name": "moust-narrative",
+	"title": "Moust Narrative",
+	"description": "Full-height carousel of narrative items with a stacked two-image layout and optional video playback",
+	"category": "moustcamara",
+	"icon": "slides",
+	"keywords": ["narrative", "carousel", "slider", "story", "video", "moust"],
+	"supports": {
+		"anchor": true,
+		"multiple": true,
+		"jsx": true,
+		"align": ["wide", "full"]
+	}
+}

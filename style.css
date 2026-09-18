@@ -33,6 +33,11 @@ html {
   --color-text-light: #ffffff;
   --color-text-dark: #313d59;
   --color-text-gray: #6c7386;
+  --color-link: #656e83;
+  
+  /* Layout - fixed header height, used to size full-viewport sections */
+  --header-height: 80px;
+  --header-height-mobile: 56px;
   
   /* Typography */
   /* Font Configuration - update THEME_FONT_FAMILY in functions.php to change site-wide */
@@ -46,6 +51,18 @@ body {
   font-family: var(--font-family-base);
   color: var(--color-text-dark);
   overflow-x: hidden;
+}
+
+/* Default link colour.
+   Deliberately low specificity so any component that sets its own
+   colour (buttons, nav, footer, cards, etc.) continues to win. */
+a {
+  color: var(--color-link);
+}
+
+a:hover,
+a:focus {
+  color: var(--color-text-dark);
 }
 
 b, strong {
@@ -6274,5 +6291,425 @@ a:hover > .footer-external-icon {
 
   .error-404-hero-content {
     max-width: 100%;
+  }
+}
+
+/* ============================================
+   NARRATIVE BLOCK
+   ============================================ */
+.narrative-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* Full viewport height, less the fixed site header */
+  min-height: calc(100vh - var(--header-height));
+  padding: 3rem 0;
+  overflow: hidden;
+}
+
+/* On the transparent-header home template the header overlays content,
+   so the section can use the full viewport. */
+.page-template-page-home .narrative-section {
+  min-height: 100vh;
+  padding-top: calc(var(--header-height) + 3rem);
+}
+
+.narrative-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.narrative-viewport {
+  position: relative;
+  width: 100%;
+}
+
+/* --- Slides --- */
+.narrative-slide {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.narrative-slide.is-active {
+  display: grid;
+  animation: narrative-fade-in 0.45s ease both;
+}
+
+@keyframes narrative-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .narrative-slide.is-active {
+    animation: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .narrative-slide {
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+  }
+
+  /* Media side toggle — text keeps source order for screen readers */
+  .narrative-media-right .narrative-media {
+    order: 2;
+  }
+
+  .narrative-media-right .narrative-content {
+    order: 1;
+  }
+
+  /* A slide missing one side should span the full width */
+  .narrative-slide--no-media,
+  .narrative-slide--no-text {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+/* --- Image stack --- */
+.narrative-media-stack {
+  position: relative;
+  /* Room for the overlapping secondary image to hang below the primary.
+     Derived from the image's own width and shape, so changing either the
+     width control or the crop shape keeps the spacing correct:
+       overhang = width x (height/width ratio) x 40% */
+  --narrative-sec-width: 52%;
+  --narrative-sec-overhang: 0.3;
+  padding: 0 0 calc(var(--narrative-sec-width) * var(--narrative-sec-overhang)) 0;
+}
+
+.narrative-media-stack--sec-square {
+  --narrative-sec-overhang: 0.4;
+}
+
+.narrative-media-stack--sec-portrait {
+  --narrative-sec-overhang: 0.53;
+}
+
+/* Natural images have an unknown height, so assume a middle-ground shape. */
+.narrative-media-stack--sec-natural {
+  --narrative-sec-overhang: 0.42;
+}
+
+.narrative-media-stack--single {
+  padding-bottom: 0;
+}
+
+.narrative-image {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 8px;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.narrative-image-media {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.narrative-image--primary {
+  position: relative;
+  width: 82%;
+  box-shadow: 0 10px 30px rgba(49, 61, 89, 0.14);
+}
+
+.narrative-image--secondary {
+  position: absolute;
+  right: 0;
+  /* Bottom-anchored: taller shapes grow upward over the primary image
+     rather than pushing the stack's baseline down. */
+  bottom: 0;
+  width: var(--narrative-sec-width, 52%);
+  box-shadow: 0 10px 30px rgba(49, 61, 89, 0.18);
+}
+
+/* --- Crop shapes --- */
+.narrative-image--ratio-landscape {
+  aspect-ratio: 4 / 3;
+}
+
+.narrative-image--ratio-square {
+  aspect-ratio: 1 / 1;
+}
+
+.narrative-image--ratio-portrait {
+  aspect-ratio: 3 / 4;
+}
+
+/* Natural: constrain width only and let the image keep its own proportions. */
+.narrative-image--ratio-natural {
+  aspect-ratio: auto;
+}
+
+.narrative-image--ratio-natural .narrative-image-media {
+  height: auto;
+  object-fit: contain;
+}
+
+/* When only one image is set it becomes the whole stack */
+.narrative-media-stack--single .narrative-image--primary,
+.narrative-media-stack--single .narrative-image--secondary {
+  position: relative;
+  width: 100%;
+  right: auto;
+  bottom: auto;
+  border: none;
+}
+
+.narrative-section.text-light .narrative-image--secondary {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* --- Video affordance --- */
+button.narrative-image {
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button.narrative-image--secondary {
+  position: absolute;
+}
+
+.narrative-media-stack--single button.narrative-image {
+  position: relative;
+}
+
+button.narrative-image:hover,
+button.narrative-image:focus-visible {
+  transform: translateY(-2px);
+}
+
+button.narrative-image:focus-visible {
+  outline: 2px solid var(--color-text-dark);
+  outline-offset: 3px;
+}
+
+.narrative-section.text-light button.narrative-image:focus-visible {
+  outline-color: var(--color-white);
+}
+
+.narrative-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.narrative-play svg {
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-left: 2px;
+}
+
+.narrative-image--secondary .narrative-play {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.narrative-image--secondary .narrative-play svg {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+button.narrative-image:hover .narrative-play {
+  background: var(--color-white);
+  transform: translate(-50%, -50%) scale(1.06);
+}
+
+/* --- Text column --- */
+.narrative-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--color-text-gray);
+  margin: 0 0 12px;
+}
+
+.narrative-heading {
+  font-size: clamp(28px, 3.5vw, 38px);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--color-text-dark);
+  margin: 0;
+}
+
+.narrative-subheading {
+  font-size: clamp(16px, 1.5vw, 18px);
+  line-height: 1.7;
+  color: var(--color-text-dark);
+  opacity: 0.75;
+  margin: 1rem 0 0;
+}
+
+.narrative-body {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-dark);
+  opacity: 0.85;
+  margin-top: 1.25rem;
+}
+
+.narrative-body > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Light text on dark backgrounds */
+.narrative-section.text-light .narrative-heading,
+.narrative-section.text-light .narrative-subheading,
+.narrative-section.text-light .narrative-body {
+  color: var(--color-white);
+}
+
+.narrative-section.text-light .narrative-eyebrow {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.narrative-section.text-light .narrative-subheading,
+.narrative-section.text-light .narrative-body {
+  opacity: 0.85;
+}
+
+/* --- Perforated nav --- */
+.narrative-nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.narrative-nav-item {
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.narrative-nav-bar {
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  border-radius: 50px;
+  background: rgba(49, 61, 89, 0.2);
+  transition: background 0.25s ease, width 0.25s ease;
+}
+
+.narrative-nav-item:hover .narrative-nav-bar {
+  background: rgba(49, 61, 89, 0.4);
+}
+
+.narrative-nav-item.is-active .narrative-nav-bar {
+  background: var(--color-text-dark);
+  width: 3.5rem;
+}
+
+.narrative-nav-item:focus-visible {
+  outline: 2px solid var(--color-text-dark);
+  outline-offset: 3px;
+  border-radius: 50px;
+}
+
+.narrative-section.text-light .narrative-nav-bar {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.narrative-section.text-light .narrative-nav-item:hover .narrative-nav-bar {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.narrative-section.text-light .narrative-nav-item.is-active .narrative-nav-bar {
+  background: var(--color-white);
+}
+
+.narrative-section.text-light .narrative-nav-item:focus-visible {
+  outline-color: var(--color-white);
+}
+
+/* --- Mobile --- */
+@media (max-width: 991.98px) {
+  .narrative-section {
+    min-height: calc(100vh - var(--header-height-mobile, 56px));
+    padding: 2.5rem 0;
+  }
+
+  .page-template-page-home .narrative-section {
+    padding-top: calc(var(--header-height-mobile, 56px) + 2.5rem);
+  }
+
+  /* Nav sits vertically to the left of the content */
+  .narrative-inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .narrative-nav {
+    order: 0;
+    flex: 0 0 auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .narrative-viewport {
+    order: 1;
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .narrative-nav-item {
+    padding: 0 0.5rem;
+  }
+
+  .narrative-nav-bar {
+    width: 3px;
+    height: 2rem;
+  }
+
+  .narrative-nav-item.is-active .narrative-nav-bar {
+    width: 3px;
+    height: 2.75rem;
+  }
+
+  /* Images sit above the text */
+  .narrative-media-stack {
+    max-width: 460px;
   }
 }

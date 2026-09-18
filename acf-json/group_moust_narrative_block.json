@@ -1,0 +1,437 @@
+{
+    "key": "group_moust_narrative_block",
+    "title": "Moust - Narrative Block Fields",
+    "fields": [
+        {
+            "key": "field_narrative_custom_id",
+            "label": "Custom ID (Optional)",
+            "name": "narrative_custom_id",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "For anchor links",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "e.g., story",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_narrative_media_side",
+            "label": "Media Side (Desktop)",
+            "name": "narrative_media_side",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Which side the image stack sits on. On mobile images always appear above the text.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "default_value": "left",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
+            "key": "field_narrative_autoplay",
+            "label": "Auto-advance Slides",
+            "name": "narrative_autoplay",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "Automatically move to the next item. Pauses on hover, on keyboard focus, and for visitors who prefer reduced motion.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 1,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_narrative_autoplay_interval",
+            "label": "Seconds Per Slide",
+            "name": "narrative_autoplay_interval",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "How long each item stays on screen",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_narrative_autoplay",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 7,
+            "min": 2,
+            "max": 30,
+            "step": 1,
+            "placeholder": "",
+            "prepend": "",
+            "append": "seconds"
+        },
+        {
+            "key": "field_narrative_items",
+            "label": "Narrative Items",
+            "name": "narrative_items",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "Each item becomes one slide. Every field is optional.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "pagination": 0,
+            "min": 1,
+            "max": 0,
+            "collapsed": "field_narrative_item_heading",
+            "button_label": "Add Narrative Item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_narrative_item_image_1",
+                    "label": "Image 1 (Primary)",
+                    "name": "image_1",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "The larger, back image in the stack. Landscape works best.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_image_1_video",
+                    "label": "Image 1 Video Link (Optional)",
+                    "name": "image_1_video_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Paste a YouTube URL to turn Image 1 into a video. Leave empty for a normal image.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https:\/\/www.youtube.com\/watch?v=...",
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_image_1_ratio",
+                    "label": "Image 1 Shape",
+                    "name": "image_1_ratio",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Crop shape for the primary image. Choose \"Natural\" to keep the image's own proportions uncropped.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "landscape": "Horizontal (4:3)",
+                        "square": "Square (1:1)",
+                        "portrait": "Vertical (3:4)",
+                        "natural": "Natural (no crop)"
+                    },
+                    "default_value": "landscape",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_image_2",
+                    "label": "Image 2 (Overlapping)",
+                    "name": "image_2",
+                    "aria-label": "",
+                    "type": "image",
+                    "instructions": "The smaller image that overlaps Image 1.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": 0,
+                    "min_height": 0,
+                    "min_size": 0,
+                    "max_width": 0,
+                    "max_height": 0,
+                    "max_size": 0,
+                    "mime_types": "",
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_image_2_video",
+                    "label": "Image 2 Video Link (Optional)",
+                    "name": "image_2_video_url",
+                    "aria-label": "",
+                    "type": "url",
+                    "instructions": "Paste a YouTube URL to turn Image 2 into a video. Leave empty for a normal image.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "https:\/\/www.youtube.com\/watch?v=...",
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_image_2_ratio",
+                    "label": "Image 2 Shape",
+                    "name": "image_2_ratio",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "Crop shape for the overlapping image. Choose \"Natural\" to keep the image's own proportions uncropped (width stays constrained, image stays bottom-anchored).",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "landscape": "Horizontal (4:3)",
+                        "square": "Square (1:1)",
+                        "portrait": "Vertical (3:4)",
+                        "natural": "Natural (no crop)"
+                    },
+                    "default_value": "landscape",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_image_2_width",
+                    "label": "Image 2 Width",
+                    "name": "image_2_width",
+                    "aria-label": "",
+                    "type": "number",
+                    "instructions": "How wide the overlapping image is, as a percentage of the image area. Lower it for tall images (e.g. a book cover), raise it for wide ones. Default 52.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": 52,
+                    "min": 20,
+                    "max": 80,
+                    "step": 1,
+                    "placeholder": "52",
+                    "prepend": "",
+                    "append": "%",
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_eyebrow",
+                    "label": "Eyebrow",
+                    "name": "eyebrow",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "Small label above the heading",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "e.g., THE STORY",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_heading",
+                    "label": "Heading",
+                    "name": "heading",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_subheading",
+                    "label": "Subheading",
+                    "name": "subheading",
+                    "aria-label": "",
+                    "type": "textarea",
+                    "instructions": "Short supporting line below the heading",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "rows": 2,
+                    "new_lines": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "parent_repeater": "field_narrative_items"
+                },
+                {
+                    "key": "field_narrative_item_body",
+                    "label": "Body",
+                    "name": "body",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "Rich text for this item",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0,
+                    "parent_repeater": "field_narrative_items"
+                }
+            ]
+        },
+        {
+            "key": "field_narrative_bg_color",
+            "label": "Background Color",
+            "name": "background_color",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "none": "None (White)",
+                "light-gray": "Light Gray",
+                "medium-gray": "Medium Gray",
+                "navy": "Navy",
+                "dark-gray": "Dark Gray",
+                "black": "Black"
+            },
+            "default_value": "none",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/narrative"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1789600000
+}
