@@ -10,7 +10,7 @@
 $bg_image = home_url('/wp-content/uploads/2026/09/Moust-hmm-photo-scaled.jpg');
 ?>
 
-<main class="site-main">
+<div class="site-main-inner">
     <section class="hero-alt-section error-404-hero" style="background-image: url('<?php echo esc_url($bg_image); ?>');">
         <div class="container-fluid px-0">
             <div class="hero-alt-inner">
@@ -31,4 +31,4 @@ $bg_image = home_url('/wp-content/uploads/2026/09/Moust-hmm-photo-scaled.jpg');
             </div>
         </div>
     </section>
-</main>
+</div>

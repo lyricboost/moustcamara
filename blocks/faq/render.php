@@ -90,6 +90,52 @@ $section_class = implode(' ', $classes);
     </div>
 </section>
 
+<?php
+/**
+ * FAQPage structured data.
+ * Only emitted on the front end, and only once per page request —
+ * Google ignores/flags pages with multiple FAQPage graphs.
+ */
+if (!$is_preview && !empty($items)) :
+    if (empty($GLOBALS['moust_faq_schema_emitted'])) {
+        $faq_entities = array();
+
+        foreach ($items as $item) {
+            $question = trim(wp_strip_all_tags($item['question'] ?? ''));
+            $answer_raw = $item['answer'] ?? '';
+            $answer = trim(wp_strip_all_tags($answer_raw));
+
+            if ($question === '' || $answer === '') {
+                continue;
+            }
+
+            $faq_entities[] = array(
+                '@type' => 'Question',
+                'name'  => $question,
+                'acceptedAnswer' => array(
+                    '@type' => 'Answer',
+                    'text'  => $answer,
+                ),
+            );
+        }
+
+        if (!empty($faq_entities)) {
+            $faq_schema = array(
+                '@context'   => 'https://schema.org',
+                '@type'      => 'FAQPage',
+                'mainEntity' => $faq_entities,
+            );
+
+            echo '<script type="application/ld+json">'
+                . wp_json_encode($faq_schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)
+                . '</script>';
+
+            $GLOBALS['moust_faq_schema_emitted'] = true;
+        }
+    }
+endif;
+?>
+
 <script>
   if (typeof lucide !== 'undefined') {
     lucide.createIcons();

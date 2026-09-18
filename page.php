@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<main class="page-default">
+<div class="page-default">
     <div class="container">
         <?php
         if (have_posts()) :
@@ -26,6 +26,6 @@ get_header(); ?>
         endif;
         ?>
     </div>
-</main>
+</div>
 
 <?php get_footer(); ?>

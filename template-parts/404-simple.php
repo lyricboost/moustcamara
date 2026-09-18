@@ -6,7 +6,7 @@
  */
 ?>
 
-<main class="site-main">
+<div class="site-main-inner">
     <section class="error-404-section">
         <div class="container">
             <div class="error-404-content text-center">
@@ -27,4 +27,4 @@
             </div>
         </div>
     </section>
-</main>
+</div>

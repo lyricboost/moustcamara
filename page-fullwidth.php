@@ -6,7 +6,7 @@
 
 get_header(); ?>
 
-<main class="page-fullwidth">
+<div class="page-fullwidth">
     <?php
     if (have_posts()) :
         while (have_posts()) : the_post();
@@ -14,6 +14,6 @@ get_header(); ?>
         endwhile;
     endif;
     ?>
-</main>
+</div>
 
 <?php get_footer(); ?>

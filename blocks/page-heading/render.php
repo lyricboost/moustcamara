@@ -116,3 +116,14 @@ if ($text_class) {
         </div>
     </div>
 </section>
+
+<?php
+/**
+ * NOTE: BreadcrumbList structured data is intentionally NOT emitted here.
+ * All in One SEO already outputs a BreadcrumbList node (built from the same
+ * page hierarchy) inside its #aioseo-schema @graph on every page. Emitting a
+ * second, competing BreadcrumbList would create a duplicate entity.
+ * If AIOSEO breadcrumb schema is ever disabled, build the graph from the
+ * $breadcrumbs array above instead.
+ */
+?>
